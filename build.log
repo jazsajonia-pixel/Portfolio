@@ -1,0 +1,109 @@
+  ▲ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ ⚠ Compiled with warnings
+
+./src/app/contact/page.jsx
+Attempted import error: 'Mail' is not exported from 'phosphor-react' (imported as 'Mail').
+
+Import trace for requested module:
+./src/app/contact/page.jsx
+
+./src/app/projects/page.jsx
+Attempted import error: 'ExternalLink' is not exported from 'phosphor-react' (imported as 'ExternalLink').
+
+Import trace for requested module:
+./src/app/projects/page.jsx
+
+./src/app/projects/page.jsx
+Attempted import error: 'Github' is not exported from 'phosphor-react' (imported as 'Github').
+
+Import trace for requested module:
+./src/app/projects/page.jsx
+
+ ⚠ Compiled with warnings
+
+./src/app/contact/page.jsx
+Attempted import error: 'Mail' is not exported from 'phosphor-react' (imported as 'Mail').
+
+Import trace for requested module:
+./src/app/contact/page.jsx
+
+./src/app/projects/page.jsx
+Attempted import error: 'ExternalLink' is not exported from 'phosphor-react' (imported as 'ExternalLink').
+
+Import trace for requested module:
+./src/app/projects/page.jsx
+
+./src/app/projects/page.jsx
+Attempted import error: 'Github' is not exported from 'phosphor-react' (imported as 'Github').
+
+Import trace for requested module:
+./src/app/projects/page.jsx
+
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/8) ...
+   Generating static pages (2/8) 
+Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:61600)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nD (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:66681)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64854)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561) {
+  digest: '560144747'
+}
+
+Error occurred prerendering page "/contact". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:61600)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nD (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:66681)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64854)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561)
+   Generating static pages (4/8) 
+Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:61600)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nD (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:66681)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64854)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nD (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:66681) {
+  digest: '2356122082'
+}
+
+Error occurred prerendering page "/projects". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:61600)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nD (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:66681)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64854)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561)
+    at nL (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nD (c:\WebSystems\Portfolio\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:66681)
+   Generating static pages (6/8) 
+ ✓ Generating static pages (8/8)
+
+> Export encountered errors on following paths:
+	/contact/page: /contact
+	/projects/page: /projects
