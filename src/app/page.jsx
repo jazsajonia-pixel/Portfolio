@@ -127,7 +127,7 @@ export default function Home() {
                 <div className="flex items-center gap-2">
                   <span className="text-[#111827]">© 2026</span>
                   <span>•</span>
-                  <span>Jazzther Sajonia</span>
+                  <span>Jazzther Bert Shanne O. Sajonia</span>
                 </div>
                 <p className="mt-2">All rights reserved.</p>
               </div>
@@ -142,7 +142,7 @@ export default function Home() {
                     JS
                   </div>
                   <div>
-                    <div className="text-2xl font-bold tracking-tight text-[#111827]">Jazzther Sajonia</div>
+                    <div className="text-2xl font-bold tracking-tight text-[#111827]">Jazzther Bert Shanne O. Sajonia</div>
                     <div className="text-sm text-[#6b7280]">@jazzther</div>
                   </div>
                 </div>
