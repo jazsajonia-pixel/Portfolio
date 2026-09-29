@@ -12,7 +12,7 @@ import {
   Lightning,
   LinkedinLogo,
   MapPin,
-  Spa rkle,
+  Sparkle,
   Star,
 } from 'phosphor-react';
 
