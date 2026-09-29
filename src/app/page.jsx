@@ -12,7 +12,7 @@ import {
   Lightning,
   LinkedinLogo,
   MapPin,
-  Sparkle,
+  Spa rkle,
   Star,
 } from 'phosphor-react';
 
@@ -86,8 +86,8 @@ export default function Home() {
                 JS
               </div>
               <div>
-                <div className="text-[15px] font-semibold text-[#0f172a]">Jazzther Sajonia</div>
-                <div className="text-[11px] text-[#6b7280]">@jazzther</div>
+                <div className="text-[15px] font-semibold text-[#0f172a]">Jazzther Bert Shanne O. Sajonia</div>
+                <div className="text-[11px] text-[#6b7280]">@jaz.sajonia@gmail.com</div>
               </div>
             </div>
 
@@ -121,7 +121,7 @@ export default function Home() {
                 );
               })}
             </nav>
-
+              
             <div className="mt-auto pt-5">
               <div className="border-t border-[#e4ded7] pt-4 text-[11px] text-[#6b7280]">
                 <div className="flex items-center gap-2">
