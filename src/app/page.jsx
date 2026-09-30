@@ -11,7 +11,6 @@ import {
   Globe,
   Lightning,
   LinkedinLogo,
-  MapPin,
   Sparkle,
   Star,
 } from 'phosphor-react';
@@ -59,9 +58,21 @@ const credentials = [
 ];
 
 const testimonials = [
-  { name: 'Client 1', role: 'Operations Manager @ GHL Specialist', quote: 'Very thoughtful, fast, and detail-oriented.' },
-  { name: 'Client 2', role: 'Growth & AI Engineer', quote: 'Helped us automate the busy work and ship faster.' },
-  { name: 'Client 3', role: 'Web Dev & GHL Specialist', quote: 'Clean systems and flawless execution from start to finish.' },
+  {
+    name: 'Client 1',
+    role: 'Operations Manager @ GHL Specialist',
+    quote: 'Very thoughtful, fast, and detail-oriented.',
+  },
+  {
+    name: 'Client 2',
+    role: 'Growth & AI Engineer',
+    quote: 'Helped us automate the busy work and ship faster.',
+  },
+  {
+    name: 'Client 3',
+    role: 'Web Dev & GHL Specialist',
+    quote: 'Clean systems and flawless execution from start to finish.',
+  },
 ];
 
 export default function Home() {
@@ -74,20 +85,31 @@ export default function Home() {
             <span className="h-3 w-3 rounded-full bg-[#fdbb2d]" />
             <span className="h-3 w-3 rounded-full bg-[#28c840]" />
           </div>
+
           <div className="flex items-center gap-2 text-[11px] text-[#6b7280]">
-            <span className="rounded-full border border-[#d9d2ca] bg-white/60 px-2 py-1">jazzthersajonia.com</span>
+            <span className="rounded-full border border-[#d9d2ca] bg-white/60 px-2 py-1">
+              jazzthersajonia.com
+            </span>
           </div>
         </div>
 
         <div className="flex min-h-0 flex-1">
           <aside className="flex w-[260px] flex-col border-r border-[#e4ded7] bg-[#f8f5f1] p-5">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#f4d8c4] via-[#d9d4ef] to-[#d2edfa] text-sm font-bold text-[#1f2937]">
-                JS
-              </div>
+              <img
+                src="/assets/profile.jpeg"
+                alt="Jazzther Bert Shanne O. Sajonia"
+                className="h-12 w-12 rounded-full object-cover object-center shadow-sm"
+              />
+
               <div>
-                <div className="text-[15px] font-semibold text-[#0f172a]">Jazzther Bert Shanne O. Sajonia</div>
-                <div className="text-[11px] text-[#6b7280]">@jaz.sajonia@gmail.com</div>
+                <div className="text-[15px] font-semibold text-[#0f172a]">
+                  Jazzther Bert Shanne O. Sajonia
+                </div>
+
+                <div className="text-[11px] text-[#6b7280]">
+                  @jaz.sajonia@gmail.com
+                </div>
               </div>
             </div>
 
@@ -105,8 +127,23 @@ export default function Home() {
             </div>
 
             <nav className="mt-8 space-y-2">
-              {[{ name: 'Home', icon: 'House', href: '/' }, { name: 'Projects', icon: 'FolderOpen', href: '/projects' }, { name: 'Services', icon: 'GearSix', href: '/services' }, { name: 'About', icon: 'User', href: '/about' }, { name: 'Contact', icon: 'EnvelopeSimple', href: '/contact' }].map((item) => {
-                const Icon = item.icon === 'House' ? Sparkle : item.icon === 'FolderOpen' ? Briefcase : item.icon === 'GearSix' ? Lightning : item.icon === 'User' ? CheckCircle : EnvelopeSimple;
+              {[
+                { name: 'Home', icon: 'House', href: '/' },
+                { name: 'Projects', icon: 'FolderOpen', href: '/projects' },
+                { name: 'Services', icon: 'GearSix', href: '/services' },
+                { name: 'About', icon: 'User', href: '/about' },
+                { name: 'Contact', icon: 'EnvelopeSimple', href: '/contact' },
+              ].map((item) => {
+                const Icon =
+                  item.icon === 'House'
+                    ? Sparkle
+                    : item.icon === 'FolderOpen'
+                      ? Briefcase
+                      : item.icon === 'GearSix'
+                        ? Lightning
+                        : item.icon === 'User'
+                          ? CheckCircle
+                          : EnvelopeSimple;
 
                 return (
                   <Link key={item.name} href={item.href}>
@@ -121,7 +158,7 @@ export default function Home() {
                 );
               })}
             </nav>
-              
+
             <div className="mt-auto pt-5">
               <div className="border-t border-[#e4ded7] pt-4 text-[11px] text-[#6b7280]">
                 <div className="flex items-center gap-2">
@@ -129,6 +166,7 @@ export default function Home() {
                   <span>•</span>
                   <span>Jazzther Bert Shanne O. Sajonia</span>
                 </div>
+
                 <p className="mt-2">All rights reserved.</p>
               </div>
             </div>
@@ -138,12 +176,20 @@ export default function Home() {
             <div className="rounded-[24px] bg-[#f9f5f2] p-4 md:p-6">
               <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#f7d8be] via-[#d4d2e4] to-[#dceefa] text-lg font-bold text-[#1f2937] shadow-inner">
-                    JS
-                  </div>
+                  <img
+                    src="/assets/profile.jpeg"
+                    alt="Jazzther Bert Shanne O. Sajonia"
+                    className="h-16 w-16 rounded-full object-cover object-center shadow-inner"
+                  />
+
                   <div>
-                    <div className="text-2xl font-bold tracking-tight text-[#111827]">Jazzther Bert Shanne O. Sajonia</div>
-                    <div className="text-sm text-[#6b7280]">@jazzther</div>
+                    <div className="text-2xl font-bold tracking-tight text-[#111827]">
+                      Jazzther Bert Shanne O. Sajonia
+                    </div>
+
+                    <div className="text-sm text-[#6b7280]">
+                      @jazzther
+                    </div>
                   </div>
                 </div>
 
@@ -194,20 +240,38 @@ export default function Home() {
                     className={`rounded-[22px] border border-[#e1d9d2] ${card.accent} p-4`}
                   >
                     <div className="mb-4 flex items-center justify-between">
-                      <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#4b5563]">{card.label}</div>
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#4b5563]">
+                        {card.label}
+                      </div>
+
                       <span className="rounded-full bg-white/80 p-2 text-[#111827]">
                         <ArrowRight size={14} />
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-[#111827]">{card.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-[#4b5563]">{card.text}</p>
+
+                    <h3 className="text-2xl font-bold text-[#111827]">
+                      {card.title}
+                    </h3>
+
+                    <p className="mt-3 text-sm leading-6 text-[#4b5563]">
+                      {card.text}
+                    </p>
+
                     <div className="mt-5 h-32 rounded-[18px] bg-[#161a20] p-3 text-white shadow-inner">
                       <div className="flex h-full items-end justify-between rounded-[12px] border border-white/10 bg-gradient-to-br from-[#101827] via-[#171d29] to-[#0e1724] p-3">
                         <div>
-                          <div className="text-[10px] uppercase tracking-[0.12em] text-[#94a3b8]">Build</div>
-                          <div className="mt-2 text-xl font-bold">Flow</div>
+                          <div className="text-[10px] uppercase tracking-[0.12em] text-[#94a3b8]">
+                            Build
+                          </div>
+
+                          <div className="mt-2 text-xl font-bold">
+                            Flow
+                          </div>
                         </div>
-                        <div className="text-xs text-[#7dd3fc]">Live</div>
+
+                        <div className="text-xs text-[#7dd3fc]">
+                          Live
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -220,15 +284,23 @@ export default function Home() {
                     <CheckCircle size={14} className="text-[#ef8f3d]" />
                     Credentials
                   </div>
+
                   <div className="flex items-center justify-center rounded-[18px] bg-[#f8f5f2] p-5">
                     <div className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-[#ef8f3d] bg-[#fff6eb] text-[#ef8f3d]">
                       <CheckCircle size={32} weight="fill" />
                     </div>
                   </div>
-                  <div className="mt-4 text-center text-sm font-medium text-[#111827]">Certified Admin</div>
+
+                  <div className="mt-4 text-center text-sm font-medium text-[#111827]">
+                    Certified Admin
+                  </div>
+
                   <div className="mt-4 space-y-2">
                     {credentials.map((item) => (
-                      <div key={item} className="flex items-center justify-between rounded-xl bg-white px-3 py-2 text-sm text-[#374151] shadow-sm">
+                      <div
+                        key={item}
+                        className="flex items-center justify-between rounded-xl bg-white px-3 py-2 text-sm text-[#374151] shadow-sm"
+                      >
                         <span>{item}</span>
                         <span className="text-[#f97316]">•</span>
                       </div>
@@ -241,11 +313,26 @@ export default function Home() {
                     <Lightning size={14} className="text-[#ef8f3d]" />
                     Services
                   </div>
+
                   <ul className="space-y-3">
-                    {['Code Funnels', 'GHL Automation', 'CRM Setup', 'Website', 'Apps'].map((service, i) => (
-                      <li key={service} className="flex items-center justify-between rounded-xl bg-white px-3 py-2">
-                        <span className="text-sm text-[#111827]">{service}</span>
-                        <span className="text-[10px] font-semibold text-[#6b7280]">0{i + 1}</span>
+                    {[
+                      'Code Funnels',
+                      'GHL Automation',
+                      'CRM Setup',
+                      'Website',
+                      'Apps',
+                    ].map((service, i) => (
+                      <li
+                        key={service}
+                        className="flex items-center justify-between rounded-xl bg-white px-3 py-2"
+                      >
+                        <span className="text-sm text-[#111827]">
+                          {service}
+                        </span>
+
+                        <span className="text-[10px] font-semibold text-[#6b7280]">
+                          0{i + 1}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -256,15 +343,28 @@ export default function Home() {
                     <Sparkle size={14} className="text-[#ef8f3d]" />
                     Testimonials
                   </div>
+
                   <div className="space-y-3">
                     {testimonials.map((item) => (
-                      <div key={item.name} className="rounded-[16px] bg-white p-3 shadow-sm">
+                      <div
+                        key={item.name}
+                        className="rounded-[16px] bg-white p-3 shadow-sm"
+                      >
                         <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#111827]">
-                          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#111827] text-[10px] text-white">{item.name.split(' ')[1]?.charAt(0) || 'C'}</span>
+                          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#111827] text-[10px] text-white">
+                            {item.name.split(' ')[1]?.charAt(0) || 'C'}
+                          </span>
+
                           {item.name}
                         </div>
-                        <div className="text-[11px] text-[#6b7280]">{item.role}</div>
-                        <p className="mt-2 text-sm text-[#374151]">“{item.quote}”</p>
+
+                        <div className="text-[11px] text-[#6b7280]">
+                          {item.role}
+                        </div>
+
+                        <p className="mt-2 text-sm text-[#374151]">
+                          “{item.quote}”
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -288,7 +388,11 @@ function Marquee() {
     >
       <motion.div
         animate={{ x: ['0%', '-50%'] }}
-        transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
         className="flex w-max items-center gap-3"
       >
         {[...tools, ...tools].map((tool, index) => (
@@ -297,8 +401,13 @@ function Marquee() {
             className="flex items-center gap-2 rounded-full border border-[#d8dfe8] bg-white/80 px-3 py-2 text-sm font-medium text-[#111827] shadow-sm"
           >
             <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#f2f5f9] text-[#111827]">
-              <Star size={12} weight="fill" className="text-[#ef8f3d]" />
+              <Star
+                size={12}
+                weight="fill"
+                className="text-[#ef8f3d]"
+              />
             </span>
+
             {tool}
           </div>
         ))}
