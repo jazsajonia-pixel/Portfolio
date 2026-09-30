@@ -10,6 +10,7 @@ import {
   CheckCircle,
   EnvelopeSimple,
   GithubLogo,
+  LinkedinLogo,
   Globe,
   Lightning,
   Moon,
