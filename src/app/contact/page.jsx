@@ -74,21 +74,21 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen px-6 py-20 max-w-6xl mx-auto">
+    <section className="w-full">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="mb-12"
+        className="mb-8"
       >
-        <h1 className="text-5xl font-bold mb-4">Get In Touch</h1>
-        <p className="text-xl text-dark-300 max-w-2xl">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Get In Touch</h1>
+        <p className="text-base sm:text-lg text-portfolio-subtle max-w-2xl">
           Have a project in mind or want to collaborate? I'd love to hear from you. Let's create
           something amazing together.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Contact Information */}
         <motion.div
           variants={containerVariants}
@@ -103,14 +103,14 @@ export default function ContactPage() {
                 key={info.label}
                 variants={itemVariants}
                 href={info.link}
-                className="flex items-start gap-4 p-4 bg-dark-800 rounded-lg border border-dark-700 hover:border-primary-500 transition-smooth group"
+                className="flex items-start gap-4 p-4 bg-portfolio-card rounded-lg border border-portfolio-border hover:border-primary-500 transition-smooth group"
               >
                 <div className="p-3 bg-primary-500/10 rounded-lg group-hover:bg-primary-500/20 transition-smooth flex-shrink-0">
                   <Icon size={24} weight="fill" className="text-primary-500" />
                 </div>
-                <div>
-                  <p className="text-sm text-dark-400 font-semibold">{info.label}</p>
-                  <p className="text-dark-200 group-hover:text-primary-500 transition-colors">
+                <div className="min-w-0 break-words">
+                  <p className="text-sm text-portfolio-muted font-semibold">{info.label}</p>
+                  <p className="text-portfolio-text group-hover:text-primary-500 transition-colors">
                     {info.value}
                   </p>
                 </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="lg:col-span-2 bg-dark-800 rounded-xl p-8 border border-dark-700"
+          className="xl:col-span-2 bg-portfolio-card rounded-[22px] p-5 sm:p-6 border border-portfolio-border"
         >
           <div className="space-y-6">
             {/* Name Field */}
@@ -134,16 +134,17 @@ export default function ContactPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <label className="block text-sm font-semibold text-dark-200 mb-2">
+              <label htmlFor="name" className="block text-sm font-semibold text-portfolio-text mb-2">
                 Full Name
               </label>
               <input
                 type="text"
+                id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg text-white focus:outline-none focus:border-primary-500 transition-colors"
+                className="w-full px-4 py-3 bg-portfolio-chip border border-portfolio-border rounded-xl text-portfolio-text placeholder:text-portfolio-muted focus:outline-none focus:border-primary-500 transition-colors"
                 placeholder="John Doe"
               />
             </motion.div>
@@ -154,16 +155,17 @@ export default function ContactPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              <label className="block text-sm font-semibold text-dark-200 mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-portfolio-text mb-2">
                 Email Address
               </label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg text-white focus:outline-none focus:border-primary-500 transition-colors"
+                className="w-full px-4 py-3 bg-portfolio-chip border border-portfolio-border rounded-xl text-portfolio-text placeholder:text-portfolio-muted focus:outline-none focus:border-primary-500 transition-colors"
                 placeholder="john@example.com"
               />
             </motion.div>
@@ -174,16 +176,17 @@ export default function ContactPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              <label className="block text-sm font-semibold text-dark-200 mb-2">
+              <label htmlFor="subject" className="block text-sm font-semibold text-portfolio-text mb-2">
                 Subject
               </label>
               <input
                 type="text"
+                id="subject"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg text-white focus:outline-none focus:border-primary-500 transition-colors"
+                className="w-full px-4 py-3 bg-portfolio-chip border border-portfolio-border rounded-xl text-portfolio-text placeholder:text-portfolio-muted focus:outline-none focus:border-primary-500 transition-colors"
                 placeholder="Project inquiry"
               />
             </motion.div>
@@ -194,16 +197,17 @@ export default function ContactPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <label className="block text-sm font-semibold text-dark-200 mb-2">
+              <label htmlFor="message" className="block text-sm font-semibold text-portfolio-text mb-2">
                 Message
               </label>
               <textarea
+                id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg text-white focus:outline-none focus:border-primary-500 transition-colors resize-none"
+                className="w-full px-4 py-3 bg-portfolio-chip border border-portfolio-border rounded-xl text-portfolio-text placeholder:text-portfolio-muted focus:outline-none focus:border-primary-500 transition-colors resize-none"
                 placeholder="Tell me about your project..."
               />
             </motion.div>
@@ -240,10 +244,10 @@ export default function ContactPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="mt-20 p-8 bg-dark-800 rounded-xl border border-dark-700 text-center"
+        className="mt-8 p-5 sm:p-6 bg-portfolio-card rounded-[22px] border border-portfolio-border text-center"
       >
         <h2 className="text-2xl font-bold mb-4">Let's Collaborate</h2>
-        <p className="text-dark-300 mb-6">
+        <p className="text-portfolio-subtle mb-6">
           Whether you're a startup looking to build your first product or an established business
           looking to scale, I'm here to help turn your vision into reality.
         </p>

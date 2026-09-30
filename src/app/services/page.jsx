@@ -83,15 +83,15 @@ export default function ServicesPage() {
   };
 
   return (
-    <section className="min-h-screen px-6 py-20 max-w-6xl mx-auto">
+    <section className="w-full">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="mb-12"
+        className="mb-8"
       >
-        <h1 className="text-5xl font-bold mb-4">Services</h1>
-        <p className="text-xl text-dark-300 max-w-2xl">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Services</h1>
+        <p className="text-base sm:text-lg text-portfolio-subtle max-w-2xl">
           Comprehensive solutions tailored to meet your business needs and drive growth through
           technology and innovation.
         </p>
@@ -101,7 +101,7 @@ export default function ServicesPage() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
       >
         {services.map((service) => {
           const Icon = service.icon;
@@ -110,7 +110,7 @@ export default function ServicesPage() {
               key={service.id}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="bg-dark-800 rounded-xl p-8 border border-dark-700 hover:border-primary-500 transition-smooth hover:shadow-lg hover:shadow-primary-500/20 group"
+              className="bg-portfolio-card rounded-[22px] p-5 sm:p-6 border border-portfolio-border hover:border-primary-500 transition-smooth hover:shadow-lg hover:shadow-primary-500/20 group"
             >
               <div className="mb-4 inline-block p-3 bg-primary-500/10 rounded-lg group-hover:bg-primary-500/20 transition-smooth">
                 <Icon
@@ -121,13 +121,13 @@ export default function ServicesPage() {
               </div>
 
               <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-              <p className="text-dark-300 mb-6">{service.description}</p>
+              <p className="text-portfolio-subtle mb-6">{service.description}</p>
 
               <div className="space-y-2">
                 {service.features.map((feature) => (
                   <div key={feature} className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0" />
-                    <span className="text-dark-200">{feature}</span>
+                    <span className="text-portfolio-text">{feature}</span>
                   </div>
                 ))}
               </div>
