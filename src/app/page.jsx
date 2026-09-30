@@ -1,26 +1,3 @@
-PORTFOLIO UPDATE
-
-FILE TO EDIT
-------------
-src/app/page.jsx
-
-ASSET ALREADY IN YOUR REPOSITORY
---------------------------------
-assets/profile.jpeg
-
-WHAT THIS REPLACEMENT DOES
---------------------------
-1. Uses /assets/profile.jpeg for both profile images.
-2. Adds a light/dark mode toggle beside "Get in touch".
-3. Saves the selected theme in localStorage.
-4. Smoothly transitions the page colors.
-5. Adds the requested radial color animation: the new theme starts at the toggle button and expands across the whole viewport.
-6. Keeps the existing Framer Motion animations, marquee, cards, services, credentials, and testimonials.
-
-REPLACEMENT CODE
-----------------
-Replace the ENTIRE contents of src/app/page.jsx with the code below.
-
 'use client';
 
 import { motion } from 'framer-motion';
