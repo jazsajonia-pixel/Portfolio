@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowSquareOut, GithubLogo } from 'phosphor-react';
+import { ArrowSquareOut, GithubLogo } from 'phosphor-react';
 
 const projects = [
 	{
@@ -66,15 +66,15 @@ export default function ProjectsPage() {
 	};
 
 	return (
-		<section className="min-h-screen px-6 py-20 max-w-6xl mx-auto">
+		<section className="w-full">
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
-				className="mb-12"
+				className="mb-8"
 			>
-				<h1 className="text-5xl font-bold mb-4">My Projects</h1>
-				<p className="text-xl text-dark-300 max-w-2xl">
+				<h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">My Projects</h1>
+				<p className="text-base sm:text-lg text-portfolio-subtle max-w-2xl">
 					Here&apos;s a collection of projects I&apos;ve built, showcasing my
 					expertise in web development, AI automation, and innovative
 					problem-solving.
@@ -85,23 +85,23 @@ export default function ProjectsPage() {
 				variants={containerVariants}
 				initial="hidden"
 				animate="visible"
-				className="grid grid-cols-1 md:grid-cols-2 gap-8"
+				className="grid grid-cols-1 lg:grid-cols-2 gap-4"
 			>
 				{projects.map((project) => (
 					<motion.div
 						key={project.id}
 						variants={itemVariants}
-						className="bg-dark-800 rounded-xl overflow-hidden border border-dark-700 hover:border-primary-500 transition-smooth hover:shadow-lg hover:shadow-primary-500/20 group"
+						className="bg-portfolio-card rounded-[22px] overflow-hidden border border-portfolio-border hover:border-primary-500 transition-smooth hover:shadow-lg hover:shadow-primary-500/20 group"
 					>
 						{/* Project Image */}
-						<div className="h-48 bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center group-hover:from-primary-500 group-hover:to-primary-700 transition-smooth">
-							<span className="text-white font-semibold">{project.image}</span>
+						<div className="h-40 bg-portfolio-chip flex items-center justify-center border-b border-portfolio-border transition-colors">
+							<span className="text-portfolio-subtle font-semibold">{project.image}</span>
 						</div>
 
 						{/* Project Content */}
 						<div className="p-6">
 							<h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-							<p className="text-dark-300 mb-4">
+							<p className="text-portfolio-subtle mb-4">
 								{project.description}
 							</p>
 
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
 								{project.tags.map((tag) => (
 									<span
 										key={tag}
-										className="px-3 py-1 bg-dark-700 text-primary-400 text-sm rounded-full border border-dark-600"
+										className="px-3 py-1 bg-portfolio-chip text-portfolio-subtle text-sm rounded-full border border-portfolio-border"
 									>
 										{tag}
 									</span>
@@ -118,7 +118,7 @@ export default function ProjectsPage() {
 							</div>
 
 							{/* Links */}
-							<div className="flex gap-4">
+							<div className="flex flex-wrap gap-4">
 								<motion.a
 									whileHover={{ x: 5 }}
 									href={project.link}
@@ -129,7 +129,7 @@ export default function ProjectsPage() {
 								<motion.a
 									whileHover={{ x: 5 }}
 									href={project.github}
-									className="inline-flex items-center gap-2 text-dark-300 hover:text-primary-500 font-semibold"
+									className="inline-flex items-center gap-2 text-portfolio-subtle hover:text-primary-500 font-semibold"
 								>
 									GitHub <GithubLogo size={16} />
 								</motion.a>

@@ -1,4 +1,5 @@
 import './globals.css';
+import PortfolioShell from '@/components/PortfolioShell';
 import { defaultSEO } from '@/lib/seo';
 
 export const metadata = {
@@ -50,7 +51,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#f97316" />
       </head>
       <body className="bg-[#020202] font-poppins text-slate-900 antialiased">
-        {children}
+        <PortfolioShell>{children}</PortfolioShell>
       </body>
     </html>
   );

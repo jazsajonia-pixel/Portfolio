@@ -8,6 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        portfolio: {
+          card: 'var(--portfolio-card)',
+          text: 'var(--portfolio-text)',
+          muted: 'var(--portfolio-muted)',
+          subtle: 'var(--portfolio-subtle)',
+          border: 'var(--portfolio-border)',
+          chip: 'var(--portfolio-chip)',
+        },
         primary: {
           50: '#fff7ed',
           100: '#ffedd5',
