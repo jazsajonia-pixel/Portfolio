@@ -153,7 +153,29 @@ export default function Home() {
         className="mx-auto flex min-h-screen w-full flex-col overflow-hidden transition-[background-color] duration-700 ease-out"
         style={{ backgroundColor: theme.window }}
       >
-        <TopBar theme={theme} isDark={isDark} />
+        <TopBar theme={theme} isDark={isDark}>
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={toggleTheme}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={isDark ? 'Light mode' : 'Dark mode'}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            style={{
+              backgroundColor: theme.white,
+              borderColor: theme.border,
+              color: theme.text,
+            }}
+          >
+            <motion.span
+              className="flex items-center justify-center"
+              animate={{ rotate: isDark ? 180 : 0 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {isDark ? <Sun size={20} weight="fill" /> : <Moon size={20} weight="fill" />}
+            </motion.span>
+          </button>
+        </TopBar>
 
         <div className="flex min-h-0 flex-1 flex-col md:flex-row">
           <Sidebar theme={theme} />
@@ -330,35 +352,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Floating theme control: this is the red-dot position from the reference. */}
-            <motion.button
-              ref={toggleRef}
-              type="button"
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.12 }}
-              whileTap={{ scale: 0.86 }}
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              title={isDark ? 'Light mode' : 'Dark mode'}
-              className="fixed right-5 top-[58vh] z-40 flex h-14 w-14 items-center justify-center rounded-full border-2 shadow-[0_12px_35px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:right-7"
-              style={{
-                backgroundColor: isDark ? '#171b21' : '#ff3b3b',
-                borderColor: isDark ? '#3a4350' : '#ff3b3b',
-                color: '#fff',
-              }}
-            >
-              <motion.span
-                animate={{ rotate: isDark ? 180 : 0 }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {isDark ? <Sun size={23} weight="fill" /> : <Moon size={23} weight="fill" />}
-              </motion.span>
-
-              <motion.span
-                className="absolute inset-0 rounded-full border-2 border-white/40"
-                animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
-              />
-            </motion.button>
           </div>
         </div>
       </div>
@@ -388,7 +381,7 @@ export default function Home() {
   );
 }
 
-function TopBar({ theme, isDark }) {
+function TopBar({ theme, isDark, children }) {
   return (
     <div
       className="flex h-12 shrink-0 items-center justify-between border-b px-4 transition-colors duration-700"
@@ -399,12 +392,15 @@ function TopBar({ theme, isDark }) {
         <span className="h-3 w-3 rounded-full bg-[#fdbb2d]" />
         <span className="h-3 w-3 rounded-full bg-[#28c840]" />
       </div>
-      <span
-        className="rounded-full border px-3 py-1 text-[11px] transition-colors duration-700"
-        style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.muted }}
-      >
-        jazzthersajonia.com
-      </span>
+      <div className="flex items-center gap-3">
+        <span
+          className="rounded-full border px-3 py-1 text-[11px] transition-colors duration-700"
+          style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.muted }}
+        >
+          jazzthersajonia.com
+        </span>
+        {children}
+      </div>
     </div>
   );
 }
