@@ -219,8 +219,8 @@ export default function Home() {
 
 function Hero({ theme, isDark }) {
   return (
-    <header className="relative flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
-      <div className="flex min-w-0 items-center gap-4">
+    <header className="relative flex flex-col gap-5 md:flex-row md:items-center md:justify-between md:gap-7">
+      <div className="flex min-w-0 items-center gap-3.5 sm:gap-4">
         <motion.img
           initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -228,19 +228,19 @@ function Hero({ theme, isDark }) {
           whileHover={{ scale: 1.08, rotate: 3 }}
           src={profileImage.src}
           alt="Jazzther Bert Shanne O. Sajonia"
-          className="h-16 w-16 shrink-0 rounded-full object-cover object-center shadow-md"
+          className="h-14 w-14 shrink-0 rounded-full object-cover object-center shadow-md sm:h-16 sm:w-16"
         />
         <div className="min-w-0">
           <motion.div
             initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.18, duration: 0.6 }}
-            className="text-xl font-bold tracking-tight sm:text-2xl"
+            className="text-lg font-bold tracking-tight sm:text-2xl"
             style={{ color: theme.text }}
           >
             Jazzther Bert Shanne O.
           </motion.div>
-          <div className="text-sm" style={{ color: theme.muted }}>@jazzther</div>
+          <div className="text-xs sm:text-sm" style={{ color: theme.muted }}>@jazsajonia-pixel</div>
         </div>
       </div>
 
@@ -248,7 +248,7 @@ function Hero({ theme, isDark }) {
         href="/contact"
         whileHover={{ scale: 1.035, x: -2 }}
         whileTap={{ scale: 0.97 }}
-        className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold shadow-lg transition-colors duration-700"
+        className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold shadow-lg transition-colors duration-700 w-full sm:w-auto"
         style={{ backgroundColor: theme.button, color: theme.buttonText }}
       >
         Get in touch

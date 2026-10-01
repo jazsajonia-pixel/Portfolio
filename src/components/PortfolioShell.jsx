@@ -288,7 +288,7 @@ function Sidebar({ theme }) {
         ))}
       </div>
 
-      <nav aria-label="Main navigation" className="mt-5 flex flex-wrap gap-1 md:mt-8 md:block md:space-y-2">
+      <nav aria-label="Main navigation" className="mt-4 flex overflow-x-auto pb-1 max-w-full gap-1.5 scrollbar-none md:mt-8 md:block md:space-y-2 md:overflow-visible md:pb-0">
         {items.map(([name, Icon, href], index) => (
           <Link key={name} href={href} aria-current={pathname === href ? "page" : undefined} className="block shrink-0 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
             <motion.div
@@ -296,7 +296,7 @@ function Sidebar({ theme }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.07 }}
               whileHover={{ x: 5 }}
-              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] font-medium transition-colors duration-500 hover:bg-black/5"
+              className="flex items-center gap-2 rounded-xl px-3 py-2 text-[13px] font-medium transition-colors duration-500 hover:bg-black/5 md:gap-3 md:py-2.5 md:text-[14px]"
               style={{ color: pathname === href ? theme.text : theme.subtle, backgroundColor: pathname === href ? theme.chip : undefined }}
             >
               <Icon size={18} />
