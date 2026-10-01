@@ -219,7 +219,7 @@ function TopBar({ theme, isDark, children }) {
           className="rounded-full border px-3 py-1 text-[11px] transition-colors duration-700"
           style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.muted }}
         >
-          jazzthersajonia.com
+          Jazz Sajonia Portfolio
         </span>
         {children}
       </div>
@@ -235,6 +235,12 @@ function Sidebar({ theme }) {
     ['Services', Lightning, '/services'],
     ['About', CheckCircle, '/about'],
     ['Contact', EnvelopeSimple, '/contact'],
+  ];
+
+  const socialLinks = [
+    { name: 'GitHub', icon: GithubLogo, href: 'https://github.com/jazsajonia-pixel' },
+    { name: 'LinkedIn', icon: LinkedinLogo, href: 'https://www.linkedin.com/in/jazzther-bert-shanne-sajonia-a67502439' },
+    { name: 'Email', icon: EnvelopeSimple, href: 'mailto:jaz.sajonia@gmail.com' },
   ];
 
   return (
@@ -259,16 +265,19 @@ function Sidebar({ theme }) {
             Jazzther Bert Shanne O. Sajonia
           </div>
           <div className="truncate text-[11px]" style={{ color: theme.muted }}>
-            @jaz.sajonia@gmail.com
+            jaz.sajonia@gmail.com
           </div>
         </div>
       </motion.div>
 
       <div className="mt-4 flex items-center gap-2">
-        {[GithubLogo, LinkedinLogo, Globe].map((Icon, index) => (
+        {socialLinks.map(({ name, icon: Icon, href }, index) => (
           <motion.a
-            key={index}
-            href="#"
+            key={name}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={name}
             whileHover={{ y: -4, rotate: index % 2 ? -4 : 4 }}
             whileTap={{ scale: 0.9 }}
             className="flex h-9 w-9 items-center justify-center rounded-full border shadow-sm transition-colors duration-700"

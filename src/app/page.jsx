@@ -12,8 +12,8 @@ import {
 } from 'phosphor-react';
 
 const tools = [
-  'React', 'Next.js', 'Tailwind', 'Framer Motion', 'Node.js',
-  'TypeScript', 'PostgreSQL', 'Python', 'AI Automation', 'Cloud',
+  'React', 'Next.js', 'Tailwind', 'Make.com', 'Flytables',
+  'Node.js', 'TypeScript', 'PostgreSQL', 'AI Automation', 'Vercel',
 ];
 
 const cards = [
@@ -43,9 +43,9 @@ const cards = [
 const services = ['Code Funnels', 'GHL Automation', 'CRM Setup', 'Website', 'Apps'];
 
 const testimonials = [
-  ['Client 1', 'Operations Manager @ GHL Specialist', 'Very thoughtful, fast, and detail-oriented.'],
-  ['Client 2', 'Growth & AI Engineer', 'Helped us automate the busy work and ship faster.'],
-  ['Client 3', 'Web Dev & GHL Specialist', 'Clean systems and flawless execution from start to finish.'],
+  ['E-commerce Client', 'Operations Manager', 'Jazzther transformed our product workflows with Make.com and custom React builds.'],
+  ['SaaS Founder', 'Growth & AI Lead', 'Helped us automate the repetitive work and shipped our web platform seamlessly on Vercel.'],
+  ['Agency Partner', 'Web Dev Specialist', 'Clean system architecture, reliable API integrations, and flawless execution from start to finish.'],
 ];
 
 export default function Home() {
