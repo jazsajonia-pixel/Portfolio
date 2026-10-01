@@ -2,25 +2,15 @@ export const defaultSEO = {
   titleTemplate: '%s | Jazz Sajonia Portfolio',
   description:
     'Professional portfolio of Jazz Sajonia - Web Developer & AI Automation Specialist. Explore my projects, services, and expertise in web development and AI automation.',
-  canonical: 'https://jazzxajonia.com',
+  canonical: 'https://github.com/jazsajonia-pixel',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jazzxajonia.com',
+    url: 'https://github.com/jazsajonia-pixel',
     siteName: 'Jazz Sajonia Portfolio',
-    images: [
-      {
-        url: 'https://jazzxajonia.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Jazz Sajonia Portfolio',
-        type: 'image/jpeg',
-      },
-    ],
+    images: [],
   },
   twitter: {
-    handle: '@jazzxajonia',
-    site: '@jazzxajonia',
     cardType: 'summary_large_image',
   },
 };

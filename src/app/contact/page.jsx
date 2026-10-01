@@ -36,19 +36,19 @@ export default function ContactPage() {
     {
       icon: EnvelopeSimple,
       label: 'Email',
-      value: 'hello@jazzxajonia.com',
-      link: 'mailto:hello@jazzxajonia.com',
+      value: 'jaz.sajonia@gmail.com',
+      link: 'mailto:jaz.sajonia@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '(+63) 9367046410',
+      link: 'tel:+639367046410',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'General Santos City, Philippines',
       link: '#',
     },
   ];

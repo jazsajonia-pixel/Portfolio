@@ -6,41 +6,33 @@ import { ArrowSquareOut, GithubLogo } from 'phosphor-react';
 const projects = [
 	{
 		id: 1,
-		title: 'Project Alpha',
+		title: 'MarketHub',
 		description:
-			'A full-stack web application built with React, Node.js, and MongoDB',
-		tags: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
-		link: '#',
-		github: '#',
-		image: 'Project 1',
+			'A modern local marketplace platform where users can discover pre-loved and new products from local sellers, chat with them in real-time, and check out securely.',
+		tags: ['React', 'Tailwind CSS', 'Vercel', 'WebSockets', 'Full Stack'],
+		link: 'https://markethub-pi.vercel.app/',
+		github: 'https://github.com/jazsajonia-pixel/markethub',
+		image: 'MarketHub Platform',
 	},
 	{
 		id: 2,
-		title: 'Project Beta',
+		title: 'AI Workflow Automation Suite',
 		description:
-			'AI-powered automation tool for workflow management and optimization',
-		tags: ['Python', 'FastAPI', 'React', 'PostgreSQL'],
+			'Intelligent autonomous agent system for streamlined business process automation and data pipeline synchronization.',
+		tags: ['Python', 'AI Automation', 'FastAPI', 'PostgreSQL'],
 		link: '#',
 		github: '#',
-		image: 'Project 2',
+		image: 'AI Systems',
 	},
 	{
 		id: 3,
-		title: 'Project Gamma',
-		description: 'E-commerce platform with real-time inventory management',
-		tags: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
+		title: 'High-Converting Sales Funnel Engine',
+		description:
+			'Custom funnel and GHL/CRM automation platform built for high lead conversion and continuous client engagement.',
+		tags: ['Next.js', 'GHL Automation', 'CRM Integration', 'Tailwind CSS'],
 		link: '#',
 		github: '#',
-		image: 'Project 3',
-	},
-	{
-		id: 4,
-		title: 'Project Delta',
-		description: 'Data visualization dashboard with real-time analytics',
-		tags: ['React', 'D3.js', 'Node.js', 'Firebase'],
-		link: '#',
-		github: '#',
-		image: 'Project 4',
+		image: 'Funnel Engine',
 	},
 ];
 
