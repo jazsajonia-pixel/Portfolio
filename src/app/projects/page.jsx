@@ -4,13 +4,10 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowSquareOut,
-  ChatCircleDots,
   GithubLogo,
   ShieldCheck,
-  ShoppingBag,
   Sparkle,
   Storefront,
-  TrendUp,
   X,
 } from 'phosphor-react';
 
@@ -25,10 +22,7 @@ const projects = [
     github: 'https://github.com/jazsajonia-pixel/markethub',
     accent: 'from-emerald-500 via-emerald-600 to-teal-700',
     hasCaseStudy: true,
-    showcaseImages: [
-      '/projects/markethub-home.png',
-      '/projects/markethub-marketplace.png',
-    ],
+    showcaseImage: '/projects/markethub-showcase.jpg',
     caseStudy: {
       summary:
         'MarketHub was designed as a realistic local marketplace with role-based experiences for buyers, sellers, and admins. The biggest challenges were keeping data consistent across inventory, checkout, and multi-seller order flows while still delivering a polished, fast UI.',
@@ -45,28 +39,6 @@ const projects = [
         { label: 'Order model', value: 'Multi-seller' },
       ],
     },
-  },
-  {
-    id: 2,
-    title: 'AI Workflow Automation Suite',
-    description:
-      'An autonomous business workflow system for orchestrating multi-step processes, synchronizing data pipelines, and reducing manual admin work with AI-assisted automations.',
-    tags: ['Python', 'AI Automation', 'FastAPI', 'PostgreSQL'],
-    link: '#',
-    github: '#',
-    accent: 'from-violet-500 via-fuchsia-500 to-indigo-600',
-    hasCaseStudy: false,
-  },
-  {
-    id: 3,
-    title: 'High-Converting Sales Funnel Engine',
-    description:
-      'A campaign and CRM automation platform built to streamline lead capture, nurture journeys, and support sales conversions with measurable funnel logic.',
-    tags: ['Next.js', 'GHL Automation', 'CRM Integration', 'Tailwind CSS'],
-    link: '#',
-    github: '#',
-    accent: 'from-amber-400 via-orange-500 to-rose-500',
-    hasCaseStudy: false,
   },
 ];
 
@@ -103,8 +75,7 @@ export default function ProjectsPage() {
       >
         <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">My Projects</h1>
         <p className="max-w-2xl text-base text-slate-600 sm:text-lg">
-          A collection of products and systems I&apos;ve built across full-stack web apps,
-          marketplace experiences, and business automation flows.
+          A featured showcase of my full-stack web applications, marketplace experiences, and digital products.
         </p>
       </motion.div>
 
@@ -112,26 +83,24 @@ export default function ProjectsPage() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 gap-5 lg:grid-cols-2"
+        className="max-w-4xl"
       >
         {projects.map((project) => (
           <motion.article
             key={project.id}
             variants={itemVariants}
-            className="overflow-hidden rounded-[28px] border border-slate-200 bg-[#f9f7f4] shadow-[0_18px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-[0_24px_48px_rgba(16,185,129,0.12)]"
+            className="overflow-hidden rounded-[28px] border border-slate-200 bg-[#f9f7f4] shadow-[0_18px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:border-emerald-300 hover:shadow-[0_24px_48px_rgba(16,185,129,0.12)]"
           >
             <div className="border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-4">
-              {project.id === 1 ? <MarketHubShowcase images={project.showcaseImages} /> : <GenericMockup accent={project.accent} />}
+              <MarketHubShowcase image={project.showcaseImage} />
             </div>
 
             <div className="p-6">
               <div className="mb-3 flex items-center justify-between gap-3">
                 <h3 className="text-2xl font-bold tracking-tight text-slate-900">{project.title}</h3>
-                {project.id === 1 && (
-                  <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-700">
-                    Featured
-                  </span>
-                )}
+                <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-700">
+                  Featured
+                </span>
               </div>
 
               <p className="mb-5 text-sm leading-6 text-slate-600">{project.description}</p>
@@ -196,15 +165,7 @@ export default function ProjectsPage() {
   );
 }
 
-function MarketHubShowcase({ images }) {
-  const imageStyle = {
-    objectFit: 'cover',
-    width: '100%',
-    height: '100%',
-    display: 'block',
-    borderRadius: '18px',
-  };
-
+function MarketHubShowcase({ image }) {
   return (
     <div className="rounded-[22px] border border-emerald-100 bg-[#f4f2ee] p-3 shadow-inner">
       <div className="mb-3 flex items-center justify-between rounded-2xl bg-white/80 px-3 py-2 shadow-sm">
@@ -219,89 +180,12 @@ function MarketHubShowcase({ images }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        {images.map((src, index) => (
-          <div
-            key={src}
-            className={`relative overflow-hidden rounded-[18px] border border-slate-200 bg-white ${index === 0 ? 'col-span-2 h-52' : 'h-36'}`}
-          >
-            <img
-              src={src}
-              alt={`MarketHub screenshot ${index + 1}`}
-              style={imageStyle}
-              onError={(event) => {
-                event.currentTarget.style.display = 'none';
-                const fallback = event.currentTarget.nextElementSibling;
-                if (fallback) fallback.style.display = 'flex';
-              }}
-            />
-            <div
-              className="hidden h-full w-full items-center justify-center bg-gradient-to-br from-emerald-100 via-white to-slate-100 text-center text-[11px] font-semibold text-slate-600"
-              style={{ display: 'none' }}
-            >
-              {index === 0 ? 'MarketHub home' : 'Marketplace listing'}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function GenericMockup({ accent }) {
-  return (
-    <div className="rounded-[22px] border border-slate-200 bg-white p-3 shadow-inner">
-      <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className={`h-8 w-8 rounded-xl bg-gradient-to-br ${accent}`} />
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400">Project</div>
-            <div className="text-sm font-semibold text-slate-700">System overview</div>
-          </div>
-        </div>
-        <div className="rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-medium text-slate-500">
-          Live
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-2xl bg-slate-50 p-3">
-          <div className="flex items-center gap-2 text-[10px] font-medium text-slate-500">
-            <ShoppingBag size={12} /> Sales
-          </div>
-          <div className="mt-3 text-xl font-bold text-slate-900">₱48K</div>
-          <div className="mt-2 h-20 rounded-xl bg-gradient-to-br from-slate-200 to-slate-100" />
-        </div>
-        <div className="rounded-2xl bg-slate-50 p-3">
-          <div className="flex items-center gap-2 text-[10px] font-medium text-slate-500">
-            <TrendUp size={12} /> Growth
-          </div>
-          <div className="mt-3 text-xl font-bold text-slate-900">+18.4%</div>
-          <div className="mt-2 flex h-20 items-end gap-1">
-            {[34, 48, 42, 52, 64, 72, 90].map((height, idx) => (
-              <span
-                key={idx}
-                className="flex-1 rounded-t-lg bg-gradient-to-t from-emerald-400 to-emerald-200"
-                style={{ height: `${height}%` }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-3 grid grid-cols-3 gap-2">
-        <div className="rounded-xl bg-slate-100 p-2 text-center">
-          <div className="text-[10px] uppercase tracking-[0.12em] text-slate-500">Users</div>
-          <div className="mt-1 text-sm font-bold text-slate-800">12k</div>
-        </div>
-        <div className="rounded-xl bg-slate-100 p-2 text-center">
-          <div className="text-[10px] uppercase tracking-[0.12em] text-slate-500">Orders</div>
-          <div className="mt-1 text-sm font-bold text-slate-800">842</div>
-        </div>
-        <div className="rounded-xl bg-slate-100 p-2 text-center">
-          <div className="text-[10px] uppercase tracking-[0.12em] text-slate-500">Rating</div>
-          <div className="mt-1 text-sm font-bold text-slate-800">4.9</div>
-        </div>
+      <div className="overflow-hidden rounded-[18px] border border-slate-200 bg-white">
+        <img
+          src={image}
+          alt="MarketHub Platform Demo Showcase"
+          className="h-auto w-full object-cover rounded-[18px]"
+        />
       </div>
     </div>
   );
