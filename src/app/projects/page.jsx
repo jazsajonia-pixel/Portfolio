@@ -20,7 +20,6 @@ const projects = [
     tags: ['React 19', 'Tailwind CSS', 'TypeScript', 'Hono', 'PostgreSQL', 'Prisma', 'TanStack Query'],
     link: 'https://markethub-pi.vercel.app/',
     github: 'https://github.com/jazsajonia-pixel/markethub',
-    accent: 'from-emerald-500 via-emerald-600 to-teal-700',
     hasCaseStudy: true,
     showcaseImage: '/projects/markethub-showcase.jpg',
     caseStudy: {
@@ -73,8 +72,10 @@ export default function ProjectsPage() {
         transition={{ duration: 0.7 }}
         className="mb-8"
       >
-        <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">My Projects</h1>
-        <p className="max-w-2xl text-base text-slate-600 sm:text-lg">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-portfolio-text sm:text-4xl">
+          My Projects
+        </h1>
+        <p className="max-w-2xl text-base text-portfolio-subtle sm:text-lg">
           A featured showcase of my full-stack web applications, marketplace experiences, and digital products.
         </p>
       </motion.div>
@@ -89,27 +90,29 @@ export default function ProjectsPage() {
           <motion.article
             key={project.id}
             variants={itemVariants}
-            className="overflow-hidden rounded-[28px] border border-slate-200 bg-[#f9f7f4] shadow-[0_18px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:border-emerald-300 hover:shadow-[0_24px_48px_rgba(16,185,129,0.12)]"
+            className="overflow-hidden rounded-[28px] border border-portfolio-border bg-portfolio-card shadow-sm transition-all duration-300 hover:border-primary-500/50 hover:shadow-md"
           >
-            <div className="border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-4">
+            <div className="border-b border-portfolio-border bg-portfolio-chip/30 p-4">
               <MarketHubShowcase image={project.showcaseImage} />
             </div>
 
             <div className="p-6">
               <div className="mb-3 flex items-center justify-between gap-3">
-                <h3 className="text-2xl font-bold tracking-tight text-slate-900">{project.title}</h3>
-                <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-700">
+                <h3 className="text-2xl font-bold tracking-tight text-portfolio-text">
+                  {project.title}
+                </h3>
+                <span className="rounded-full border border-primary-500/30 bg-primary-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-500">
                   Featured
                 </span>
               </div>
 
-              <p className="mb-5 text-sm leading-6 text-slate-600">{project.description}</p>
+              <p className="mb-5 text-sm leading-6 text-portfolio-subtle">{project.description}</p>
 
               <div className="mb-6 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-medium text-slate-600"
+                    className="rounded-full border border-portfolio-border bg-portfolio-chip px-2.5 py-1 text-[11px] font-medium text-portfolio-subtle"
                   >
                     {tag}
                   </span>
@@ -122,7 +125,7 @@ export default function ProjectsPage() {
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 transition-colors"
                 >
                   View Live <ArrowSquareOut size={15} />
                 </motion.a>
@@ -132,7 +135,7 @@ export default function ProjectsPage() {
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:border-slate-300 hover:text-slate-900"
+                  className="inline-flex items-center gap-2 rounded-full border border-portfolio-border bg-portfolio-card px-4 py-2.5 text-sm font-semibold text-portfolio-text hover:border-portfolio-subtle transition-colors"
                 >
                   GitHub <GithubLogo size={15} />
                 </motion.a>
@@ -142,7 +145,7 @@ export default function ProjectsPage() {
                     whileHover={{ x: 3 }}
                     type="button"
                     onClick={() => setActiveCaseStudy(project.id)}
-                    className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-semibold text-emerald-700 hover:bg-emerald-100"
+                    className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-4 py-2.5 text-sm font-semibold text-primary-500 hover:bg-primary-500/20 transition-colors"
                   >
                     Read Case Study <Sparkle size={15} />
                   </motion.button>
@@ -167,20 +170,20 @@ export default function ProjectsPage() {
 
 function MarketHubShowcase({ image }) {
   return (
-    <div className="rounded-[22px] border border-emerald-100 bg-[#f4f2ee] p-3 shadow-inner">
-      <div className="mb-3 flex items-center justify-between rounded-2xl bg-white/80 px-3 py-2 shadow-sm">
+    <div className="rounded-[22px] border border-portfolio-border bg-portfolio-chip/50 p-3 shadow-inner">
+      <div className="mb-3 flex items-center justify-between rounded-2xl border border-portfolio-border bg-portfolio-card px-3 py-2 shadow-sm">
         <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 text-[10px] font-bold text-white">
+          <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 text-[10px] font-bold text-white">
             MH
           </div>
-          <span className="text-sm font-bold text-slate-800">MarketHub</span>
+          <span className="text-sm font-bold text-portfolio-text">MarketHub</span>
         </div>
-        <div className="rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-medium text-slate-500">
+        <div className="rounded-full border border-portfolio-border bg-portfolio-chip px-2 py-1 text-[10px] font-medium text-portfolio-muted">
           Local marketplace
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-[18px] border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-[18px] border border-portfolio-border bg-portfolio-card">
         <img
           src={image}
           alt="MarketHub Platform Demo Showcase"
@@ -199,7 +202,7 @@ function CaseStudyModal({ project, onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <motion.div
@@ -207,20 +210,20 @@ function CaseStudyModal({ project, onClose }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 14, scale: 0.98 }}
         transition={{ duration: 0.25 }}
-        className="w-full max-w-3xl overflow-hidden rounded-[28px] border border-slate-200 bg-[#f9f7f4] shadow-2xl"
+        className="w-full max-w-3xl overflow-hidden rounded-[28px] border border-portfolio-border bg-portfolio-card text-portfolio-text shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4">
+        <div className="flex items-center justify-between border-b border-portfolio-border bg-portfolio-card px-6 py-4">
           <div>
-            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-600">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-500">
               Case Study
             </div>
-            <h2 className="mt-1 text-2xl font-bold text-slate-900">{project.title}</h2>
+            <h2 className="mt-1 text-2xl font-bold text-portfolio-text">{project.title}</h2>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:text-slate-900"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-portfolio-border bg-portfolio-chip text-portfolio-text hover:border-portfolio-subtle"
             aria-label="Close case study"
           >
             <X size={18} />
@@ -229,19 +232,19 @@ function CaseStudyModal({ project, onClose }) {
 
         <div className="grid gap-6 p-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
-            <div className="mb-5 rounded-2xl border border-emerald-100 bg-emerald-50 p-4">
-              <div className="flex items-center gap-2 text-sm font-semibold text-emerald-700">
+            <div className="mb-5 rounded-2xl border border-primary-500/30 bg-primary-500/10 p-4">
+              <div className="flex items-center gap-2 text-sm font-semibold text-primary-500">
                 <Storefront size={16} /> Product overview
               </div>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{project.caseStudy.summary}</p>
+              <p className="mt-2 text-sm leading-6 text-portfolio-subtle">{project.caseStudy.summary}</p>
             </div>
 
             <div>
-              <h3 className="mb-3 text-lg font-bold text-slate-900">Key challenges solved</h3>
+              <h3 className="mb-3 text-lg font-bold text-portfolio-text">Key challenges solved</h3>
               <ul className="space-y-3">
                 {project.caseStudy.problems.map((problem) => (
-                  <li key={problem} className="flex gap-3 rounded-2xl border border-slate-200 bg-white p-3 text-sm text-slate-600">
-                    <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-[10px] font-bold text-emerald-700">
+                  <li key={problem} className="flex gap-3 rounded-2xl border border-portfolio-border bg-portfolio-chip/60 p-3 text-sm text-portfolio-subtle">
+                    <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary-500/20 text-[10px] font-bold text-primary-500 shrink-0">
                       ✓
                     </span>
                     <span>{problem}</span>
@@ -252,13 +255,13 @@ function CaseStudyModal({ project, onClose }) {
           </div>
 
           <div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <h3 className="mb-4 text-lg font-bold text-slate-900">At a glance</h3>
+            <div className="rounded-2xl border border-portfolio-border bg-portfolio-chip/40 p-4">
+              <h3 className="mb-4 text-lg font-bold text-portfolio-text">At a glance</h3>
               <div className="grid grid-cols-2 gap-3">
                 {project.caseStudy.metrics.map((metric) => (
-                  <div key={metric.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center">
-                    <div className="text-xl font-bold text-slate-900">{metric.value}</div>
-                    <div className="text-[10px] uppercase tracking-[0.12em] text-slate-500">
+                  <div key={metric.label} className="rounded-2xl border border-portfolio-border bg-portfolio-card p-3 text-center">
+                    <div className="text-xl font-bold text-portfolio-text">{metric.value}</div>
+                    <div className="text-[10px] uppercase tracking-[0.12em] text-portfolio-muted">
                       {metric.label}
                     </div>
                   </div>
@@ -266,11 +269,11 @@ function CaseStudyModal({ project, onClose }) {
               </div>
             </div>
 
-            <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-900 p-4 text-white">
-              <div className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-300">
+            <div className="mt-4 rounded-2xl border border-portfolio-border bg-portfolio-chip p-4">
+              <div className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary-500">
                 <ShieldCheck size={12} /> Built for trust
               </div>
-              <ul className="space-y-2 text-sm text-slate-200">
+              <ul className="space-y-2 text-sm text-portfolio-subtle">
                 <li>• Auth & role-based access control</li>
                 <li>• Secure checkout and order tracking</li>
                 <li>• Real marketplace inventory and analytics</li>
