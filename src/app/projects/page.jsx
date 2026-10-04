@@ -9,16 +9,16 @@ const projects = [
     id: 'mobdevai',
     title: 'Mobile Development AI',
     eyebrow: 'Featured showcase',
-    description: 'A mobile-first AI coding environment that lets developers connect GitHub, edit projects, review diffs, preview changes, and ship from their phone.',
-    tags: ['React', 'TypeScript', 'Vite', 'Netlify Functions', 'GitHub OAuth', 'AI Agents'],
+    description: 'A mobile-first development environment where developers connect GitHub, ask an AI agent for changes, review diffs, preview the real app, and ship from their phone.',
+    tags: ['React', 'TypeScript', 'Vite', 'GitHub OAuth', 'AI agent', 'Live previews'],
     link: 'https://mobdevai-demo.netlify.app/',
     github: 'https://github.com/jazsajonia-pixel/mobdevai',
     accent: 'from-[#ffcf4a] via-[#ff6b9f] to-[#62e6ff]',
     showcaseImage: '/projects/mobdevai-showcase.jpg',
     caseStudy: {
-      summary: 'Mobile Development AI turns a phone into a practical development workstation. The product keeps secrets server-side while giving developers a focused loop for repository exploration, AI proposals, diff review, preview, and Git shipping.',
-      problems: ['Designed a compact workspace for editing and reviewing code on small screens.', 'Connected GitHub repositories with OAuth while keeping tokens in secure HTTP-only cookies.', 'Built an AI agent flow around proposals, diffs, previews, and human approval instead of blind edits.', 'Added provider abstraction, structured errors, tests, and Netlify deployment guidance for a production-ready foundation.'],
-      metrics: [{ label: 'Primary device', value: 'Phone' }, { label: 'Core flow', value: 'AI → diff' }, { label: 'Source control', value: 'GitHub' }, { label: 'Hosting', value: 'Netlify' }],
+      summary: 'Mobile Development AI brings an AI coding agent, GitHub workflows, and live previews into a mobile-first development environment. Its core promise is simple: everything between a repository and a pull request, designed for a 6-inch screen.',
+      problems: ['Designed bottom-sheet navigation, touch-sized controls, and a one-handed workspace for a 6-inch screen.', 'Connected GitHub repositories with OAuth and a reviewable branch-based workflow.', 'Built an AI agent flow that plans first, proposes edits, and shows the exact diff before acceptance.', 'Added sandboxed live previews, multiple AI provider support, and a clear Commit / PR handoff.'],
+      metrics: [{ label: 'Primary device', value: '6-inch' }, { label: 'Workflow', value: 'Repo → PR' }, { label: 'Agent mode', value: 'Plan first' }, { label: 'Preview', value: 'Sandboxed' }],
     },
   },
   {
@@ -73,7 +73,7 @@ export default function ProjectsPage() {
 }
 
 function ProjectShowcase({ project }) {
-  return <div className="bg-[#0b061a] p-3"><div className="mb-3 flex items-center justify-between rounded-2xl border border-white/10 bg-[#1a0f38]/90 px-3 py-2 shadow-lg"><div className="flex items-center gap-2"><div className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-[#ffcf4a] to-[#ff6b9f] text-[10px] font-bold text-[#1b102e]">{project.id === 'mobdevai' ? 'AI' : 'MH'}</div><span className="text-sm font-bold text-white">{project.title}</span></div><span className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] font-medium text-[#d4c9ec]">{project.id === 'mobdevai' ? 'Build from your phone' : 'Local marketplace'}</span></div><div className="overflow-hidden rounded-[18px] border border-white/10 bg-[#120a2a]"><img src={project.showcaseImage} alt={`${project.title} platform showcase`} className="h-auto w-full object-cover transition duration-700 group-hover:scale-[1.025]" /></div></div>;
+  return <div className="bg-[#0b061a] p-3"><div className="mb-3 flex items-center justify-between rounded-2xl border border-white/10 bg-[#1a0f38]/90 px-3 py-2 shadow-lg"><div className="flex items-center gap-2"><div className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-[#ffcf4a] to-[#ff6b9f] text-[10px] font-bold text-[#1b102e]">{project.id === 'mobdevai' ? 'AI' : 'MH'}</div><span className="text-sm font-bold text-white">{project.title}</span></div><span className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] font-medium text-[#d4c9ec]">{project.id === 'mobdevai' ? 'Repo to pull request' : 'Local marketplace'}</span></div><div className="overflow-hidden rounded-[18px] border border-white/10 bg-[#120a2a]"><img src={project.showcaseImage} alt={`${project.title} platform showcase`} className="h-auto w-full object-cover transition duration-700 group-hover:scale-[1.025]" /></div></div>;
 }
 
 function CaseStudyModal({ project, onClose }) {
