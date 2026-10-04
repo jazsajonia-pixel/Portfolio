@@ -65,7 +65,7 @@ export default function Home() {
           style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}
         >
           <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-            <Star size={13} weight="fill" className="text-[#ffcf4a]" />
+            <Star size={13} weight="fill" className="text-[#75e4ff]" />
             Tools I work with
           </div>
           <Marquee theme={theme} />
@@ -143,7 +143,7 @@ export default function Home() {
             <motion.div
               animate={{ rotate: [0, 4, -4, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-orange-400 bg-orange-50 text-orange-500"
+              className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-[#75e4ff] bg-[#0d2948] text-[#75e4ff]"
             >
               <CheckCircle size={32} weight="fill" />
             </motion.div>
@@ -163,7 +163,7 @@ export default function Home() {
                 style={{ backgroundColor: theme.white, color: theme.subtle }}
               >
                 <span>{item}</span>
-                <span className="text-[#ffcf4a]">•</span>
+                <span className="text-[#75e4ff]">•</span>
               </motion.div>
             ))}
           </div>
@@ -266,7 +266,7 @@ function Panel({ title, icon, theme, children }) {
       style={{ backgroundColor: theme.panelSoft, borderColor: theme.border }}
     >
       <div className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-        <span className="text-[#ffcf4a]">{icon}</span>
+        <span className="text-[#75e4ff]">{icon}</span>
         {title}
       </div>
       {children}
@@ -291,7 +291,7 @@ function Marquee({ theme }) {
           style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.text }}
         >
           <span className="inline-flex h-6 w-6 items-center justify-center rounded-full" style={{ backgroundColor: theme.chip }}>
-            <Star size={12} weight="fill" className="text-[#ffcf4a]" />
+            <Star size={12} weight="fill" className="text-[#75e4ff]" />
           </span>
           {tool}
         </motion.div>

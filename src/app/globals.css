@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --shell-bg: #07051a;
-  --panel-bg: #120a2a;
-  --card-bg: #211349;
-  --line: #493477;
-  --primary: #ffcf4a;
-  --primary-soft: #ff6b9f;
-  --text: #f8f6ff;
-  --muted: #b8acd5;
+  --shell-bg: #050b16;
+  --panel-bg: #091225;
+  --card-bg: #0c1b32;
+  --line: #21456f;
+  --primary: #69d7ff;
+  --primary-soft: #2f7dff;
+  --text: #edf7ff;
+  --muted: #9db5cc;
 }
 
 * { box-sizing: border-box; }
@@ -23,34 +23,48 @@ button, input, textarea { font: inherit; }
 #__next { min-height: 100vh; }
 
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0c0820; }
-::-webkit-scrollbar-thumb { background: #ff4f9a; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #ffcf4a; }
+::-webkit-scrollbar-track { background: #06101f; }
+::-webkit-scrollbar-thumb { background: #318dff; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #75e4ff; }
 
 .transition-smooth { transition: all 0.3s ease-in-out; }
 .gradient-text {
-  background: linear-gradient(110deg, #ffcf4a 0%, #ff6b9f 46%, #62e6ff 100%);
+  background: linear-gradient(110deg, #b8f3ff 0%, #69d7ff 45%, #4287ff 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-::selection { background-color: #ff4f9a; color: #fff; }
-::-moz-selection { background-color: #ff4f9a; color: #fff; }
+::selection { background-color: #2f8dff; color: #fff; }
+::-moz-selection { background-color: #2f8dff; color: #fff; }
 
-.cosmic-backdrop { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-.cosmic-backdrop::before {
-  content: ''; position: absolute; inset: -30%;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 79, 154, .25), transparent 24%), radial-gradient(circle at 80% 10%, rgba(98, 230, 255, .18), transparent 23%), radial-gradient(circle at 70% 80%, rgba(255, 207, 74, .12), transparent 20%);
-  filter: blur(28px); animation: nebula-drift 18s ease-in-out infinite alternate;
+.honeycomb-backdrop { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; background: #071225; }
+.honeycomb-backdrop::before {
+  content: ''; position: absolute; inset: -12%; opacity: .72;
+  background-color: #09172b;
+  background-image:
+    linear-gradient(30deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
+    linear-gradient(150deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
+    linear-gradient(30deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
+    linear-gradient(150deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
+    linear-gradient(60deg, rgba(94,173,255,.18) 25%, transparent 25.5%, transparent 75%, rgba(94,173,255,.18) 75%);
+  background-position: 0 0, 0 0, 56px 98px, 56px 98px, 0 0;
+  background-size: 112px 196px;
+  transform: rotate(-1deg) scale(1.08);
+  animation: honeycomb-drift 32s linear infinite;
 }
-.cosmic-backdrop::after {
-  content: ''; position: absolute; inset: 0; opacity: .45;
-  background-image: radial-gradient(#fff 1px, transparent 1px), radial-gradient(#62e6ff 1px, transparent 1px);
-  background-size: 110px 110px, 170px 170px; background-position: 0 0, 50px 70px;
-  animation: starfield 28s linear infinite;
+.honeycomb-backdrop::after {
+  content: ''; position: absolute; inset: -20%;
+  background:
+    radial-gradient(circle at 20% 24%, rgba(47,141,255,.35), transparent 13%),
+    radial-gradient(circle at 72% 14%, rgba(117,228,255,.32), transparent 12%),
+    radial-gradient(circle at 76% 76%, rgba(47,141,255,.28), transparent 16%),
+    linear-gradient(115deg, transparent 20%, rgba(117,228,255,.08) 46%, transparent 60%);
+  filter: blur(18px);
+  animation: honeycomb-glow 14s ease-in-out infinite alternate;
 }
-.cosmic-orbit { position: absolute; width: 65vw; height: 18vw; border: 1px solid rgba(98,230,255,.18); border-radius: 50%; transform: rotate(-24deg); top: 7%; right: -15%; animation: orbit 16s ease-in-out infinite; }
-.cosmic-orbit::after { content: ''; position: absolute; width: 7px; height: 7px; right: 14%; top: 15%; border-radius: 999px; background: #ffcf4a; box-shadow: 0 0 20px 6px rgba(255,207,74,.65); }
+.honeycomb-glow { position: absolute; inset: 0; opacity: .9; background: radial-gradient(circle at 48% 22%, rgba(142,235,255,.38), transparent 7%), radial-gradient(circle at 12% 73%, rgba(52,137,255,.32), transparent 8%), radial-gradient(circle at 86% 64%, rgba(86,195,255,.28), transparent 7%); mix-blend-mode: screen; animation: cell-pulse 7s ease-in-out infinite; }
+.honeycomb-scan { position: absolute; inset: -30% 0; background: linear-gradient(180deg, transparent 42%, rgba(117,228,255,.11) 50%, transparent 58%); transform: skewY(-8deg); animation: scanline 11s ease-in-out infinite; }
 .cosmic-content { position: relative; z-index: 1; }
-@keyframes nebula-drift { from { transform: translate3d(-2%, -1%, 0) scale(1); } to { transform: translate3d(3%, 2%, 0) scale(1.08); } }
-@keyframes starfield { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-30px, 24px, 0); } }
-@keyframes orbit { 0%, 100% { transform: rotate(-24deg) translateY(0); opacity: .55; } 50% { transform: rotate(-20deg) translateY(18px); opacity: .95; } }
+@keyframes honeycomb-drift { from { background-position: 0 0, 0 0, 56px 98px, 56px 98px, 0 0; } to { background-position: 112px 196px, 112px 196px, 168px 294px, 168px 294px, 112px 196px; } }
+@keyframes honeycomb-glow { from { transform: translate3d(-2%, -1%, 0) scale(1); } to { transform: translate3d(3%, 2%, 0) scale(1.1); } }
+@keyframes cell-pulse { 0%, 100% { opacity: .45; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes scanline { 0%, 100% { transform: translateY(-18%) skewY(-8deg); opacity: 0; } 35%, 70% { opacity: .9; } 50% { transform: translateY(18%) skewY(-8deg); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
