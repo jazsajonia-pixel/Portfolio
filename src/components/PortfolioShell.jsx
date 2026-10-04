@@ -77,40 +77,14 @@ export default function PortfolioShell({ children }) {
 
   const theme = isDark
     ? {
-        page: '#080a0d',
-        window: '#101318',
-        sidebar: '#13171c',
-        panel: '#171b21',
-        panelSoft: '#1b2027',
-        border: '#2b323d',
-        text: '#f5f7fa',
-        muted: '#a0a9b7',
-        subtle: '#7d8796',
-        white: '#20252d',
-        chip: '#242a33',
-        bluePanel: '#18232e',
-        darkBox: '#080a0d',
-        darkBox2: '#111720',
-        button: '#f5f7fa',
-        buttonText: '#101318',
+        page: '#05030f', window: '#0b061a', sidebar: '#100826', panel: '#120a2a', panelSoft: '#1a0f38',
+        border: '#493477', text: '#f8f6ff', muted: '#b8acd5', subtle: '#8f82b7', white: '#25164a',
+        chip: '#332064', bluePanel: '#1b1745', darkBox: '#080512', darkBox2: '#160b30', button: '#ffcf4a', buttonText: '#1b102e',
       }
     : {
-        page: '#020202',
-        window: '#f5f1ee',
-        sidebar: '#f8f5f1',
-        panel: '#f7f3ef',
-        panelSoft: '#fcf9f6',
-        border: '#e4ded7',
-        text: '#111827',
-        muted: '#6b7280',
-        subtle: '#4b5563',
-        white: '#ffffff',
-        chip: '#f2f5f9',
-        bluePanel: '#dfeaf7',
-        darkBox: '#161a20',
-        darkBox2: '#101827',
-        button: '#111827',
-        buttonText: '#ffffff',
+        page: '#07051a', window: '#120a2a', sidebar: '#150d31', panel: '#1a1038', panelSoft: '#211349',
+        border: '#493477', text: '#f8f6ff', muted: '#b8acd5', subtle: '#8f82b7', white: '#271852',
+        chip: '#332064', bluePanel: '#1d1746', darkBox: '#090513', darkBox2: '#160b30', button: '#ffcf4a', buttonText: '#1b102e',
       };
 
   return (
@@ -129,9 +103,11 @@ export default function PortfolioShell({ children }) {
         }}
       >
         <div
-          className="mx-auto flex min-h-screen w-full flex-col overflow-hidden transition-[background-color] duration-700 ease-out"
+          className="relative mx-auto flex min-h-screen w-full flex-col overflow-hidden transition-[background-color] duration-700 ease-out"
           style={{ backgroundColor: theme.window }}
         >
+          <div className="cosmic-backdrop" aria-hidden="true"><div className="cosmic-orbit" /></div>
+          <div className="cosmic-content">
           <TopBar theme={theme} isDark={isDark}>
             <button
               ref={toggleRef}
@@ -175,6 +151,7 @@ export default function PortfolioShell({ children }) {
 
             </main>
           </div>
+          </div>
         </div>
 
         <AnimatePresence>
@@ -207,7 +184,7 @@ function TopBar({ theme, isDark, children }) {
   return (
     <div
       className="flex h-12 shrink-0 items-center justify-between border-b px-4 transition-colors duration-700"
-      style={{ backgroundColor: isDark ? '#12151a' : '#f1efe9', borderColor: theme.border }}
+      style={{ backgroundColor: theme.sidebar, borderColor: theme.border }}
     >
       <div className="flex items-center gap-2">
         <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
