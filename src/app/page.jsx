@@ -20,7 +20,7 @@ const cards = [
   {
     title: 'Projects',
     label: 'Recent builds',
-    text: 'Funnels, workflows and apps built to solve real business problems.',
+    text: 'Mobile-first products, AI coding workflows and full-stack systems built to solve real business problems.',
     light: '#f9e9d9',
     dark: '#30261f',
   },
@@ -65,7 +65,7 @@ export default function Home() {
           style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}
         >
           <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-            <Star size={13} weight="fill" className="text-orange-500" />
+            <Star size={13} weight="fill" className="text-[#ffcf4a]" />
             Tools I work with
           </div>
           <Marquee theme={theme} />
@@ -149,10 +149,10 @@ export default function Home() {
             </motion.div>
           </motion.div>
           <div className="mt-4 text-center text-sm font-semibold" style={{ color: theme.text }}>
-            Certified Admin
+            Mobile Development AI
           </div>
           <div className="mt-4 space-y-2">
-            {['Coding Funnels', 'GHA Automation', 'CRM Setup', 'Website', 'Apps'].map((item, i) => (
+            {['React + TypeScript', 'GitHub OAuth', 'AI provider integrations', 'Netlify Functions', 'Mobile-first UX'].map((item, i) => (
               <motion.div
                 key={item}
                 initial={{ opacity: 0, x: -12 }}
@@ -163,7 +163,7 @@ export default function Home() {
                 style={{ backgroundColor: theme.white, color: theme.subtle }}
               >
                 <span>{item}</span>
-                <span className="text-orange-500">•</span>
+                <span className="text-[#ffcf4a]">•</span>
               </motion.div>
             ))}
           </div>
@@ -266,7 +266,7 @@ function Panel({ title, icon, theme, children }) {
       style={{ backgroundColor: theme.panelSoft, borderColor: theme.border }}
     >
       <div className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-        <span className="text-orange-500">{icon}</span>
+        <span className="text-[#ffcf4a]">{icon}</span>
         {title}
       </div>
       {children}
@@ -291,7 +291,7 @@ function Marquee({ theme }) {
           style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.text }}
         >
           <span className="inline-flex h-6 w-6 items-center justify-center rounded-full" style={{ backgroundColor: theme.chip }}>
-            <Star size={12} weight="fill" className="text-orange-500" />
+            <Star size={12} weight="fill" className="text-[#ffcf4a]" />
           </span>
           {tool}
         </motion.div>
