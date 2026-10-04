@@ -65,7 +65,7 @@ export default function PortfolioShell({ children }) {
       x,
       y,
       radius,
-      color: nextDark ? '#0b0d10' : '#f7f3ef',
+      color: nextDark ? '#050b16' : '#091225',
       nextDark,
     });
 
@@ -77,14 +77,14 @@ export default function PortfolioShell({ children }) {
 
   const theme = isDark
     ? {
-        page: '#05030f', window: '#0b061a', sidebar: '#100826', panel: '#120a2a', panelSoft: '#1a0f38',
-        border: '#493477', text: '#f8f6ff', muted: '#b8acd5', subtle: '#8f82b7', white: '#25164a',
-        chip: '#332064', bluePanel: '#1b1745', darkBox: '#080512', darkBox2: '#160b30', button: '#ffcf4a', buttonText: '#1b102e',
+        page: '#050b16', window: '#071225', sidebar: 'rgba(6,16,32,.92)', panel: 'rgba(7,18,36,.9)', panelSoft: 'rgba(10,28,53,.88)',
+        border: '#21456f', text: '#edf7ff', muted: '#9db5cc', subtle: '#7694b1', white: '#102846',
+        chip: '#15385d', bluePanel: '#0d2948', darkBox: '#040b16', darkBox2: '#0a1a31', button: '#69d7ff', buttonText: '#06111e',
       }
     : {
-        page: '#07051a', window: '#120a2a', sidebar: '#150d31', panel: '#1a1038', panelSoft: '#211349',
-        border: '#493477', text: '#f8f6ff', muted: '#b8acd5', subtle: '#8f82b7', white: '#271852',
-        chip: '#332064', bluePanel: '#1d1746', darkBox: '#090513', darkBox2: '#160b30', button: '#ffcf4a', buttonText: '#1b102e',
+        page: '#050b16', window: '#071225', sidebar: 'rgba(6,16,32,.92)', panel: 'rgba(7,18,36,.9)', panelSoft: 'rgba(10,28,53,.88)',
+        border: '#21456f', text: '#edf7ff', muted: '#9db5cc', subtle: '#7694b1', white: '#102846',
+        chip: '#15385d', bluePanel: '#0d2948', darkBox: '#040b16', darkBox2: '#0a1a31', button: '#69d7ff', buttonText: '#06111e',
       };
 
   return (
@@ -106,7 +106,7 @@ export default function PortfolioShell({ children }) {
           className="relative mx-auto flex min-h-screen w-full flex-col overflow-hidden transition-[background-color] duration-700 ease-out"
           style={{ backgroundColor: theme.window }}
         >
-          <div className="cosmic-backdrop" aria-hidden="true"><div className="cosmic-orbit" /></div>
+          <div className="honeycomb-backdrop" aria-hidden="true"><div className="honeycomb-glow" /><div className="honeycomb-scan" /></div>
           <div className="cosmic-content">
           <TopBar theme={theme} isDark={isDark}>
             <button
