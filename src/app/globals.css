@@ -48,13 +48,9 @@ button, input, textarea { font: inherit; }
   filter: blur(10px); transform: skewX(-18deg); animation: topography-streak 9s ease-in-out infinite;
 }
 .topography-viewport .topography-core { position: absolute; inset: 0; background: radial-gradient(ellipse at 55% 50%, rgba(255,191,107,.28), transparent 11%), radial-gradient(ellipse at 70% 50%, rgba(211,47,132,.24), transparent 27%); animation: topography-pulse 6s ease-in-out infinite; }
-.topography-rail { position: absolute; left: -22px; right: -22px; bottom: -18px; height: 180px; overflow: hidden; pointer-events: none; z-index: 0; opacity: .72; }
-.topography-rail::before { content: ''; position: absolute; inset: -55% -28%; background: repeating-radial-gradient(ellipse at 50% 50%, transparent 0 11px, rgba(216,53,130,.42) 12px 13px, transparent 14px 25px), repeating-radial-gradient(ellipse at 48% 52%, transparent 0 18px, rgba(238,111,47,.38) 19px 20px, transparent 21px 36px); transform: rotate(12deg); animation: topography-morph 22s ease-in-out infinite alternate-reverse; }
-.topography-rail::after { content: ''; position: absolute; left: -10%; right: -10%; top: 46%; height: 16px; background: linear-gradient(90deg, transparent, rgba(218,42,126,.6), rgba(244,143,54,.48), transparent); filter: blur(7px); animation: topography-streak 10s ease-in-out infinite reverse; }
 .topography-art-content { position: relative; z-index: 1; }
 .topography-bar { position: relative; isolation: isolate; overflow: hidden; }
-.topography-sidebar { position: relative; isolation: isolate; overflow: hidden; }
-.topography-sidebar > *:not(.topography-rail) { position: relative; z-index: 1; }
+.topography-sidebar { position: relative; }
 @keyframes topography-morph { from { transform: rotate(-10deg) scale(1.12) translate3d(-2%, -1%, 0); } to { transform: rotate(-5deg) scale(1.2) translate3d(4%, 2%, 0); } }
 @keyframes topography-streak { 0%, 100% { opacity: .2; transform: translateX(-18%) skewX(-18deg); } 50% { opacity: 1; transform: translateX(16%) skewX(-18deg); } }
 @keyframes topography-pulse { 0%, 100% { opacity: .42; transform: scale(.96); } 50% { opacity: .95; transform: scale(1.08); } }

@@ -24,7 +24,7 @@ export default function PortfolioShell({ children }) {
 
   useEffect(() => {
     try {
-      setIsDark(window.localStorage.getItem('portfolio-theme') === 'dark');
+      setIsDark(window.localStorage.getItem('portfolio-theme-v2') === 'dark');
     } catch {
       // Keep the default theme when browser storage is unavailable.
     }
@@ -37,7 +37,7 @@ export default function PortfolioShell({ children }) {
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
     if (!themeReady) return;
     try {
-      window.localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
+      window.localStorage.setItem('portfolio-theme-v2', isDark ? 'dark' : 'light');
     } catch {
       // Theme switching still works without persistent storage.
     }
@@ -225,7 +225,6 @@ function Sidebar({ theme }) {
       className="topography-sidebar flex w-full shrink-0 flex-col border-b p-4 transition-colors duration-700 md:w-[260px] md:border-b-0 md:border-r md:p-5"
       style={{ backgroundColor: theme.sidebar, borderColor: theme.border }}
     >
-      <div className="topography-rail" aria-hidden="true" />
       <motion.div
         initial={{ opacity: 0, x: -18 }}
         animate={{ opacity: 1, x: 0 }}
