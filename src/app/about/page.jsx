@@ -1,146 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle } from 'phosphor-react';
+import { CheckCircle, GraduationCap, Wrench } from 'phosphor-react';
 
-const skills = [
-  'React & Next.js',
-  'JavaScript & TypeScript',
-  'Tailwind CSS',
-  'Make.com Automation',
-  'Flytables Integration',
-  'Node.js & Express',
-  'Python & AI Agents',
-  'PostgreSQL & Databases',
-  'REST APIs & Webhooks',
-  'Vercel & Cloud Deployment',
-  'Framer Motion',
-  'Responsive Design',
+const skillGroups = [
+  { title: 'Advanced', tone: 'orange', items: ['HTML'] },
+  { title: 'Intermediate', tone: 'teal', items: ['CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'PHP', 'MySQL', 'PostgreSQL', 'Git', 'GitHub'] },
+  { title: 'Beginner / developing', tone: 'slate', items: ['Node.js', 'Express', 'Laravel'] },
 ];
 
 export default function AboutPage() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
-
-  return (
-    <section className="w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mb-8"
-      >
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">About Me</h1>
-        <p className="text-base sm:text-lg text-portfolio-subtle">
-          Get to know me and my passion for creating amazing digital experiences.
-        </p>
+  return <section className="space-y-8">
+    <header><div className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange-500">About the builder</div><h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">Learning by shipping real projects.</h1><p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">I’m Jazzther Bert Shanne Sajonia, a Full-Stack Web Developer building skills through university coursework, self-directed learning, documentation, and practical projects.</p></header>
+    <div className="grid gap-5 lg:grid-cols-[1.05fr_.95fr]">
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="space-y-5">
+        <div className="rounded-[24px] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"><div className="flex items-center gap-3 text-orange-500"><GraduationCap size={21} weight="fill" /><h2 className="text-xl font-bold text-slate-900 dark:text-white">My path</h2></div><p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">I started seriously programming in early 2024. Since then, I’ve combined university work with independent practice, tutorials, research, and personal builds to understand how interfaces, APIs, databases, and deployment fit together.</p><p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">My main focus is web development. AI-assisted software development and practical workflow automation are important secondary capabilities that I’m actively developing.</p></div>
+        <div className="rounded-[24px] border border-slate-200 bg-slate-950 p-6 text-white shadow-sm"><div className="flex items-center gap-3 text-cyan-300"><Wrench size={21} weight="fill" /><h2 className="text-xl font-bold">How I work with AI</h2></div><ol className="mt-5 grid gap-3 sm:grid-cols-2">{['Design the feature', 'Explain the requirement', 'Review generated code', 'Modify and debug', 'Test the behavior', 'Integrate and deploy'].map((item, index) => <li key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-sm text-slate-200"><span className="font-mono text-orange-300">0{index + 1}</span>{item}</li>)}</ol><p className="mt-5 text-sm leading-6 text-slate-400">The goal is not to outsource understanding. AI helps me move faster while I remain responsible for reviewing, testing, and integrating the result.</p></div>
       </motion.div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-        {/* Left Content */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-6"
-        >
-          <motion.div variants={itemVariants}>
-            <h2 className="text-3xl font-bold mb-4">Who Am I?</h2>
-            <p className="text-portfolio-subtle text-lg leading-relaxed">
-              I'm Jazz Sajonia, a passionate web developer and AI automation specialist with a keen
-              interest in building innovative digital solutions. With several years of experience in
-              web development and AI/ML technologies, I help businesses transform their ideas into
-              powerful, scalable applications.
-            </p>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <h2 className="text-3xl font-bold mb-4">My Journey</h2>
-            <p className="text-portfolio-subtle text-lg leading-relaxed">
-              My journey in tech started with a passion for problem-solving and creativity. Over the
-              years, I've worked with startups and established companies, delivering high-quality
-              solutions that drive real business impact. I believe in continuous learning and staying
-              updated with the latest technologies.
-            </p>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <h2 className="text-3xl font-bold mb-4">My Approach</h2>
-            <p className="text-portfolio-subtle text-lg leading-relaxed">
-              I combine technical expertise with a user-centric approach to deliver solutions that are
-              not only technically sound but also intuitive and enjoyable to use. Every project is an
-              opportunity to create something meaningful and impactful.
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* Right Content - Skills */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="bg-portfolio-card rounded-[22px] p-5 sm:p-6 border border-portfolio-border h-fit"
-        >
-          <h2 className="text-3xl font-bold mb-6">Skills & Expertise</h2>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-          >
-            {skills.map((skill) => (
-              <motion.div
-                key={skill}
-                variants={itemVariants}
-                className="flex items-center gap-3 group"
-              >
-                <CheckCircle
-                  size={24}
-                  weight="fill"
-                  className="text-primary-500 flex-shrink-0 group-hover:scale-110 transition-transform"
-                />
-                <span className="text-portfolio-text group-hover:text-primary-600 transition-colors">
-                  {skill}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-8 pt-8 border-t border-portfolio-border grid grid-cols-2 gap-6"
-          >
-            <div>
-              <p className="text-3xl font-bold gradient-text">50+</p>
-              <p className="text-portfolio-subtle text-sm">Projects Completed</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold gradient-text">5+</p>
-              <p className="text-portfolio-subtle text-sm">Years Experience</p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
+      <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800"><div className="mb-5 flex items-center justify-between gap-4"><div><div className="text-[11px] font-bold uppercase tracking-[0.15em] text-orange-500">Current toolkit</div><h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">Skill levels</h2></div><CheckCircle size={27} className="text-emerald-500" weight="fill" /></div><div className="space-y-5">{skillGroups.map((group) => <div key={group.title}><div className="mb-2 flex items-center justify-between"><h3 className="font-semibold text-slate-900 dark:text-white">{group.title}</h3><span className={`h-2 w-2 rounded-full ${group.tone === 'orange' ? 'bg-orange-500' : group.tone === 'teal' ? 'bg-teal-500' : 'bg-slate-400'}`} /></div><div className="flex flex-wrap gap-2">{group.items.map((item) => <span key={item} className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200">{item}</span>)}</div></div>)}</div><div className="mt-6 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-600 dark:border-slate-600 dark:text-slate-300">Also developing practical experience with OpenAI, Gemini, and Claude APIs; prompt engineering; AI-powered web features; function/tool calling; AI agents; and Make.com workflow integrations.</div></div>
+    </div>
+  </section>;
 }

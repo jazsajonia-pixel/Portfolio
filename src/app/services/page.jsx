@@ -1,140 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {
-  Code,
-  Robot,
-  Gear,
-  Rocket,
-  ShieldCheck,
-  ChartLine,
-} from 'phosphor-react';
+import { BracketsCurly, Database, Globe, Lightning, PlugsConnected, Robot } from 'phosphor-react';
 
-const services = [
-  {
-    id: 1,
-    title: 'Web Development',
-    description:
-      'Full-stack web applications built with modern technologies like React, Next.js, and Node.js.',
-    icon: Code,
-    features: ['Responsive Design', 'SEO Optimized', 'Performance Focused'],
-  },
-  {
-    id: 2,
-    title: 'AI Automation',
-    description:
-      'Intelligent automation solutions using AI/ML to streamline business processes and increase efficiency.',
-    icon: Robot,
-    features: ['Workflow Automation', 'Data Processing', 'AI Integration'],
-  },
-  {
-    id: 3,
-    title: 'API Development',
-    description:
-      'Robust and scalable REST and GraphQL APIs with secure authentication and rate limiting.',
-    icon: Gear,
-    features: ['REST APIs', 'GraphQL', 'Real-time Solutions'],
-  },
-  {
-    id: 4,
-    title: 'Deployment & Hosting',
-    description:
-      'Deploy your applications on cloud platforms with continuous integration and monitoring.',
-    icon: Rocket,
-    features: ['AWS/GCP/Azure', 'CI/CD Pipeline', 'Monitoring'],
-  },
-  {
-    id: 5,
-    title: 'Security & Optimization',
-    description:
-      'Secure your application with best practices and optimize for performance and scalability.',
-    icon: ShieldCheck,
-    features: ['Security Audit', 'Performance Optimization', 'Best Practices'],
-  },
-  {
-    id: 6,
-    title: 'Consulting & Strategy',
-    description:
-      'Strategic guidance on technology selection, architecture design, and business growth.',
-    icon: ChartLine,
-    features: ['Tech Stack Selection', 'Architecture Design', 'Growth Strategy'],
-  },
+const capabilityAreas = [
+  { title: 'Full-Stack Web Development', icon: BracketsCurly, description: 'Responsive web applications built around clear user flows, reusable UI, APIs, and database-backed features.', items: ['React / Next.js', 'TypeScript', 'PHP', 'Responsive interfaces'] },
+  { title: 'API & Database Integration', icon: Database, description: 'Connecting interfaces to structured data and external services with practical, understandable integrations.', items: ['REST APIs', 'MySQL / PostgreSQL', 'JSON', 'Validation and testing'] },
+  { title: 'AI-Powered Web Features', icon: Robot, description: 'Exploring useful AI features inside applications rather than treating AI as a replacement for product thinking.', items: ['OpenAI API', 'Gemini API', 'Claude API', 'Prompt design'] },
+  { title: 'Workflow Automation', icon: Lightning, description: 'Practical automation experiments using Make.com, webhooks, APIs, and business tools.', items: ['Triggers and actions', 'Filters and routers', 'Scheduling', 'Error handling'] },
+  { title: 'Modern Frontend Experiences', icon: Globe, description: 'Mobile-first pages with intentional hierarchy, accessible interactions, and subtle motion.', items: ['Tailwind CSS', 'Interaction states', 'Dark mode', 'Performance-minded UI'] },
+  { title: 'Integration Learning', icon: PlugsConnected, description: 'Areas I can contribute to while continuing to build depth through projects and documentation.', items: ['Make.com → Airtable', 'Google Sheets', 'Gmail', 'HTTP/API integrations'] },
 ];
 
 export default function ServicesPage() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
-
-  return (
-    <section className="w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mb-8"
-      >
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Services</h1>
-        <p className="text-base sm:text-lg text-portfolio-subtle max-w-2xl">
-          Comprehensive solutions tailored to meet your business needs and drive growth through
-          technology and innovation.
-        </p>
-      </motion.div>
-
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
-      >
-        {services.map((service) => {
-          const Icon = service.icon;
-          return (
-            <motion.div
-              key={service.id}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-portfolio-card rounded-[22px] p-5 sm:p-6 border border-portfolio-border hover:border-primary-500 transition-smooth hover:shadow-lg hover:shadow-primary-500/20 group"
-            >
-              <div className="mb-4 inline-block p-3 bg-primary-500/10 rounded-lg group-hover:bg-primary-500/20 transition-smooth">
-                <Icon
-                  size={32}
-                  weight="fill"
-                  className="text-primary-500"
-                />
-              </div>
-
-              <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-              <p className="text-portfolio-subtle mb-6">{service.description}</p>
-
-              <div className="space-y-2">
-                {service.features.map((feature) => (
-                  <div key={feature} className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0" />
-                    <span className="text-portfolio-text">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
-    </section>
-  );
+  return <section className="space-y-8"><header><div className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange-500">Capability areas</div><h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">What I can help build.</h1><p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">These are areas I can provide or continue developing through practical work. They are not a claim of a large client portfolio or enterprise consulting history.</p></header><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{capabilityAreas.map((area, index) => { const Icon = area.icon; return <motion.article key={area.title} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .06 }} whileHover={{ y: -5 }} className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-sm transition dark:border-slate-700 dark:bg-slate-900"><div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-500"><Icon size={23} weight="fill" /></div><h2 className="text-xl font-bold text-slate-900 dark:text-white">{area.title}</h2><p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{area.description}</p><div className="mt-5 space-y-2">{area.items.map((item) => <div key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200"><span className="h-1.5 w-1.5 rounded-full bg-orange-500" />{item}</div>)}</div></motion.article>; })}</div></section>;
 }

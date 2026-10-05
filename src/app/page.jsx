@@ -1,368 +1,113 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { usePortfolioTheme } from '@/components/PortfolioShell';
 import profileImage from '../../assets/profile.jpeg';
 import {
   ArrowRight,
   ArrowSquareOut,
   CheckCircle,
-  Lightning,
   GithubLogo,
-  Sparkle,
+  Lightning,
   Star,
 } from 'phosphor-react';
 
-const tools = [
-  'React', 'Next.js', 'Tailwind', 'Make.com', 'Flytables',
-  'Node.js', 'TypeScript', 'PostgreSQL', 'AI Automation', 'Vercel',
-];
+const tools = ['React', 'Next.js', 'TypeScript', 'PHP', 'PostgreSQL', 'GitHub', 'OpenAI API', 'Make.com'];
 
-const cards = [
+const featuredProjects = [
   {
     title: 'Mobile Development AI',
-    label: 'Featured live build',
-    text: 'Build, edit, preview, and ship GitHub projects with an AI coding agent—from your phone.',
-    featured: true,
-    light: '#fffaf6',
-    dark: '#30261f',
+    eyebrow: 'AI / developer tooling',
+    description: 'A mobile-first workspace for connecting GitHub projects, working with an AI coding agent, reviewing changes, and previewing builds.',
+    tags: ['React', 'TypeScript', 'GitHub workflows'],
+    image: '/projects/mobdevai-workspace.webp',
+    href: '/projects',
+    accent: 'orange',
   },
   {
-    title: 'About',
-    label: 'Profile',
-    text: 'I build modern digital experiences that turn ideas into polished products.',
-    light: '#eef4ff',
-    dark: '#202a38',
-  },
-  {
-    title: 'AI Builds',
-    label: 'Automation',
-    text: 'Agents, automations and business systems that keep workflows running 24/7.',
-    light: '#f6f1ff',
-    dark: '#29233a',
+    title: 'MarketHub',
+    eyebrow: 'Full-stack marketplace',
+    description: 'A portfolio marketplace project with seeded PostgreSQL data, role-based flows, seller dashboards, and a simulated checkout.',
+    tags: ['React', 'TypeScript', 'PostgreSQL'],
+    image: '/projects/markethub-showcase.jpg',
+    href: '/projects',
+    accent: 'teal',
   },
 ];
 
-const services = ['Code Funnels', 'GHL Automation', 'CRM Setup', 'Website', 'Apps'];
-
-const testimonials = [
-  ['E-commerce Client', 'Operations Manager', 'Jazzther transformed our product workflows with Make.com and custom React builds.'],
-  ['SaaS Founder', 'Growth & AI Lead', 'Helped us automate the repetitive work and shipped our web platform seamlessly on Vercel.'],
-  ['Agency Partner', 'Web Dev Specialist', 'Clean system architecture, reliable API integrations, and flawless execution from start to finish.'],
+const buildNotes = [
+  ['01', 'Plan the feature and user flow'],
+  ['02', 'Use AI as an implementation assistant'],
+  ['03', 'Review, modify, debug, and test'],
+  ['04', 'Integrate and deploy the result'],
 ];
 
 export default function Home() {
   const { theme, isDark } = usePortfolioTheme();
 
   return (
-    <>
-      <Hero theme={theme} isDark={isDark} />
-
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25, duration: 0.7 }}
-      >
-        <div
-          className="mt-8 overflow-hidden rounded-[22px] border p-4 transition-colors duration-700"
-          style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}
-        >
-          <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-            <Star size={13} weight="fill" className="text-orange-500" />
-            Tools I work with
+    <div className="space-y-8">
+      <section className="relative overflow-hidden rounded-[26px] border p-5 sm:p-7 lg:p-10" style={{ backgroundColor: isDark ? '#141b24' : '#101827', borderColor: isDark ? '#354151' : '#1f3047' }}>
+        <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-orange-500/20 blur-3xl" />
+        <div className="absolute bottom-[-5rem] right-1/3 h-48 w-48 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="relative grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
+          <div>
+            <div className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-300">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,.9)]" />
+              Available for thoughtful builds
+            </div>
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-white sm:text-6xl">
+              Full-Stack Web Developer <span className="text-orange-400">building in public.</span>
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+              I build modern web applications and explore AI-powered development and workflow automation through practical personal and academic projects.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/projects" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300">
+                Explore projects <ArrowRight size={16} />
+              </Link>
+              <Link href="/about" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70">
+                How I work
+              </Link>
+            </div>
           </div>
-          <Marquee theme={theme} />
-        </div>
-      </motion.section>
-
-      <section className="mt-8 grid gap-4 lg:grid-cols-3">
-        {cards.map((card, index) => (
-          card.featured ? (
-            <FeaturedBuildCard key={card.title} theme={theme} isDark={isDark} card={card} />
-          ) : (
-            <motion.article
-              key={card.title}
-              initial={{ opacity: 0, y: 45, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.1 * index + 0.2, duration: 0.65, type: 'spring', stiffness: 90 }}
-              whileHover={{ y: -8, scale: 1.015 }}
-              className="group rounded-[22px] border p-4 shadow-sm transition-colors duration-700"
-              style={{ backgroundColor: isDark ? card.dark : card.light, borderColor: theme.border }}
-            >
-              <div className="mb-5 flex items-center justify-between">
-                <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-                  {card.label}
-                </span>
-                <motion.span
-                  whileHover={{ rotate: 45 }}
-                  className="rounded-full p-2 transition-colors duration-700"
-                  style={{ backgroundColor: isDark ? '#ffffff12' : '#ffffffcc', color: theme.text }}
-                >
-                  <ArrowRight size={15} />
-                </motion.span>
+          <div className="rounded-[22px] border border-white/10 bg-black/20 p-4 backdrop-blur-sm sm:p-5">
+            <div className="mb-4 flex items-center gap-3">
+              <img src={profileImage.src} alt="Jazzther Bert Shanne Sajonia" className="h-12 w-12 rounded-2xl object-cover" />
+              <div>
+                <div className="font-semibold text-white">Jazzther Bert Shanne Sajonia</div>
+                <div className="text-sm text-slate-400">Web developer · learner · builder</div>
               </div>
-
-              <h2 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>
-                {card.title}
-              </h2>
-
-              <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>
-                {card.text}
-              </p>
-
-              <motion.div
-                whileHover={{ scale: 1.025 }}
-                className="mt-5 h-32 rounded-[18px] p-3 text-white shadow-inner"
-                style={{ backgroundColor: theme.darkBox }}
-              >
-                <div
-                  className="flex h-full items-end justify-between rounded-[12px] border p-3"
-                  style={{
-                    borderColor: '#ffffff1a',
-                    background: `linear-gradient(135deg, ${theme.darkBox2}, ${isDark ? '#141922' : '#171d29'}, #0e1724)`,
-                  }}
-                >
-                  <div>
-                    <div className="text-[10px] uppercase tracking-[0.12em] text-slate-400">Build</div>
-                    <div className="mt-2 text-xl font-bold">Flow</div>
-                  </div>
-                  <motion.div
-                    animate={{ opacity: [0.45, 1, 0.45], y: [0, -3, 0] }}
-                    transition={{ duration: 2.2, repeat: Infinity }}
-                    className="text-xs text-sky-300"
-                  >
-                    Live
-                  </motion.div>
-                </div>
-              </motion.div>
-            </motion.article>
-          )
-        ))}
+            </div>
+            <p className="text-sm leading-6 text-slate-300">Seriously programming since early 2024, with a focus on full-stack fundamentals, practical product work, and using AI responsibly inside the development loop.</p>
+            <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">2024</div><div className="mt-1 text-slate-400">Started seriously programming</div></div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">2</div><div className="mt-1 text-slate-400">Featured live builds</div></div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="mt-8 grid gap-4 xl:grid-cols-[1.2fr_1fr_1.2fr]">
-        <Panel title="Credentials" icon={<CheckCircle size={14} />} theme={theme}>
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="flex items-center justify-center rounded-[18px] p-5"
-            style={{ backgroundColor: isDark ? '#20242b' : '#f8f5f2' }}
-          >
-            <motion.div
-              animate={{ rotate: [0, 4, -4, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-orange-400 bg-orange-50 text-orange-500"
-            >
-              <CheckCircle size={32} weight="fill" />
-            </motion.div>
-          </motion.div>
-          <div className="mt-4 text-center text-sm font-semibold" style={{ color: theme.text }}>
-            Certified Admin
-          </div>
-          <div className="mt-4 space-y-2">
-            {['Coding Funnels', 'GHA Automation', 'CRM Setup', 'Website', 'Apps'].map((item, i) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.06 }}
-                whileHover={{ x: 5 }}
-                className="flex items-center justify-between rounded-xl px-3 py-2 text-sm shadow-sm transition-colors duration-700"
-                style={{ backgroundColor: theme.white, color: theme.subtle }}
-              >
-                <span>{item}</span>
-                <span className="text-orange-500">•</span>
-              </motion.div>
-            ))}
-          </div>
-        </Panel>
-
-        <Panel title="Services" icon={<Lightning size={14} />} theme={theme}>
-          <ul className="space-y-3">
-            {services.map((service, i) => (
-              <motion.li
-                key={service}
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.07 }}
-                whileHover={{ x: 5 }}
-                className="flex items-center justify-between rounded-xl px-3 py-2 transition-colors duration-700"
-                style={{ backgroundColor: theme.white }}
-              >
-                <span className="text-sm" style={{ color: theme.text }}>{service}</span>
-                <span className="text-[10px] font-semibold" style={{ color: theme.muted }}>0{i + 1}</span>
-              </motion.li>
-            ))}
-          </ul>
-        </Panel>
-
-        <Panel title="Testimonials" icon={<Sparkle size={14} />} theme={theme}>
-          <div className="space-y-3">
-            {testimonials.map(([name, role, quote], i) => (
-              <motion.div
-                key={name}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -3 }}
-                className="rounded-[16px] p-3 shadow-sm transition-colors duration-700"
-                style={{ backgroundColor: theme.white }}
-              >
-                <div className="mb-2 flex items-center gap-2 text-sm font-semibold" style={{ color: theme.text }}>
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 text-[10px] text-white">
-                    {name.slice(-1)}
-                  </span>
-                  {name}
-                </div>
-                <div className="text-[11px]" style={{ color: theme.muted }}>{role}</div>
-                <p className="mt-2 text-sm" style={{ color: theme.subtle }}>“{quote}”</p>
-              </motion.div>
-            ))}
-          </div>
-        </Panel>
+      <section className="overflow-hidden rounded-[22px] border p-4" style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}>
+        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.subtle }}><Star size={13} weight="fill" className="text-orange-500" /> Current toolkit</div>
+        <div className="flex flex-wrap gap-2">{tools.map((tool) => <span key={tool} className="rounded-full border px-3 py-2 text-sm font-medium" style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.text }}>{tool}</span>)}</div>
       </section>
-    </>
-  );
-}
 
-function FeaturedBuildCard({ theme, isDark, card }) {
-  const techStack = ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'CodeMirror', 'GitHub OAuth'];
-
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 45, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ delay: 0.2, duration: 0.65, type: 'spring', stiffness: 90 }}
-      whileHover={{ y: -8, scale: 1.015 }}
-      className="group overflow-hidden rounded-[22px] border p-4 shadow-[0_18px_45px_rgba(15,23,42,.12)] transition-colors duration-700"
-      style={{ backgroundColor: isDark ? card.dark : card.light, borderColor: '#f97316' }}
-    >
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.13em] text-emerald-700 dark:text-emerald-300">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,.75)]" />
-          Featured live build
-        </span>
-        <span className="rounded-full border border-orange-300/60 bg-orange-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-orange-700">
-          Production demo
-        </span>
-      </div>
-
-      <h2 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>Mobile Development AI</h2>
-      <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>{card.text}</p>
-
-      <div className="relative mx-auto mt-5 max-w-[310px] overflow-hidden rounded-[18px] border border-white/10 bg-[#0b0d12] p-3 shadow-sm">
-        <div className="mb-3 flex items-center gap-1.5 rounded-[10px] border border-white/10 bg-[#171a22] px-3 py-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#fdbb2d]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-          <span className="ml-2 truncate font-mono text-[9px] text-slate-400">mobdevai-demo.netlify.app</span>
+      <section>
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-3"><div><div className="text-[11px] font-bold uppercase tracking-[0.15em] text-orange-500">Selected work</div><h2 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: theme.text }}>Projects first. Claims second.</h2></div><Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-500">View all projects <ArrowRight size={15} /></Link></div>
+        <div className="grid gap-4 lg:grid-cols-2">
+          {featuredProjects.map((project, index) => <motion.article key={project.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .1 }} whileHover={{ y: -5 }} className="overflow-hidden rounded-[24px] border" style={{ backgroundColor: theme.white, borderColor: theme.border }}>
+            <div className="relative aspect-[16/9] overflow-hidden bg-slate-950"><img src={project.image} alt={`${project.title} project interface`} className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]" /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" /><span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">{project.eyebrow}</span></div>
+            <div className="p-5"><div className="flex items-start justify-between gap-3"><h3 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>{project.title}</h3><ArrowSquareOut size={18} className="mt-1 shrink-0 text-orange-500" /></div><p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>{project.description}</p><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full px-2.5 py-1 text-[11px] font-semibold" style={{ backgroundColor: theme.chip, color: theme.subtle }}>{tag}</span>)}</div></div>
+          </motion.article>)}
         </div>
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[12px] border border-white/10 bg-[#0d0f12] shadow-[inset_0_28px_32px_rgba(0,0,0,.92),inset_0_-28px_32px_rgba(0,0,0,.96)]">
-          <img src="/projects/mobdevai-landing.webp" alt="Mobile Development AI landing page" className="absolute inset-0 h-full w-full object-cover object-top opacity-90 transition duration-700 group-hover:scale-[1.025]" />
-          <div className="absolute right-3 top-8 h-[72%] w-[82%] overflow-hidden rounded-[10px] border border-white/20 bg-[#11131b] shadow-[0_16px_30px_rgba(0,0,0,.7)] transition duration-700 group-hover:-translate-y-1 group-hover:rotate-[1deg]">
-            <img src="/projects/mobdevai-workspace.webp" alt="Mobile Development AI workspace with Files, AI, Preview, and Git tabs" className="h-full w-full object-cover object-top" />
-          </div>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black via-black/55 to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black via-black/55 to-transparent" />
-        </div>
-      </div>
+      </section>
 
-      <div className="mt-5 flex flex-wrap gap-2">
-        {techStack.map((tech) => (
-          <span key={tech} className="rounded-full border border-orange-200 bg-white/75 px-2.5 py-1 text-[10px] font-semibold text-slate-600 shadow-sm">{tech}</span>
-        ))}
-      </div>
-
-      <div className="mt-5 flex flex-wrap items-center gap-3">
-        <motion.a whileHover={{ x: 3 }} href="https://mobdevai-demo.netlify.app/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(249,115,22,.22)]">
-          View Live Demo <ArrowSquareOut size={15} />
-        </motion.a>
-        <motion.a whileHover={{ x: 3 }} href="https://github.com/jazsajonia-pixel/mobdevai" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:border-orange-300">
-          GitHub Repository <GithubLogo size={15} />
-        </motion.a>
-      </div>
-    </motion.article>
-  );
-}
-
-function Hero({ theme, isDark }) {
-  return (
-    <header className="relative flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
-      <div className="flex min-w-0 items-center gap-4">
-        <motion.img
-          initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.75, type: 'spring', stiffness: 110 }}
-          whileHover={{ scale: 1.08, rotate: 3 }}
-          src={profileImage.src}
-          alt="Jazzther Bert Shanne O. Sajonia"
-          className="h-16 w-16 shrink-0 rounded-full object-cover object-center shadow-md"
-        />
-        <div className="min-w-0">
-          <motion.div
-            initial={{ opacity: 0, x: -15 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.18, duration: 0.6 }}
-            className="text-xl font-bold tracking-tight sm:text-2xl"
-            style={{ color: theme.text }}
-          >
-            Jazzther Bert Shanne O.
-          </motion.div>
-          <div className="text-sm" style={{ color: theme.muted }}>@jazzther</div>
-        </div>
-      </div>
-
-      <motion.a
-        href="/contact"
-        whileHover={{ scale: 1.035, x: -2 }}
-        whileTap={{ scale: 0.97 }}
-        className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold shadow-lg transition-colors duration-700"
-        style={{ backgroundColor: theme.button, color: theme.buttonText }}
-      >
-        Get in touch
-        <ArrowRight size={16} />
-      </motion.a>
-    </header>
-  );
-}
-
-function Panel({ title, icon, theme, children }) {
-  return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      className="rounded-[22px] border p-5 transition-colors duration-700"
-      style={{ backgroundColor: theme.panelSoft, borderColor: theme.border }}
-    >
-      <div className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-        <span className="text-orange-500">{icon}</span>
-        {title}
-      </div>
-      {children}
-    </motion.div>
-  );
-}
-
-function Marquee({ theme }) {
-  const list = [...tools, ...tools];
-
-  return (
-    <motion.div
-      animate={{ x: ['0%', '-50%'] }}
-      transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
-      className="flex w-max gap-3"
-    >
-      {list.map((tool, index) => (
-        <motion.div
-          key={`${tool}-${index}`}
-          whileHover={{ y: -3, scale: 1.04 }}
-          className="flex items-center gap-2 rounded-full border px-3 py-2 text-sm font-medium shadow-sm transition-colors duration-700"
-          style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.text }}
-        >
-          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full" style={{ backgroundColor: theme.chip }}>
-            <Star size={12} weight="fill" className="text-orange-500" />
-          </span>
-          {tool}
-        </motion.div>
-      ))}
-    </motion.div>
+      <section className="grid gap-4 lg:grid-cols-[.9fr_1.1fr]">
+        <div className="rounded-[22px] border p-5" style={{ backgroundColor: theme.white, borderColor: theme.border }}><div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-orange-500"><Lightning size={14} weight="fill" /> What I can help build</div><h2 className="mt-3 text-2xl font-bold" style={{ color: theme.text }}>Practical software, not inflated promises.</h2><p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>Responsive websites, React and Next.js interfaces, database-driven applications, API integrations, AI-powered web features, and workflow experiments with Make.com.</p><Link href="/services" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-orange-600">See capability areas <ArrowRight size={15} /></Link></div>
+        <div className="rounded-[22px] border p-5" style={{ backgroundColor: theme.panelSoft, borderColor: theme.border }}><div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.subtle }}><CheckCircle size={14} className="text-emerald-500" /> My AI-assisted workflow</div><div className="mt-4 grid gap-2 sm:grid-cols-2">{buildNotes.map(([number, label]) => <div key={number} className="flex gap-3 rounded-2xl border p-3" style={{ borderColor: theme.border, backgroundColor: theme.white }}><span className="font-mono text-xs text-orange-500">{number}</span><span className="text-sm" style={{ color: theme.text }}>{label}</span></div>)}</div><div className="mt-4 flex items-center gap-3 text-xs" style={{ color: theme.muted }}><GithubLogo size={16} /> ChatGPT · Gemini · Claude · Manus · Codex · Copilot</div></div>
+      </section>
+    </div>
   );
 }

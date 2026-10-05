@@ -4,85 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --shell-bg: #020202;
-  --panel-bg: #f5f1ee;
-  --card-bg: #f9f5f2;
-  --line: #e4ded7;
-  --primary: #f97316;
-  --primary-soft: #f6d9c7;
-  --text: #111827;
-  --muted: #4b5563;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  background: var(--shell-bg);
-}
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--shell-bg);
-  color: var(--text);
-}
-
-a {
-  text-decoration: none;
-}
-
-button,
-input,
-textarea {
-  font: inherit;
-}
-
-#__next {
-  min-height: 100vh;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #f97316;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ea580c;
-}
-
-/* Smooth transitions */
-.transition-smooth {
-  transition: all 0.3s ease-in-out;
-}
-
-/* Text gradient */
-.gradient-text {
-  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Selection styling */
-::selection {
-  background-color: #f97316;
-  color: #ffffff;
-}
-
-::-moz-selection {
-  background-color: #f97316;
-  color: #ffffff;
-}
+:root { --shell-bg: #020202; --panel-bg: #f5f1ee; --card-bg: #f9f5f2; --line: #e4ded7; --primary: #f97316; --text: #111827; --muted: #4b5563; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--shell-bg); }
+body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--shell-bg); color: var(--text); }
+a { text-decoration: none; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background-color: #f97316; color: #fff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #111827; }
+::-webkit-scrollbar-thumb { background: #f97316; border-radius: 999px; }
+:focus-visible { outline: 2px solid #f97316; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
