@@ -1,57 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --shell-bg: #eaf2f8;
-  --panel-bg: #f5f9fc;
-  --card-bg: #ffffff;
-  --line: #d7e3ed;
-  --primary: #1677e8;
-  --primary-soft: #66d7f5;
-  --text: #102a43;
-  --muted: #5d748a;
+  --shell-bg: #020202;
+  --panel-bg: #f5f1ee;
+  --card-bg: #f9f5f2;
+  --line: #e4ded7;
+  --primary: #f97316;
+  --primary-soft: #f6d9c7;
+  --text: #111827;
+  --muted: #4b5563;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--shell-bg); }
-body { margin: 0; font-family: 'Space Grotesk', sans-serif; background: var(--shell-bg); color: var(--text); }
-a { text-decoration: none; }
-button, input, textarea { font: inherit; }
-#__next { min-height: 100vh; }
+* {
+  box-sizing: border-box;
+}
 
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #dce8f1; }
-::-webkit-scrollbar-thumb { background: #4098df; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #f08b41; }
+html {
+  scroll-behavior: smooth;
+  background: var(--shell-bg);
+}
 
-.transition-smooth { transition: all 0.3s ease-in-out; }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--shell-bg);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+#__next {
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Text gradient */
 .gradient-text {
-  background: linear-gradient(110deg, #ee7a32 0%, #d9468d 46%, #1677e8 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-::selection { background-color: #1677e8; color: #fff; }
-::-moz-selection { background-color: #1677e8; color: #fff; }
 
-/* Contained atmospheric artwork: it lives only in the topbar and sidebar rail. */
-.topography-viewport { position: absolute; inset: 0 0 0 42%; overflow: hidden; pointer-events: none; z-index: 0; opacity: .9; }
-.topography-viewport::before {
-  content: ''; position: absolute; inset: -70% -12%;
-  background: repeating-radial-gradient(ellipse at 52% 52%, transparent 0 13px, rgba(242,117,55,.72) 14px 15px, transparent 16px 28px), repeating-radial-gradient(ellipse at 54% 46%, transparent 0 21px, rgba(222,52,137,.66) 22px 23px, transparent 24px 43px);
-  filter: blur(.15px); transform: rotate(-10deg) scale(1.18); mix-blend-mode: multiply; animation: topography-morph 18s ease-in-out infinite alternate;
+/* Selection styling */
+::selection {
+  background-color: #f97316;
+  color: #ffffff;
 }
-.topography-viewport::after {
-  content: ''; position: absolute; left: -15%; right: -15%; top: 42%; height: 18%;
-  background: linear-gradient(90deg, transparent, rgba(255,112,55,.2) 15%, rgba(224,33,131,.86) 48%, rgba(255,170,61,.28) 72%, transparent);
-  filter: blur(10px); transform: skewX(-18deg); animation: topography-streak 9s ease-in-out infinite;
+
+::-moz-selection {
+  background-color: #f97316;
+  color: #ffffff;
 }
-.topography-viewport .topography-core { position: absolute; inset: 0; background: radial-gradient(ellipse at 55% 50%, rgba(255,191,107,.28), transparent 11%), radial-gradient(ellipse at 70% 50%, rgba(211,47,132,.24), transparent 27%); animation: topography-pulse 6s ease-in-out infinite; }
-.topography-art-content { position: relative; z-index: 1; }
-.topography-bar { position: relative; isolation: isolate; overflow: hidden; }
-.topography-sidebar { position: relative; }
-@keyframes topography-morph { from { transform: rotate(-10deg) scale(1.12) translate3d(-2%, -1%, 0); } to { transform: rotate(-5deg) scale(1.2) translate3d(4%, 2%, 0); } }
-@keyframes topography-streak { 0%, 100% { opacity: .2; transform: translateX(-18%) skewX(-18deg); } 50% { opacity: 1; transform: translateX(16%) skewX(-18deg); } }
-@keyframes topography-pulse { 0%, 100% { opacity: .42; transform: scale(.96); } 50% { opacity: .95; transform: scale(1.08); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
