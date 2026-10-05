@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#f97316" />
       </head>
-      <body className="bg-[#020202] font-poppins text-slate-900 antialiased">
+      <body className="bg-[#eaf2f8] font-poppins text-slate-900 antialiased">
         <PortfolioShell>{children}</PortfolioShell>
       </body>
     </html>

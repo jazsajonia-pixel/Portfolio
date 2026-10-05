@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --shell-bg: #050b16;
-  --panel-bg: #091225;
-  --card-bg: #0c1b32;
-  --line: #21456f;
-  --primary: #69d7ff;
-  --primary-soft: #2f7dff;
-  --text: #edf7ff;
-  --muted: #9db5cc;
+  --shell-bg: #eaf2f8;
+  --panel-bg: #f5f9fc;
+  --card-bg: #ffffff;
+  --line: #d7e3ed;
+  --primary: #1677e8;
+  --primary-soft: #66d7f5;
+  --text: #102a43;
+  --muted: #5d748a;
 }
 
 * { box-sizing: border-box; }
@@ -23,48 +23,39 @@ button, input, textarea { font: inherit; }
 #__next { min-height: 100vh; }
 
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #06101f; }
-::-webkit-scrollbar-thumb { background: #318dff; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #75e4ff; }
+::-webkit-scrollbar-track { background: #dce8f1; }
+::-webkit-scrollbar-thumb { background: #4098df; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #f08b41; }
 
 .transition-smooth { transition: all 0.3s ease-in-out; }
 .gradient-text {
-  background: linear-gradient(110deg, #b8f3ff 0%, #69d7ff 45%, #4287ff 100%);
+  background: linear-gradient(110deg, #ee7a32 0%, #d9468d 46%, #1677e8 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-::selection { background-color: #2f8dff; color: #fff; }
-::-moz-selection { background-color: #2f8dff; color: #fff; }
+::selection { background-color: #1677e8; color: #fff; }
+::-moz-selection { background-color: #1677e8; color: #fff; }
 
-.honeycomb-backdrop { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; background: #071225; }
-.honeycomb-backdrop::before {
-  content: ''; position: absolute; inset: -12%; opacity: .72;
-  background-color: #09172b;
-  background-image:
-    linear-gradient(30deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
-    linear-gradient(150deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
-    linear-gradient(30deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
-    linear-gradient(150deg, rgba(94,173,255,.22) 12%, transparent 12.5%, transparent 87%, rgba(94,173,255,.22) 87.5%, rgba(94,173,255,.22)),
-    linear-gradient(60deg, rgba(94,173,255,.18) 25%, transparent 25.5%, transparent 75%, rgba(94,173,255,.18) 75%);
-  background-position: 0 0, 0 0, 56px 98px, 56px 98px, 0 0;
-  background-size: 112px 196px;
-  transform: rotate(-1deg) scale(1.08);
-  animation: honeycomb-drift 32s linear infinite;
+/* Contained atmospheric artwork: it lives only in the topbar and sidebar rail. */
+.topography-viewport { position: absolute; inset: 0 0 0 42%; overflow: hidden; pointer-events: none; z-index: 0; opacity: .9; }
+.topography-viewport::before {
+  content: ''; position: absolute; inset: -70% -12%;
+  background: repeating-radial-gradient(ellipse at 52% 52%, transparent 0 13px, rgba(242,117,55,.72) 14px 15px, transparent 16px 28px), repeating-radial-gradient(ellipse at 54% 46%, transparent 0 21px, rgba(222,52,137,.66) 22px 23px, transparent 24px 43px);
+  filter: blur(.15px); transform: rotate(-10deg) scale(1.18); mix-blend-mode: multiply; animation: topography-morph 18s ease-in-out infinite alternate;
 }
-.honeycomb-backdrop::after {
-  content: ''; position: absolute; inset: -20%;
-  background:
-    radial-gradient(circle at 20% 24%, rgba(47,141,255,.35), transparent 13%),
-    radial-gradient(circle at 72% 14%, rgba(117,228,255,.32), transparent 12%),
-    radial-gradient(circle at 76% 76%, rgba(47,141,255,.28), transparent 16%),
-    linear-gradient(115deg, transparent 20%, rgba(117,228,255,.08) 46%, transparent 60%);
-  filter: blur(18px);
-  animation: honeycomb-glow 14s ease-in-out infinite alternate;
+.topography-viewport::after {
+  content: ''; position: absolute; left: -15%; right: -15%; top: 42%; height: 18%;
+  background: linear-gradient(90deg, transparent, rgba(255,112,55,.2) 15%, rgba(224,33,131,.86) 48%, rgba(255,170,61,.28) 72%, transparent);
+  filter: blur(10px); transform: skewX(-18deg); animation: topography-streak 9s ease-in-out infinite;
 }
-.honeycomb-glow { position: absolute; inset: 0; opacity: .9; background: radial-gradient(circle at 48% 22%, rgba(142,235,255,.38), transparent 7%), radial-gradient(circle at 12% 73%, rgba(52,137,255,.32), transparent 8%), radial-gradient(circle at 86% 64%, rgba(86,195,255,.28), transparent 7%); mix-blend-mode: screen; animation: cell-pulse 7s ease-in-out infinite; }
-.honeycomb-scan { position: absolute; inset: -30% 0; background: linear-gradient(180deg, transparent 42%, rgba(117,228,255,.11) 50%, transparent 58%); transform: skewY(-8deg); animation: scanline 11s ease-in-out infinite; }
-.cosmic-content { position: relative; z-index: 1; }
-@keyframes honeycomb-drift { from { background-position: 0 0, 0 0, 56px 98px, 56px 98px, 0 0; } to { background-position: 112px 196px, 112px 196px, 168px 294px, 168px 294px, 112px 196px; } }
-@keyframes honeycomb-glow { from { transform: translate3d(-2%, -1%, 0) scale(1); } to { transform: translate3d(3%, 2%, 0) scale(1.1); } }
-@keyframes cell-pulse { 0%, 100% { opacity: .45; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.05); } }
-@keyframes scanline { 0%, 100% { transform: translateY(-18%) skewY(-8deg); opacity: 0; } 35%, 70% { opacity: .9; } 50% { transform: translateY(18%) skewY(-8deg); } }
+.topography-viewport .topography-core { position: absolute; inset: 0; background: radial-gradient(ellipse at 55% 50%, rgba(255,191,107,.28), transparent 11%), radial-gradient(ellipse at 70% 50%, rgba(211,47,132,.24), transparent 27%); animation: topography-pulse 6s ease-in-out infinite; }
+.topography-rail { position: absolute; left: -22px; right: -22px; bottom: -18px; height: 180px; overflow: hidden; pointer-events: none; z-index: 0; opacity: .72; }
+.topography-rail::before { content: ''; position: absolute; inset: -55% -28%; background: repeating-radial-gradient(ellipse at 50% 50%, transparent 0 11px, rgba(216,53,130,.42) 12px 13px, transparent 14px 25px), repeating-radial-gradient(ellipse at 48% 52%, transparent 0 18px, rgba(238,111,47,.38) 19px 20px, transparent 21px 36px); transform: rotate(12deg); animation: topography-morph 22s ease-in-out infinite alternate-reverse; }
+.topography-rail::after { content: ''; position: absolute; left: -10%; right: -10%; top: 46%; height: 16px; background: linear-gradient(90deg, transparent, rgba(218,42,126,.6), rgba(244,143,54,.48), transparent); filter: blur(7px); animation: topography-streak 10s ease-in-out infinite reverse; }
+.topography-art-content { position: relative; z-index: 1; }
+.topography-bar { position: relative; isolation: isolate; overflow: hidden; }
+.topography-sidebar { position: relative; isolation: isolate; overflow: hidden; }
+.topography-sidebar > *:not(.topography-rail) { position: relative; z-index: 1; }
+@keyframes topography-morph { from { transform: rotate(-10deg) scale(1.12) translate3d(-2%, -1%, 0); } to { transform: rotate(-5deg) scale(1.2) translate3d(4%, 2%, 0); } }
+@keyframes topography-streak { 0%, 100% { opacity: .2; transform: translateX(-18%) skewX(-18deg); } 50% { opacity: 1; transform: translateX(16%) skewX(-18deg); } }
+@keyframes topography-pulse { 0%, 100% { opacity: .42; transform: scale(.96); } 50% { opacity: .95; transform: scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }

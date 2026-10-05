@@ -65,7 +65,7 @@ export default function PortfolioShell({ children }) {
       x,
       y,
       radius,
-      color: nextDark ? '#050b16' : '#091225',
+      color: nextDark ? '#08101f' : '#f5f9fc',
       nextDark,
     });
 
@@ -77,14 +77,14 @@ export default function PortfolioShell({ children }) {
 
   const theme = isDark
     ? {
-        page: '#050b16', window: '#071225', sidebar: 'rgba(6,16,32,.92)', panel: 'rgba(7,18,36,.9)', panelSoft: 'rgba(10,28,53,.88)',
-        border: '#21456f', text: '#edf7ff', muted: '#9db5cc', subtle: '#7694b1', white: '#102846',
-        chip: '#15385d', bluePanel: '#0d2948', darkBox: '#040b16', darkBox2: '#0a1a31', button: '#69d7ff', buttonText: '#06111e',
+        page: '#08101f', window: '#0c1a2d', sidebar: '#0e2037', panel: '#10243c', panelSoft: '#142d49',
+        border: '#2d5377', text: '#f2f8ff', muted: '#b5c8d9', subtle: '#91aac0', white: '#173754',
+        chip: '#1d486d', bluePanel: '#143b5e', darkBox: '#07111f', darkBox2: '#102744', button: '#75dff6', buttonText: '#072033',
       }
     : {
-        page: '#050b16', window: '#071225', sidebar: 'rgba(6,16,32,.92)', panel: 'rgba(7,18,36,.9)', panelSoft: 'rgba(10,28,53,.88)',
-        border: '#21456f', text: '#edf7ff', muted: '#9db5cc', subtle: '#7694b1', white: '#102846',
-        chip: '#15385d', bluePanel: '#0d2948', darkBox: '#040b16', darkBox2: '#0a1a31', button: '#69d7ff', buttonText: '#06111e',
+        page: '#eaf2f8', window: '#f7fbff', sidebar: '#ffffff', panel: '#f1f6fa', panelSoft: '#ffffff',
+        border: '#d7e3ed', text: '#102a43', muted: '#5d748a', subtle: '#6f879d', white: '#ffffff',
+        chip: '#e4f3fb', bluePanel: '#eaf7fc', darkBox: '#102a43', darkBox2: '#1d4669', button: '#1677e8', buttonText: '#ffffff',
       };
 
   return (
@@ -106,7 +106,6 @@ export default function PortfolioShell({ children }) {
           className="relative mx-auto flex min-h-screen w-full flex-col overflow-hidden transition-[background-color] duration-700 ease-out"
           style={{ backgroundColor: theme.window }}
         >
-          <div className="honeycomb-backdrop" aria-hidden="true"><div className="honeycomb-glow" /><div className="honeycomb-scan" /></div>
           <div className="cosmic-content">
           <TopBar theme={theme} isDark={isDark}>
             <button
@@ -183,15 +182,16 @@ export default function PortfolioShell({ children }) {
 function TopBar({ theme, isDark, children }) {
   return (
     <div
-      className="flex h-12 shrink-0 items-center justify-between border-b px-4 transition-colors duration-700"
+      className="topography-bar flex h-12 shrink-0 items-center justify-between border-b px-4 transition-colors duration-700"
       style={{ backgroundColor: theme.sidebar, borderColor: theme.border }}
     >
-      <div className="flex items-center gap-2">
+      <div className="topography-viewport" aria-hidden="true"><div className="topography-core" /></div>
+      <div className="topography-art-content flex items-center gap-2">
         <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
         <span className="h-3 w-3 rounded-full bg-[#fdbb2d]" />
         <span className="h-3 w-3 rounded-full bg-[#28c840]" />
       </div>
-      <div className="flex items-center gap-3">
+      <div className="topography-art-content flex items-center gap-3">
         <span
           className="rounded-full border px-3 py-1 text-[11px] transition-colors duration-700"
           style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.muted }}
@@ -222,9 +222,10 @@ function Sidebar({ theme }) {
 
   return (
     <aside
-      className="flex w-full shrink-0 flex-col border-b p-4 transition-colors duration-700 md:w-[260px] md:border-b-0 md:border-r md:p-5"
+      className="topography-sidebar flex w-full shrink-0 flex-col border-b p-4 transition-colors duration-700 md:w-[260px] md:border-b-0 md:border-r md:p-5"
       style={{ backgroundColor: theme.sidebar, borderColor: theme.border }}
     >
+      <div className="topography-rail" aria-hidden="true" />
       <motion.div
         initial={{ opacity: 0, x: -18 }}
         animate={{ opacity: 1, x: 0 }}
