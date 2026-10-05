@@ -24,7 +24,7 @@ export default function PortfolioShell({ children }) {
 
   useEffect(() => {
     try {
-      setIsDark(window.localStorage.getItem('portfolio-theme-v2') === 'dark');
+      setIsDark(window.localStorage.getItem('portfolio-theme') === 'dark');
     } catch {
       // Keep the default theme when browser storage is unavailable.
     }
@@ -37,7 +37,7 @@ export default function PortfolioShell({ children }) {
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
     if (!themeReady) return;
     try {
-      window.localStorage.setItem('portfolio-theme-v2', isDark ? 'dark' : 'light');
+      window.localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
     } catch {
       // Theme switching still works without persistent storage.
     }
@@ -65,7 +65,7 @@ export default function PortfolioShell({ children }) {
       x,
       y,
       radius,
-      color: nextDark ? '#08101f' : '#f5f9fc',
+      color: nextDark ? '#0b0d10' : '#f7f3ef',
       nextDark,
     });
 
@@ -77,14 +77,40 @@ export default function PortfolioShell({ children }) {
 
   const theme = isDark
     ? {
-        page: '#08101f', window: '#0c1a2d', sidebar: '#0e2037', panel: '#10243c', panelSoft: '#142d49',
-        border: '#2d5377', text: '#f2f8ff', muted: '#b5c8d9', subtle: '#91aac0', white: '#173754',
-        chip: '#1d486d', bluePanel: '#143b5e', darkBox: '#07111f', darkBox2: '#102744', button: '#75dff6', buttonText: '#072033',
+        page: '#080a0d',
+        window: '#101318',
+        sidebar: '#13171c',
+        panel: '#171b21',
+        panelSoft: '#1b2027',
+        border: '#2b323d',
+        text: '#f5f7fa',
+        muted: '#a0a9b7',
+        subtle: '#7d8796',
+        white: '#20252d',
+        chip: '#242a33',
+        bluePanel: '#18232e',
+        darkBox: '#080a0d',
+        darkBox2: '#111720',
+        button: '#f5f7fa',
+        buttonText: '#101318',
       }
     : {
-        page: '#eaf2f8', window: '#f7fbff', sidebar: '#ffffff', panel: '#f1f6fa', panelSoft: '#ffffff',
-        border: '#d7e3ed', text: '#102a43', muted: '#5d748a', subtle: '#6f879d', white: '#ffffff',
-        chip: '#e4f3fb', bluePanel: '#eaf7fc', darkBox: '#102a43', darkBox2: '#1d4669', button: '#1677e8', buttonText: '#ffffff',
+        page: '#020202',
+        window: '#f5f1ee',
+        sidebar: '#f8f5f1',
+        panel: '#f7f3ef',
+        panelSoft: '#fcf9f6',
+        border: '#e4ded7',
+        text: '#111827',
+        muted: '#6b7280',
+        subtle: '#4b5563',
+        white: '#ffffff',
+        chip: '#f2f5f9',
+        bluePanel: '#dfeaf7',
+        darkBox: '#161a20',
+        darkBox2: '#101827',
+        button: '#111827',
+        buttonText: '#ffffff',
       };
 
   return (
@@ -103,10 +129,9 @@ export default function PortfolioShell({ children }) {
         }}
       >
         <div
-          className="relative mx-auto flex min-h-screen w-full flex-col overflow-hidden transition-[background-color] duration-700 ease-out"
+          className="mx-auto flex min-h-screen w-full flex-col overflow-hidden transition-[background-color] duration-700 ease-out"
           style={{ backgroundColor: theme.window }}
         >
-          <div className="cosmic-content">
           <TopBar theme={theme} isDark={isDark}>
             <button
               ref={toggleRef}
@@ -150,7 +175,6 @@ export default function PortfolioShell({ children }) {
 
             </main>
           </div>
-          </div>
         </div>
 
         <AnimatePresence>
@@ -182,16 +206,15 @@ export default function PortfolioShell({ children }) {
 function TopBar({ theme, isDark, children }) {
   return (
     <div
-      className="topography-bar flex h-12 shrink-0 items-center justify-between border-b px-4 transition-colors duration-700"
-      style={{ backgroundColor: theme.sidebar, borderColor: theme.border }}
+      className="flex h-12 shrink-0 items-center justify-between border-b px-4 transition-colors duration-700"
+      style={{ backgroundColor: isDark ? '#12151a' : '#f1efe9', borderColor: theme.border }}
     >
-      <div className="topography-viewport" aria-hidden="true"><div className="topography-core" /></div>
-      <div className="topography-art-content flex items-center gap-2">
+      <div className="flex items-center gap-2">
         <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
         <span className="h-3 w-3 rounded-full bg-[#fdbb2d]" />
         <span className="h-3 w-3 rounded-full bg-[#28c840]" />
       </div>
-      <div className="topography-art-content flex items-center gap-3">
+      <div className="flex items-center gap-3">
         <span
           className="rounded-full border px-3 py-1 text-[11px] transition-colors duration-700"
           style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.muted }}
@@ -222,7 +245,7 @@ function Sidebar({ theme }) {
 
   return (
     <aside
-      className="topography-sidebar flex w-full shrink-0 flex-col border-b p-4 transition-colors duration-700 md:w-[260px] md:border-b-0 md:border-r md:p-5"
+      className="flex w-full shrink-0 flex-col border-b p-4 transition-colors duration-700 md:w-[260px] md:border-b-0 md:border-r md:p-5"
       style={{ backgroundColor: theme.sidebar, borderColor: theme.border }}
     >
       <motion.div
