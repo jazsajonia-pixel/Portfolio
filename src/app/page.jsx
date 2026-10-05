@@ -5,8 +5,10 @@ import { usePortfolioTheme } from '@/components/PortfolioShell';
 import profileImage from '../../assets/profile.jpeg';
 import {
   ArrowRight,
+  ArrowSquareOut,
   CheckCircle,
   Lightning,
+  GithubLogo,
   Sparkle,
   Star,
 } from 'phosphor-react';
@@ -18,10 +20,11 @@ const tools = [
 
 const cards = [
   {
-    title: 'Projects',
-    label: 'Recent builds',
-    text: 'Funnels, workflows and apps built to solve real business problems.',
-    light: '#f9e9d9',
+    title: 'Mobile Development AI',
+    label: 'Featured live build',
+    text: 'Build, edit, preview, and ship GitHub projects with an AI coding agent—from your phone.',
+    featured: true,
+    light: '#fffaf6',
     dark: '#30261f',
   },
   {
@@ -74,62 +77,66 @@ export default function Home() {
 
       <section className="mt-8 grid gap-4 lg:grid-cols-3">
         {cards.map((card, index) => (
-          <motion.article
-            key={card.title}
-            initial={{ opacity: 0, y: 45, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.1 * index + 0.2, duration: 0.65, type: 'spring', stiffness: 90 }}
-            whileHover={{ y: -8, scale: 1.015 }}
-            className="group rounded-[22px] border p-4 shadow-sm transition-colors duration-700"
-            style={{ backgroundColor: isDark ? card.dark : card.light, borderColor: theme.border }}
-          >
-            <div className="mb-5 flex items-center justify-between">
-              <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
-                {card.label}
-              </span>
-              <motion.span
-                whileHover={{ rotate: 45 }}
-                className="rounded-full p-2 transition-colors duration-700"
-                style={{ backgroundColor: isDark ? '#ffffff12' : '#ffffffcc', color: theme.text }}
-              >
-                <ArrowRight size={15} />
-              </motion.span>
-            </div>
-
-            <h2 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>
-              {card.title}
-            </h2>
-
-            <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>
-              {card.text}
-            </p>
-
-            <motion.div
-              whileHover={{ scale: 1.025 }}
-              className="mt-5 h-32 rounded-[18px] p-3 text-white shadow-inner"
-              style={{ backgroundColor: theme.darkBox }}
+          card.featured ? (
+            <FeaturedBuildCard key={card.title} theme={theme} isDark={isDark} card={card} />
+          ) : (
+            <motion.article
+              key={card.title}
+              initial={{ opacity: 0, y: 45, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.1 * index + 0.2, duration: 0.65, type: 'spring', stiffness: 90 }}
+              whileHover={{ y: -8, scale: 1.015 }}
+              className="group rounded-[22px] border p-4 shadow-sm transition-colors duration-700"
+              style={{ backgroundColor: isDark ? card.dark : card.light, borderColor: theme.border }}
             >
-              <div
-                className="flex h-full items-end justify-between rounded-[12px] border p-3"
-                style={{
-                  borderColor: '#ffffff1a',
-                  background: `linear-gradient(135deg, ${theme.darkBox2}, ${isDark ? '#141922' : '#171d29'}, #0e1724)`,
-                }}
-              >
-                <div>
-                  <div className="text-[10px] uppercase tracking-[0.12em] text-slate-400">Build</div>
-                  <div className="mt-2 text-xl font-bold">Flow</div>
-                </div>
-                <motion.div
-                  animate={{ opacity: [0.45, 1, 0.45], y: [0, -3, 0] }}
-                  transition={{ duration: 2.2, repeat: Infinity }}
-                  className="text-xs text-sky-300"
+              <div className="mb-5 flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: theme.subtle }}>
+                  {card.label}
+                </span>
+                <motion.span
+                  whileHover={{ rotate: 45 }}
+                  className="rounded-full p-2 transition-colors duration-700"
+                  style={{ backgroundColor: isDark ? '#ffffff12' : '#ffffffcc', color: theme.text }}
                 >
-                  Live
-                </motion.div>
+                  <ArrowRight size={15} />
+                </motion.span>
               </div>
-            </motion.div>
-          </motion.article>
+
+              <h2 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>
+                {card.title}
+              </h2>
+
+              <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>
+                {card.text}
+              </p>
+
+              <motion.div
+                whileHover={{ scale: 1.025 }}
+                className="mt-5 h-32 rounded-[18px] p-3 text-white shadow-inner"
+                style={{ backgroundColor: theme.darkBox }}
+              >
+                <div
+                  className="flex h-full items-end justify-between rounded-[12px] border p-3"
+                  style={{
+                    borderColor: '#ffffff1a',
+                    background: `linear-gradient(135deg, ${theme.darkBox2}, ${isDark ? '#141922' : '#171d29'}, #0e1724)`,
+                  }}
+                >
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.12em] text-slate-400">Build</div>
+                    <div className="mt-2 text-xl font-bold">Flow</div>
+                  </div>
+                  <motion.div
+                    animate={{ opacity: [0.45, 1, 0.45], y: [0, -3, 0] }}
+                    transition={{ duration: 2.2, repeat: Infinity }}
+                    className="text-xs text-sky-300"
+                  >
+                    Live
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.article>
+          )
         ))}
       </section>
 
@@ -214,6 +221,66 @@ export default function Home() {
         </Panel>
       </section>
     </>
+  );
+}
+
+function FeaturedBuildCard({ theme, isDark, card }) {
+  const techStack = ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'CodeMirror', 'GitHub OAuth'];
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 45, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay: 0.2, duration: 0.65, type: 'spring', stiffness: 90 }}
+      whileHover={{ y: -8, scale: 1.015 }}
+      className="group overflow-hidden rounded-[22px] border p-4 shadow-[0_18px_45px_rgba(15,23,42,.12)] transition-colors duration-700"
+      style={{ backgroundColor: isDark ? card.dark : card.light, borderColor: '#f97316' }}
+    >
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.13em] text-emerald-700 dark:text-emerald-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,.75)]" />
+          Featured live build
+        </span>
+        <span className="rounded-full border border-orange-300/60 bg-orange-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-orange-700">
+          Production demo
+        </span>
+      </div>
+
+      <h2 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>Mobile Development AI</h2>
+      <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>{card.text}</p>
+
+      <div className="relative mt-5 overflow-hidden rounded-[18px] border border-white/10 bg-[#0b0d12] p-3 shadow-[0_-18px_34px_-24px_rgba(249,115,22,.9),0_24px_42px_-18px_rgba(15,23,42,.9)]">
+        <div className="mb-3 flex items-center gap-1.5 rounded-[10px] border border-white/10 bg-[#171a22] px-3 py-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#fdbb2d]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+          <span className="ml-2 truncate font-mono text-[9px] text-slate-400">mobdevai-demo.netlify.app</span>
+        </div>
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[12px] border border-white/10 bg-[#0d0f12]">
+          <img src="/projects/mobdevai-landing.webp" alt="Mobile Development AI landing page" className="absolute inset-0 h-full w-full object-cover object-top opacity-90 transition duration-700 group-hover:scale-[1.025]" />
+          <div className="absolute right-3 top-8 h-[72%] w-[82%] overflow-hidden rounded-[10px] border border-white/20 bg-[#11131b] shadow-[0_16px_30px_rgba(0,0,0,.7)] transition duration-700 group-hover:-translate-y-1 group-hover:rotate-[1deg]">
+            <img src="/projects/mobdevai-workspace.webp" alt="Mobile Development AI workspace with Files, AI, Preview, and Git tabs" className="h-full w-full object-cover object-top" />
+          </div>
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0b0d12]/95 via-[#0b0d12]/40 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0b0d12]/95 via-[#0b0d12]/35 to-transparent" />
+        </div>
+      </div>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {techStack.map((tech) => (
+          <span key={tech} className="rounded-full border border-orange-200 bg-white/75 px-2.5 py-1 text-[10px] font-semibold text-slate-600 shadow-sm">{tech}</span>
+        ))}
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-center gap-3">
+        <motion.a whileHover={{ x: 3 }} href="https://mobdevai-demo.netlify.app/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(249,115,22,.22)]">
+          View Live Demo <ArrowSquareOut size={15} />
+        </motion.a>
+        <motion.a whileHover={{ x: 3 }} href="https://github.com/jazsajonia-pixel/mobdevai" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:border-orange-300">
+          GitHub Repository <GithubLogo size={15} />
+        </motion.a>
+      </div>
+    </motion.article>
   );
 }
 
