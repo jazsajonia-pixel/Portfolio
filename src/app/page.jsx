@@ -249,20 +249,20 @@ function FeaturedBuildCard({ theme, isDark, card }) {
       <h2 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>Mobile Development AI</h2>
       <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>{card.text}</p>
 
-      <div className="relative mt-5 overflow-hidden rounded-[18px] border border-white/10 bg-[#0b0d12] p-3 shadow-[0_-18px_34px_-24px_rgba(249,115,22,.9),0_24px_42px_-18px_rgba(15,23,42,.9)]">
+      <div className="relative mx-auto mt-5 max-w-[310px] overflow-hidden rounded-[18px] border border-white/10 bg-[#0b0d12] p-3 shadow-sm">
         <div className="mb-3 flex items-center gap-1.5 rounded-[10px] border border-white/10 bg-[#171a22] px-3 py-2">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#fdbb2d]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
           <span className="ml-2 truncate font-mono text-[9px] text-slate-400">mobdevai-demo.netlify.app</span>
         </div>
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[12px] border border-white/10 bg-[#0d0f12]">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[12px] border border-white/10 bg-[#0d0f12] shadow-[inset_0_28px_32px_rgba(0,0,0,.92),inset_0_-28px_32px_rgba(0,0,0,.96)]">
           <img src="/projects/mobdevai-landing.webp" alt="Mobile Development AI landing page" className="absolute inset-0 h-full w-full object-cover object-top opacity-90 transition duration-700 group-hover:scale-[1.025]" />
           <div className="absolute right-3 top-8 h-[72%] w-[82%] overflow-hidden rounded-[10px] border border-white/20 bg-[#11131b] shadow-[0_16px_30px_rgba(0,0,0,.7)] transition duration-700 group-hover:-translate-y-1 group-hover:rotate-[1deg]">
             <img src="/projects/mobdevai-workspace.webp" alt="Mobile Development AI workspace with Files, AI, Preview, and Git tabs" className="h-full w-full object-cover object-top" />
           </div>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0b0d12]/95 via-[#0b0d12]/40 to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0b0d12]/95 via-[#0b0d12]/35 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black via-black/55 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black via-black/55 to-transparent" />
         </div>
       </div>
 
