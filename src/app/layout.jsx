@@ -3,7 +3,7 @@ import PortfolioShell from '@/components/PortfolioShell';
 import { defaultSEO } from '@/lib/seo';
 
 export const metadata = {
-  title: 'Jazz Sajonia | Web Developer & AI Automation Specialist',
+  title: 'Jazz Sajonia | Web Developer & AI-Assisted Projects',
   description: defaultSEO.description,
   keywords: [
     'Web Developer',
@@ -18,14 +18,14 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jazzxajonia.com',
+    url: 'https://portfolio-chrono8.vercel.app',
     siteName: 'Jazz Sajonia Portfolio',
-    title: 'Jazz Sajonia | Web Developer & AI Automation Specialist',
+    title: 'Jazz Sajonia | Web Developer & AI-Assisted Projects',
     description: defaultSEO.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jazz Sajonia | Web Developer & AI Automation Specialist',
+    title: 'Jazz Sajonia | Web Developer & AI-Assisted Projects',
     description: defaultSEO.description,
   },
   robots: {
@@ -39,7 +39,6 @@ export const metadata = {
       'max-video-preview': -1,
     },
   },
-  verification: { google: 'google-site-verification-code' },
 };
 
 export default function RootLayout({ children }) {

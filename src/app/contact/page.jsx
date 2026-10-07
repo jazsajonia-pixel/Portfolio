@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { EnvelopeSimple, Phone, MapPin, PaperPlaneTilt, CheckCircle } from 'phosphor-react';
+import { EnvelopeSimple, Phone, MapPin } from 'phosphor-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -11,8 +11,6 @@ export default function ContactPage() {
     subject: '',
     message: '',
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -23,13 +21,13 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would send the form data to your backend or email service
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    const body = [
+      `Name: ${formData.name}`,
+      `Reply-to: ${formData.email}`,
+      '',
+      formData.message,
+    ].join('\n');
+    window.location.href = `mailto:jaz.sajonia@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const contactInfo = [
@@ -222,18 +220,13 @@ export default function ContactPage() {
               type="submit"
               className="w-full flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition-smooth"
             >
-              {isSubmitted ? (
-                <>
-                  <CheckCircle size={20} weight="fill" />
-                  Message Sent!
-                </>
-              ) : (
-                <>
-                  <PaperPlaneTilt size={20} />
-                  Send Message
-                </>
-              )}
+              <EnvelopeSimple size={20} weight="fill" />
+              Open email draft
             </motion.button>
+            <p className="text-center text-xs leading-5 text-portfolio-muted">
+              This opens a draft in your email app. The portfolio does not send or store your message;
+              you still need to press Send.
+            </p>
           </div>
         </motion.form>
       </div>
@@ -252,7 +245,7 @@ export default function ContactPage() {
           looking to scale, I'm here to help turn your vision into reality.
         </p>
         <p className="text-primary-500 font-semibold">
-          Expect a response within 24 hours.
+          The email link above opens your message in your email app.
         </p>
       </motion.div>
     </section>

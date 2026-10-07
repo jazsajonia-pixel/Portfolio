@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import AnimatedProjectPreview from '@/components/AnimatedProjectPreview';
 import { usePortfolioTheme } from '@/components/PortfolioShell';
 import profileImage from '../../assets/profile.jpeg';
 import {
@@ -22,6 +23,7 @@ const featuredProjects = [
     description: 'A mobile-first workspace for connecting GitHub projects, working with an AI coding agent, reviewing changes, and previewing builds.',
     tags: ['React', 'TypeScript', 'GitHub workflows'],
     image: '/projects/mobdevai-workspace.webp',
+    animation: '/projects/mobdevai-demo.gif',
     href: '/projects',
     accent: 'orange',
   },
@@ -31,6 +33,7 @@ const featuredProjects = [
     description: 'A portfolio marketplace project with seeded PostgreSQL data, role-based flows, seller dashboards, and a simulated checkout.',
     tags: ['React', 'TypeScript', 'PostgreSQL'],
     image: '/projects/markethub-showcase.jpg',
+    animation: '/projects/markethub-demo.gif',
     href: '/projects',
     accent: 'teal',
   },
@@ -55,7 +58,7 @@ export default function Home() {
           <div>
             <div className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-300">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,.9)]" />
-              Available for thoughtful builds
+              Personal projects · academic work
             </div>
             <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-white sm:text-6xl">
               Full-Stack Web Developer <span className="text-orange-400">building in public.</span>
@@ -98,7 +101,7 @@ export default function Home() {
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3"><div><div className="text-[11px] font-bold uppercase tracking-[0.15em] text-orange-500">Selected work</div><h2 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: theme.text }}>Projects first. Claims second.</h2></div><Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-500">View all projects <ArrowRight size={15} /></Link></div>
         <div className="grid gap-4 lg:grid-cols-2">
           {featuredProjects.map((project, index) => <motion.article key={project.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .1 }} whileHover={{ y: -5 }} className="overflow-hidden rounded-[24px] border" style={{ backgroundColor: theme.white, borderColor: theme.border }}>
-            <div className="relative aspect-[16/9] overflow-hidden bg-slate-950"><img src={project.image} alt={`${project.title} project interface`} className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]" /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" /><span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">{project.eyebrow}</span></div>
+            <div className="relative aspect-[8/5] overflow-hidden bg-slate-950"><AnimatedProjectPreview src={project.animation} poster={project.image} title={project.title} alt={`${project.title} animated project demo`} /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" /><span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">{project.eyebrow}</span></div>
             <div className="p-5"><div className="flex items-start justify-between gap-3"><h3 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>{project.title}</h3><ArrowSquareOut size={18} className="mt-1 shrink-0 text-orange-500" /></div><p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>{project.description}</p><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full px-2.5 py-1 text-[11px] font-semibold" style={{ backgroundColor: theme.chip, color: theme.subtle }}>{tag}</span>)}</div></div>
           </motion.article>)}
         </div>

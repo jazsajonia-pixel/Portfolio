@@ -1,12 +1,12 @@
 export const defaultSEO = {
   titleTemplate: '%s | Jazz Sajonia Portfolio',
   description:
-    'Professional portfolio of Jazz Sajonia - Web Developer & AI Automation Specialist. Explore my projects, services, and expertise in web development and AI automation.',
-  canonical: 'https://github.com/jazsajonia-pixel',
+    'Portfolio of Jazz Sajonia: personal, academic, and practical web development projects, with developing experience in AI-assisted coding and workflow automation.',
+  canonical: 'https://portfolio-chrono8.vercel.app',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://github.com/jazsajonia-pixel',
+    url: 'https://portfolio-chrono8.vercel.app',
     siteName: 'Jazz Sajonia Portfolio',
     images: [],
   },
@@ -19,27 +19,27 @@ export const pageSEO = {
   home: {
     title: 'Home',
     description:
-      'Welcome to Jazz Sajonia portfolio - Web Developer & AI Automation Specialist. Discover my work and services.',
+      'Web development projects by Jazz Sajonia, including personal builds, university work, and practical exploration of AI-assisted development.',
   },
   projects: {
     title: 'Projects',
     description:
-      'Explore the projects I have built showcasing my expertise in web development and AI automation solutions.',
+      'Selected personal and academic builds, with each project’s context, technologies, and Jazz Sajonia’s contribution clearly described.',
   },
   services: {
-    title: 'Services',
+    title: 'Capability Areas',
     description:
-      'Professional web development and AI automation services tailored to your business needs.',
+      'Web development, API, AI, and workflow areas that Jazz Sajonia is building through projects and focused independent practice.',
   },
   about: {
     title: 'About',
     description:
-      'Learn more about Jazz Sajonia - my background, skills, and passion for web development and AI.',
+      'Learn about Jazz Sajonia’s background, current skill levels, and approach to building and reviewing AI-assisted software.',
   },
   contact: {
     title: 'Contact',
     description:
-      'Get in touch with Jazz Sajonia. Let\'s discuss your project or collaboration opportunities.',
+      'Contact Jazz Sajonia directly by email to discuss a project or collaboration.',
   },
 };
 
@@ -48,14 +48,7 @@ export const generateMetadata = (page) => {
   return {
     title: pageData.title,
     description: pageData.description,
-    keywords: [
-      'Web Developer',
-      'AI Automation',
-      'React',
-      'Next.js',
-      'Full Stack Developer',
-      'Portfolio',
-    ],
+    keywords: ['Web Developer', 'React', 'Next.js', 'Portfolio', 'AI-assisted development'],
     openGraph: {
       ...defaultSEO.openGraph,
       title: `${pageData.title} | Jazz Sajonia`,
