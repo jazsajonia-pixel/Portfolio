@@ -24,4 +24,4 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .toolkit-marquee__group { display: flex; flex: none; align-items: center; gap: .5rem; padding-right: .5rem; }
 .toolkit-marquee__item { display: inline-flex; flex: none; align-items: center; border: 1px solid; border-radius: 9999px; padding: .5rem .85rem; font-size: .875rem; font-weight: 500; white-space: nowrap; }
 @keyframes toolkit-scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .toolkit-marquee__track { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .toolkit-marquee { overflow-x: auto; scrollbar-width: thin; -webkit-mask-image: none; mask-image: none; } .toolkit-marquee__track { animation: none; } }

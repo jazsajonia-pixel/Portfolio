@@ -14,7 +14,7 @@ import {
   Star,
 } from 'phosphor-react';
 
-const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'PHP', 'PostgreSQL', 'MySQL', 'Prisma', 'Hono', 'Zod', 'REST APIs', 'Git', 'GitHub', 'Make.com', 'OpenAI API', 'Gemini API'];
+const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Laravel', 'PHP', 'PostgreSQL', 'MySQL', 'Prisma', 'Hono', 'Zod', 'REST APIs', 'Git', 'GitHub', 'Vercel', 'Make.com', 'OpenAI API', 'Gemini API', 'Claude API'];
 
 const featuredProjects = [
   {
@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       <section className="overflow-hidden rounded-[22px] border p-4" style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}>
-        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.subtle }}><Star size={13} weight="fill" className="text-orange-500" /> Current toolkit</div>
+        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.text }}><Star size={13} weight="fill" className="text-orange-500" /> Current toolkit</div>
         <div className="toolkit-marquee" aria-label="Technology stack" role="group">
           <div className="toolkit-marquee__track">
             {[0, 1].map((copy) => (
