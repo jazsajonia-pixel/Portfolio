@@ -17,3 +17,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 999px; }
 :focus-visible { outline: 2px solid #f97316; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+.toolkit-marquee { overflow: hidden; width: 100%; -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent); mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent); }
+.toolkit-marquee__track { display: flex; width: max-content; animation: toolkit-scroll-left 42s linear infinite; }
+.toolkit-marquee:hover .toolkit-marquee__track { animation-play-state: paused; }
+.toolkit-marquee__group { display: flex; flex: none; align-items: center; gap: .5rem; padding-right: .5rem; }
+.toolkit-marquee__item { display: inline-flex; flex: none; align-items: center; border: 1px solid; border-radius: 9999px; padding: .5rem .85rem; font-size: .875rem; font-weight: 500; white-space: nowrap; }
+@keyframes toolkit-scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .toolkit-marquee__track { animation: none; } }

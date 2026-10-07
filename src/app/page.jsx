@@ -14,7 +14,7 @@ import {
   Star,
 } from 'phosphor-react';
 
-const tools = ['React', 'Next.js', 'TypeScript', 'PHP', 'PostgreSQL', 'GitHub', 'OpenAI API', 'Make.com'];
+const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'PHP', 'PostgreSQL', 'MySQL', 'Prisma', 'Hono', 'Zod', 'REST APIs', 'Git', 'GitHub', 'Make.com', 'OpenAI API', 'Gemini API'];
 
 const featuredProjects = [
   {
@@ -94,14 +94,22 @@ export default function Home() {
 
       <section className="overflow-hidden rounded-[22px] border p-4" style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}>
         <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.subtle }}><Star size={13} weight="fill" className="text-orange-500" /> Current toolkit</div>
-        <div className="flex flex-wrap gap-2">{tools.map((tool) => <span key={tool} className="rounded-full border px-3 py-2 text-sm font-medium" style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.text }}>{tool}</span>)}</div>
+        <div className="toolkit-marquee" aria-label="Technology stack" role="group">
+          <div className="toolkit-marquee__track">
+            {[0, 1].map((copy) => (
+              <div className="toolkit-marquee__group" key={copy} aria-hidden={copy === 1}>
+                {tools.map((tool) => <span key={tool} className="toolkit-marquee__item" style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.text }}>{tool}</span>)}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section>
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3"><div><div className="text-[11px] font-bold uppercase tracking-[0.15em] text-orange-500">Selected work</div><h2 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: theme.text }}>Projects first. Claims second.</h2></div><Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-500">View all projects <ArrowRight size={15} /></Link></div>
         <div className="grid gap-4 lg:grid-cols-2">
           {featuredProjects.map((project, index) => <motion.article key={project.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .1 }} whileHover={{ y: -5 }} className="overflow-hidden rounded-[24px] border" style={{ backgroundColor: theme.white, borderColor: theme.border }}>
-            <div className="relative aspect-[8/5] overflow-hidden bg-slate-950"><AnimatedProjectPreview src={project.animation} poster={project.image} alt={`${project.title} animated project demo`} /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" /><span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">{project.eyebrow}</span></div>
+            <div className="relative aspect-[8/5] overflow-hidden bg-slate-950"><AnimatedProjectPreview src={project.animation} alt={`${project.title} animated project demo`} /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" /><span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">{project.eyebrow}</span></div>
             <div className="p-5"><div className="flex items-start justify-between gap-3"><h3 className="text-2xl font-bold tracking-tight" style={{ color: theme.text }}>{project.title}</h3><ArrowSquareOut size={18} className="mt-1 shrink-0 text-orange-500" /></div><p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>{project.description}</p><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full px-2.5 py-1 text-[11px] font-semibold" style={{ backgroundColor: theme.chip, color: theme.subtle }}>{tag}</span>)}</div></div>
           </motion.article>)}
         </div>
