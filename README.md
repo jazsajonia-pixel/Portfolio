@@ -1,207 +1,62 @@
-# Jazz Sajonia Portfolio
+# Jazz Sajonia — Portfolio
 
-A modern, responsive portfolio website for Jazz Sajonia - Web Developer & AI Automation Specialist. Built with cutting-edge technologies for performance, SEO, and stunning visual effects.
+A responsive portfolio site for presenting my software projects, the problems they explore, and the part I contributed to each. The project archive intentionally distinguishes personal work from academic group projects and explains my contribution instead of implying that every project was built solo.
 
-## 🚀 Features
+## What’s on the site
 
-- ✨ **Smooth Animations** - Framer Motion animations throughout the site
-- 📱 **Fully Responsive** - Works perfectly on all devices
-- ⚡ **High Performance** - Optimized Next.js with SSR and SSG
-- 🔍 **SEO Optimized** - Meta tags, Open Graph, structured data
-- 🎨 **Modern Design** - Tailwind CSS with custom color palette
-- 🌙 **Dark Theme** - Eye-friendly dark mode design
-- ♿ **Accessible** - WCAG compliant components
-- 🔧 **AI Automation** - Built by someone who automates everything
+- **Home:** introduction, selected work, and the tools I use across web, mobile, AI-assisted development, and automation experiments.
+- **Project archive:** interactive project cards with context, technologies, contribution notes, quick views, and selected screenshots or short demos.
+- **About and capability areas:** background and practical areas I am continuing to develop through project work.
+- **Contact:** a small contact form that opens a pre-filled email in the visitor’s mail app; it does not submit to a server.
+- **Presentation:** responsive layouts, light/dark themes, subtle motion, and page metadata for sharing and search previews.
 
-## 🛠️ Tech Stack
+The archive currently highlights Chrono and MarketHub, alongside academic projects with their team context made explicit.
 
-- **Framework**: [Next.js 14](https://nextjs.org/) - React framework with App Router
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- **Animations**: [Framer Motion](https://www.framer.com/motion/) - Production-ready animation library
-- **Icons**: [Phosphor Icons](https://phosphoricons.com/) - Flexible icon system
-- **Font**: [Poppins](https://fonts.google.com/specimen/Poppins) - Modern sans-serif font
-- **SEO**: [next-seo](https://github.com/garmeeh/next-seo) - SEO plugin for Next.js
+## Technology
 
-## 📋 Project Structure
+- Next.js 14 App Router and React 18
+- JavaScript (JSX)
+- Tailwind CSS 3
+- Framer Motion
+- Phosphor React icons
+- Next.js metadata and static export
 
-```
-src/
-├── app/
-│   ├── layout.jsx           # Root layout with sidebar
-│   ├── page.jsx             # Home page
-│   ├── globals.css          # Global styles and Tailwind directives
-│   ├── projects/
-│   │   └── page.jsx         # Projects showcase
-│   ├── services/
-│   │   └── page.jsx         # Services offered
-│   ├── about/
-│   │   └── page.jsx         # About Jazz
-│   └── contact/
-│       └── page.jsx         # Contact form
-├── components/
-│   ├── Sidebar.jsx          # Left navigation with mobile menu
-│   └── Marquee.jsx          # Animated tools carousel
-└── lib/
-    └── seo.js               # SEO configuration
+## Run locally
 
-public/                       # Static assets
-.github/                      # GitHub configuration
-├── copilot-instructions.md   # Development guidelines
-```
+### Requirements
 
-## 🎨 Color Palette
+- Node.js 18 or newer
+- npm
 
-- **Primary (Orange)**: `#f97316` - Main accent color
-- **Dark**: `#0f1419` - Background
-- **Dark 800**: `#1f2937` - Card backgrounds
-- **Dark 700**: `#374151` - Borders and subtle elements
-
-## 📦 Installation
-
-### Prerequisites
-- Node.js 18+ and npm/yarn/pnpm
-
-### Setup
-
-1. **Clone the repository**
-   ```bash
-   cd d:\WebSystems\Portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Run development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**
-   - Navigate to `http://localhost:3000`
-
-## 🏗️ Build & Deployment
-
-### Build for production
 ```bash
-npm run build
+git clone https://github.com/jazsajonia-pixel/Portfolio.git
+cd Portfolio
+npm install
+npm run dev
 ```
 
-### Start production server
+Open `http://localhost:3000`.
+
+Available scripts:
+
 ```bash
-npm start
+npm run dev      # start the local development server
+npm run lint     # run the Next.js lint command
+npm run build    # create the static production output in out/
 ```
 
-### Linting
-```bash
-npm run lint
+The site is configured for static export through `next.config.js`. Deploy the generated `out/` directory to a static hosting provider.
+
+## Project structure
+
+```text
+src/app/          Home, About, Projects, Services, Contact, and global styles
+src/components/   Shared shell, navigation, theme, and project preview components
+src/lib/          SEO metadata and database helper
+public/projects/  Portfolio project screenshots and demo media
+assets/           Local profile and supporting images
 ```
 
-## 🎯 Pages Overview
+## Updating the portfolio
 
-### Home (`/`)
-- Hero section with call-to-action buttons
-- Animated tools marquee showing tech stack
-- Featured projects preview
-- Social links
-
-### Projects (`/projects`)
-- Grid layout of all projects
-- Project descriptions and tech stack badges
-- Links to live demos and GitHub repos
-
-### Services (`/services`)
-- 6 service cards with icons
-- Web Development, AI Automation, APIs, Deployment, Security, Consulting
-- Feature lists for each service
-
-### About (`/about`)
-- Personal introduction
-- Journey and approach sections
-- Skills grid with checkmarks
-- Stats showing experience
-
-### Contact (`/contact`)
-- Contact form with validation
-- Contact information cards
-- Phone, email, and location
-- Success message on form submission
-
-## 🔍 SEO Features
-
-- ✅ Semantic HTML structure
-- ✅ Meta tags for all pages
-- ✅ Open Graph integration
-- ✅ Twitter Card support
-- ✅ Mobile-friendly design
-- ✅ Fast loading times
-- ✅ Structured data ready
-
-## 🎬 Animations
-
-- Page transitions with fade and slide effects
-- Smooth navigation interactions
-- Hover effects on buttons and cards
-- Marquee animation for tools carousel
-- Staggered animations for list items
-- Floating and scale effects
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: 0px - 640px
-- **Tablet**: 641px - 1024px
-- **Desktop**: 1025px+
-
-## 🔧 Customization
-
-### Update Personal Info
-Edit [src/lib/seo.js](src/lib/seo.js) for:
-- Name and title
-- Social links
-- Contact email and phone
-
-### Add New Projects
-Edit [src/app/projects/page.jsx](src/app/projects/page.jsx) to add your projects
-
-### Modify Colors
-Update the Tailwind config in [tailwind.config.js](tailwind.config.js)
-
-## 📞 Contact Information
-
-Currently configured with placeholder contact info. Update these files:
-- Email: [src/app/contact/page.jsx](src/app/contact/page.jsx)
-- Social links: [src/app/page.jsx](src/app/page.jsx)
-- SEO config: [src/lib/seo.js](src/lib/seo.js)
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-```bash
-npm install -g vercel
-vercel
-```
-
-### Deploy to Other Platforms
-- GitHub Pages with `next export`
-- Netlify with Next.js adapter
-- AWS Amplify
-- Any platform supporting Node.js
-
-## 📝 License
-
-This portfolio is created for Jazz Sajonia. All rights reserved.
-
-## 🙏 Acknowledgments
-
-- Next.js team for the amazing framework
-- Tailwind CSS for utility-first styling
-- Framer Motion for smooth animations
-- Phosphor Icons for beautiful icons
-- The open-source community
-
----
-
-**Happy coding! 🎉**
-
-Need help? Check the [development instructions](.github/copilot-instructions.md).
+Project entries and their contribution notes live in `src/app/projects/page.jsx`; featured cards are in `src/app/page.jsx`. Keep screenshots and demo files under `public/projects/`, and use paths beginning with `/projects/` in the page data. For new academic or collaborative work, state the team context and my specific contribution clearly.
