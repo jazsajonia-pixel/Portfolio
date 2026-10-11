@@ -37,6 +37,42 @@ const featuredProjects = [
     href: '/projects',
     accent: 'teal',
   },
+  {
+    title: 'Chrauto AI',
+    eyebrow: 'AI / Android assistant',
+    description: 'A native Android helper that turns natural-language requests into bounded accessibility actions, with a step-by-step activity view and approval pauses for consequential tasks.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Android Accessibility', 'Gemini'],
+    animation: '/projects/chrauto-ai-demo.gif',
+    href: '/projects',
+    accent: 'violet',
+  },
+  {
+    title: 'SpeedSight',
+    eyebrow: 'Computer vision / traffic analytics',
+    description: 'A browser-based traffic monitoring dashboard for vehicle detection, tracking, estimated speeds, session metrics, and traffic analytics. Speed estimates are for analytics, not certified enforcement.',
+    tags: ['React', 'TypeScript', 'TensorFlow.js', 'COCO-SSD'],
+    animation: '/projects/speedsight-demo.gif',
+    href: '/projects',
+    accent: 'blue',
+  },
+  {
+    title: 'igit',
+    eyebrow: 'Android / Git client',
+    description: 'A local-first Android Git client for repository browsing, commit and branch workflows, sync, conflict handling, background automation, and companion GitHub tools.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Git', 'Android'],
+    animation: '/projects/igit-demo.gif',
+    href: '/projects',
+    accent: 'sky',
+  },
+  {
+    title: 'FlowPilot AI',
+    eyebrow: 'AI / workflow automation',
+    description: 'A visual workflow builder for connecting triggers, AI processing, conditions, and actions, with execution history for inspecting automation runs.',
+    tags: ['React', 'TypeScript', 'Workflow automation', 'AI'],
+    animation: '/projects/flowpilot-demo.gif',
+    href: '/projects',
+    accent: 'indigo',
+  },
 ];
 
 const buildNotes = [
@@ -86,7 +122,7 @@ export default function Home() {
             <p className="text-sm leading-6 text-slate-300">Seriously programming since early 2024, with a focus on full-stack fundamentals, practical product work, and using AI responsibly inside the development loop.</p>
             <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">2024</div><div className="mt-1 text-slate-400">Started seriously programming</div></div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">2</div><div className="mt-1 text-slate-400">Featured live builds</div></div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">6</div><div className="mt-1 text-slate-400">Project demos & builds</div></div>
             </div>
           </div>
         </div>
