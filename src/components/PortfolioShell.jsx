@@ -34,6 +34,7 @@ export default function PortfolioShell({ children }) {
   }, []);
 
   useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark);
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
     if (!themeReady) return;
     try {

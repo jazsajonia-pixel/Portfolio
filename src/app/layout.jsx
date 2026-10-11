@@ -13,12 +13,12 @@ export const metadata = {
     'Full Stack Developer',
     'Portfolio',
   ],
-  authors: [{ name: 'Jazz Sajonia' }],
-  creator: 'Jazz Sajonia',
+  authors: [{ name: 'Jazzther Bert Shanne Sajonia' }],
+  creator: 'Jazzther Bert Shanne Sajonia',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://portfolio-chrono8.vercel.app',
+    url: 'https://jazz-portfolio1.vercel.app',
     siteName: 'Jazz Sajonia Portfolio',
     title: 'Jazz Sajonia | Web Developer & AI-Assisted Projects',
     description: defaultSEO.description,
@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#f97316" />
       </head>
-      <body className="bg-[#020202] font-poppins text-slate-900 antialiased">
+      <body className="font-poppins antialiased">
         <PortfolioShell>{children}</PortfolioShell>
       </body>
     </html>

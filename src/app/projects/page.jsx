@@ -1,20 +1,186 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import AnimatedProjectPreview from '@/components/AnimatedProjectPreview';
-import { ArrowSquareOut, GithubLogo, GraduationCap, X } from 'phosphor-react';
-import { useState } from 'react';
+import { ArrowSquareOut, GithubLogo, GraduationCap } from 'phosphor-react';
 
 const projects = [
-  { title: 'Chrono', category: 'AI / developer tooling', type: 'Personal project · live demo', description: 'A mobile-first development environment for connecting GitHub, working with an AI coding agent, reviewing diffs, previewing the real app, and shipping from a phone.', tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'GitHub'], contribution: 'UI/UX, feature design, TypeScript, AI prompting, code modification, testing, debugging, and deployment.', learned: 'Designing a developer workflow for a small screen and making AI-assisted changes reviewable rather than opaque.', link: 'https://chrono-tau.vercel.app/', github: 'https://github.com/jazsajonia-pixel/mobdevai', image: '/projects/mobdevai-workspace.webp', animation: '/projects/mobdevai-demo.gif', accent: 'orange' },
-  { title: 'MarketHub', category: 'Full-stack web development', type: 'Personal project · live demo', description: 'A full-stack marketplace application using seeded data to explore buyer, seller, and admin flows. Checkout is functional but simulated; it is not a real payment-provider integration.', tags: ['React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Prisma', 'Hono', 'Zod'], contribution: 'Frontend development, API integration, testing, debugging, deployment, and product-flow implementation.', learned: 'Keeping product, inventory, order, and role-based flows understandable across a larger application.', link: 'https://markethub-pi.vercel.app/', github: 'https://github.com/jazsajonia-pixel/markethub', image: '/projects/markethub-showcase.jpg', animation: '/projects/markethub-demo.gif', accent: 'teal' },
-  { title: 'QR-Code Library Management System', category: 'Full-stack web development', type: 'Academic group project · not publicly deployed', description: 'A library management system with functional QR-code workflows for managing library records and operations.', tags: ['PHP', 'JavaScript', 'HTML', 'CSS', 'Bootstrap', 'MySQL', 'XAMPP'], contribution: 'Personally handled coding and documentation. The project did not use an AI coding IDE; AI/search was used mainly as a reference when needed.', learned: 'Building a complete CRUD-style academic system with PHP, MySQL, and browser-based QR functionality.', accent: 'slate' },
-  { title: 'Chrauto AI', category: 'AI / Android development', type: 'Personal project · animated demo', description: 'A native Android assistant that uses accessibility to observe the screen, plan bounded actions, and carry out natural-language tasks. Consequential actions pause for approval; it does not run arbitrary code or shell commands.', tags: ['Kotlin', 'Jetpack Compose', 'Android Accessibility', 'Gemini'], contribution: 'The repository includes a Compose control screen, provider setup, validated action protocol, accessibility service, bounded agent loop, and safety pauses.', learned: 'Designing human-in-the-loop automation for Android, including action validation, cancellation, and clear permission boundaries.', github: 'https://github.com/jazsajonia-pixel/Chrauto-AI', animation: '/projects/chrauto-ai-demo.gif', accent: 'violet' },
-  { title: 'SpeedSight', category: 'Computer vision / traffic analytics', type: 'Personal project · animated demo', description: 'A browser-based traffic monitoring application for vehicle detection, tracking, speed estimates, session metrics, and analytics. Its speed measurements are estimates for analytics—not legally certified speed enforcement.', tags: ['React', 'TypeScript', 'Vite', 'TensorFlow.js', 'COCO-SSD'], contribution: 'The repository includes the monitoring pipeline, dashboard, detection and session views, analytics, calibration tools, and demo data.', learned: 'Presenting computer-vision outputs and estimated measurements with useful context and clear limits.', github: 'https://github.com/jazsajonia-pixel/Project-2-SpeedSight2', animation: '/projects/speedsight-demo.gif', accent: 'blue' },
-  { title: 'igit', category: 'Android / developer tooling', type: 'Personal project · animated demo', description: 'A local-first Git client for Android, covering repository containers, everyday Git operations, branch and commit management, conflict resolution, background sync, and companion GitHub tools.', tags: ['Kotlin', 'Jetpack Compose', 'Git', 'Android'], contribution: 'The repository includes native screens for repository management, sync and client workflows, files, chat, settings, and GitHub-related tools.', learned: 'Adapting developer workflows to mobile while keeping repository credentials protected and destructive Git actions explicit.', github: 'https://github.com/jazsajonia-pixel/igit', animation: '/projects/igit-demo.gif', accent: 'sky' },
-  { title: 'FlowPilot AI', category: 'AI / workflow automation', type: 'Personal project · animated demo', description: 'A visual automation platform for building workflows from triggers, AI steps, conditions, and actions. The workflow canvas is paired with execution history and run details.', tags: ['React', 'TypeScript', 'Workflow graphs', 'AI providers'], contribution: 'The repository includes a workflow editor, node library and inspector, graph validation, execution engine, trigger support, and workflow management screens.', learned: 'Making multi-step automation easier to inspect, configure, validate, and reason about through a visual graph.', github: 'https://github.com/jazsajonia-pixel/flowpilot', animation: '/projects/flowpilot-demo.gif', accent: 'indigo' },
-  { title: 'Meat Delivery Fleet Management System', category: 'Full-stack web development', type: 'Academic group project · not publicly deployed', description: 'A business-management system covering reporting, GPS tracking, inventory, CMS, supplier management, and related operations.', tags: ['PHP', 'JavaScript', 'HTML', 'CSS', 'Bootstrap', 'MySQL', 'Google API'], contribution: 'Handled most/all of the actual development work within the group project.', learned: 'Translating operational workflows into modules and integrating Google API-based GPS tracking.', accent: 'slate' },
-  { title: 'Unified Business Information System', category: 'Full-stack web development', type: 'Academic team project · contribution: documentation', description: 'A team project for dry-goods retailers with inventory, sales, customer, reporting, account, and other business modules.', tags: ['TypeScript', 'React', 'MongoDB'], contribution: 'Primary contribution was documentation. This project should not be read as an application I coded alone.', learned: 'Documenting business modules and communicating how a multi-area system fits together.', accent: 'slate' },
+  {
+    slug: 'chrono',
+    title: 'Chrono',
+    category: 'AI-assisted developer tooling',
+    type: 'Personal build · live demo',
+    description: 'A mobile-first development workspace for connecting GitHub, working with an AI coding assistant, reviewing changes, and previewing an app.',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'GitHub'],
+    contribution: 'Worked on the interface, feature design, AI prompts, code changes, testing, and deployment.',
+    learned: 'Making a coding workflow usable on a small screen and keeping AI-assisted changes reviewable.',
+    liveDemo: 'https://chrono-tau.vercel.app/',
+    github: 'https://github.com/jazsajonia-pixel/mobdevai',
+    animation: '/projects/mobdevai-demo.gif',
+    accent: 'orange',
+  },
+  {
+    slug: 'markethub',
+    title: 'MarketHub',
+    category: 'Full-stack web development',
+    type: 'Personal build · live demo',
+    description: 'A marketplace prototype with seeded data and buyer, seller, and admin flows. Checkout is simulated; it does not process real payments.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Prisma', 'Hono', 'Zod'],
+    contribution: 'Worked on the frontend, API integration, product flows, testing, debugging, and deployment.',
+    learned: 'Keeping product, inventory, orders, and role-based workflows clear across a larger app.',
+    liveDemo: 'https://markethub-pi.vercel.app/',
+    github: 'https://github.com/jazsajonia-pixel/markethub',
+    image: '/projects/markethub-showcase.jpg',
+    animation: '/projects/markethub-demo.gif',
+    accent: 'teal',
+  },
+  {
+    slug: 'qr-library',
+    title: 'QR-Code Library Management System',
+    category: 'Full-stack web development',
+    type: 'University group project · no public demo',
+    description: 'A library management system with QR-code workflows for managing library records and day-to-day operations.',
+    tags: ['PHP', 'JavaScript', 'HTML', 'CSS', 'Bootstrap', 'MySQL', 'XAMPP'],
+    contribution: 'Handled coding and documentation. AI and search were used as references when needed, not as an AI coding IDE.',
+    learned: 'Building a CRUD-style system with PHP, MySQL, and browser-based QR workflows.',
+    accent: 'slate',
+  },
+  {
+    slug: 'chrauto-ai',
+    title: 'Chrauto AI',
+    category: 'AI / Android development',
+    type: 'Personal Android app · animated preview',
+    description: 'A native Android assistant prototype that uses accessibility to observe the screen and perform bounded actions from natural-language requests. Consequential actions pause for approval; it does not run arbitrary code or shell commands.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Android Accessibility', 'Gemini'],
+    contribution: 'The repository includes a Compose control screen, provider setup, action validation, an accessibility service, and approval and cancellation flows.',
+    learned: 'Designing mobile automation with explicit action limits and human approval for consequential steps.',
+    github: 'https://github.com/jazsajonia-pixel/Chrauto-AI',
+    animation: '/projects/chrauto-ai-demo.gif',
+    accent: 'violet',
+  },
+  {
+    slug: 'speedsight',
+    title: 'SpeedSight',
+    category: 'Computer vision / traffic analytics',
+    type: 'Personal web app · live demo',
+    description: 'A browser-based traffic monitoring app for vehicle detection, tracking, estimated speeds, session metrics, and analytics. Speed readings are estimates for analysis, not certified enforcement measurements.',
+    tags: ['React', 'TypeScript', 'Vite', 'TensorFlow.js', 'COCO-SSD'],
+    contribution: 'The repository includes the monitoring pipeline, dashboard, detection and session views, analytics, calibration tools, and demo data.',
+    learned: 'Presenting computer-vision outputs and estimated measurements with useful context and clear limitations.',
+    liveDemo: 'https://project-2-speed-sight2.vercel.app/',
+    github: 'https://github.com/jazsajonia-pixel/Project-2-SpeedSight2',
+    animation: '/projects/speedsight-demo.gif',
+    accent: 'blue',
+  },
+  {
+    slug: 'igit',
+    title: 'igit',
+    category: 'Android / developer tooling',
+    type: 'Personal Android app · animated preview',
+    description: 'A local-first Git client for Android, covering repository browsing, branch and commit workflows, sync, conflict resolution, and related GitHub tools.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Git', 'Android'],
+    contribution: 'The repository includes native screens for repositories, sync, files, chat, settings, and GitHub-related workflows.',
+    learned: 'Adapting developer workflows to mobile while keeping credentials private and destructive actions explicit.',
+    github: 'https://github.com/jazsajonia-pixel/igit',
+    animation: '/projects/igit-demo.gif',
+    accent: 'sky',
+  },
+  {
+    slug: 'flowpilot',
+    title: 'FlowPilot AI',
+    category: 'AI / workflow automation',
+    type: 'Personal web app · live demo',
+    description: 'A visual automation builder for connecting triggers, AI steps, conditions, and actions, with run history and details for reviewing executions.',
+    tags: ['React', 'TypeScript', 'Workflow graphs', 'AI providers'],
+    contribution: 'The repository includes a workflow editor, node library and inspector, graph validation, execution logic, trigger support, and workflow management screens.',
+    learned: 'Making multi-step workflows easier to configure, validate, and inspect through a visual graph.',
+    liveDemo: 'https://flowpilot-sage-delta.vercel.app/',
+    github: 'https://github.com/jazsajonia-pixel/flowpilot',
+    animation: '/projects/flowpilot-demo.gif',
+    accent: 'indigo',
+  },
+  {
+    slug: 'meat-fleet-management',
+    title: 'Meat Delivery Fleet Management System',
+    category: 'Full-stack web development',
+    type: 'University group project · no public demo',
+    description: 'A business-management system covering reporting, GPS tracking, inventory, content management, supplier management, and related operations.',
+    tags: ['PHP', 'JavaScript', 'HTML', 'CSS', 'Bootstrap', 'MySQL', 'Google API'],
+    contribution: 'Handled most of the implementation work as part of a group project.',
+    learned: 'Breaking operational requirements into modules and integrating Google Maps-based location features.',
+    accent: 'slate',
+  },
+  {
+    slug: 'unified-business-system',
+    title: 'Unified Business Information System',
+    category: 'Full-stack web development',
+    type: 'University team project · documentation contribution',
+    description: 'A team project for dry-goods retailers, planned around inventory, sales, customer, reporting, account, and other business modules.',
+    tags: ['TypeScript', 'React', 'MongoDB'],
+    contribution: 'My main contribution was documentation; this was a team effort, not an application I coded alone.',
+    learned: 'Documenting business modules and explaining how a multi-area system fits together.',
+    accent: 'slate',
+  },
 ];
 
-export default function ProjectsPage() { const [active, setActive] = useState(null); return <section className="space-y-8"><header><div className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange-500">Project archive</div><h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">The work is the proof.</h1><p className="mt-4 max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-300">A mix of personal, AI-assisted, and academic projects. Each entry explains the context, technologies, and my actual contribution without inflating scope or outcomes.</p></header><div className="grid gap-5">{projects.map((project, index) => <motion.article key={project.title} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .05 }} className="overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900"><div className="grid lg:grid-cols-[.9fr_1.1fr]"><div className={`min-h-[230px] bg-gradient-to-br ${project.accent === 'orange' ? 'from-orange-500 via-fuchsia-500 to-violet-700' : project.accent === 'teal' ? 'from-emerald-400 via-teal-600 to-slate-900' : project.accent === 'violet' ? 'from-violet-500 via-violet-700 to-slate-950' : project.accent === 'blue' ? 'from-blue-500 via-blue-800 to-slate-950' : project.accent === 'sky' ? 'from-sky-400 via-slate-800 to-slate-950' : project.accent === 'indigo' ? 'from-indigo-500 via-indigo-800 to-slate-950' : 'from-slate-700 via-slate-800 to-slate-950'} p-4`}>{project.animation ? <AnimatedProjectPreview src={project.animation} alt={`${project.title} animated project demo`} className="min-h-[198px] rounded-[18px] shadow-2xl" /> : project.image ? <img src={project.image} alt={`${project.title} interface`} className="h-full min-h-[198px] w-full rounded-[18px] object-cover shadow-2xl" /> : <div className="flex h-full min-h-[198px] flex-col justify-between rounded-[18px] border border-white/15 bg-black/20 p-5 text-white"><GraduationCap size={32} weight="fill" /><div><div className="font-mono text-xs uppercase tracking-[0.15em] text-white/60">Academic build</div><div className="mt-2 text-2xl font-bold">{project.title}</div></div></div>}</div><div className="p-5 sm:p-7"><div className="flex flex-wrap items-center justify-between gap-3"><div className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">{project.category}</div><div className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 dark:bg-slate-800 dark:text-slate-300">{project.type}</div></div><h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">{project.title}</h2><p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{project.description}</p><div className="mt-4 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full border border-slate-200 px-2.5 py-1 text-[11px] font-medium text-slate-600 dark:border-slate-700 dark:text-slate-300">{tag}</span>)}</div><div className="mt-5 grid gap-3 sm:grid-cols-2"><div className="rounded-2xl bg-slate-50 p-3 dark:bg-slate-800"><div className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">My contribution</div><p className="mt-2 text-xs leading-5 text-slate-600 dark:text-slate-300">{project.contribution}</p></div><div className="rounded-2xl bg-slate-50 p-3 dark:bg-slate-800"><div className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">What I learned</div><p className="mt-2 text-xs leading-5 text-slate-600 dark:text-slate-300">{project.learned}</p></div></div><div className="mt-5 flex flex-wrap gap-3">{project.link && <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-400">Live demo <ArrowSquareOut size={15} /></a>}{project.github && <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-orange-300 dark:border-slate-700 dark:text-slate-200">GitHub <GithubLogo size={15} /></a>}<button type="button" onClick={() => setActive(project)} className="inline-flex min-h-10 items-center rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-orange-300 dark:border-slate-700 dark:text-slate-200">Quick view</button></div></div></div></motion.article>)}</div><div className="rounded-[22px] border border-dashed border-orange-300 bg-orange-50 p-5 dark:border-orange-700/60 dark:bg-orange-950/20"><div className="text-[11px] font-bold uppercase tracking-[0.15em] text-orange-600">AI & automation learning</div><p className="mt-2 max-w-3xl text-sm leading-6 text-slate-700 dark:text-slate-300">I’ve practiced Make.com scenarios using triggers, actions, filters, routers, webhooks, HTTP/API integrations, JSON, scheduling, Google Sheets, Gmail, Airtable, and OpenAI/Gemini integrations. This is practical developing experience—not a claim of extensive client automation work.</p></div><AnimatePresence>{active && <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm" onClick={() => setActive(null)}><motion.div initial={{ opacity: 0, scale: .96, y: 12 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: .96 }} onClick={(event) => event.stopPropagation()} className="w-full max-w-xl rounded-[24px] border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-900"><div className="flex items-start justify-between gap-4"><div><div className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-500">Quick view</div><h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{active.title}</h2></div><button onClick={() => setActive(null)} aria-label="Close project quick view" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-300"><X size={18} /></button></div><p className="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-300">{active.description}</p><div className="mt-5 rounded-2xl bg-slate-50 p-4 text-sm leading-6 text-slate-700 dark:bg-slate-800 dark:text-slate-200"><strong>Context:</strong> {active.type}.<br /><strong>Contribution:</strong> {active.contribution}</div></motion.div></div>}</AnimatePresence></section>; }
+const accentStyles = {
+  orange: 'from-orange-500 via-fuchsia-500 to-violet-700',
+  teal: 'from-emerald-400 via-teal-600 to-slate-900',
+  violet: 'from-violet-500 via-violet-700 to-slate-950',
+  blue: 'from-blue-500 via-blue-800 to-slate-950',
+  sky: 'from-sky-400 via-slate-800 to-slate-950',
+  indigo: 'from-indigo-500 via-indigo-800 to-slate-950',
+  slate: 'from-slate-700 via-slate-800 to-slate-950',
+};
+
+export default function ProjectsPage() {
+  return (
+    <section className="space-y-8">
+      <header>
+        <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange-700">Project archive</div>
+        <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">Projects and contributions</h1>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-300">
+          A mix of personal builds and university work. Each entry describes what the project does, the tools it uses, and my contribution. Live links are included for deployed web apps; Android apps and coursework use animated previews where available.
+        </p>
+      </header>
+
+      <div className="grid gap-5">
+        {projects.map((project, index) => <motion.article id={project.slug} key={project.slug} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .04 }} className="scroll-mt-6 overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+          <div className="grid lg:grid-cols-[.9fr_1.1fr]">
+            <div className={`min-h-[230px] bg-gradient-to-br ${accentStyles[project.accent]} p-4`}>
+              {project.animation
+                ? <AnimatedProjectPreview src={project.animation} alt={`${project.title} animated preview`} className="min-h-[198px] rounded-[18px] shadow-2xl" />
+                : project.image
+                  ? <img src={project.image} alt={`${project.title} interface`} className="h-full min-h-[198px] w-full rounded-[18px] object-cover shadow-2xl" />
+                  : <div className="flex h-full min-h-[198px] flex-col justify-between rounded-[18px] border border-white/15 bg-black/20 p-5 text-white"><GraduationCap size={32} weight="fill" /><div><div className="font-mono text-xs uppercase tracking-[0.15em] text-white/75">University project</div><div className="mt-2 text-2xl font-bold">{project.title}</div></div></div>}
+            </div>
+            <div className="p-5 sm:p-7">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-700 dark:text-orange-400">{project.category}</div>
+                <div className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-700 dark:bg-slate-800 dark:text-slate-200">{project.type}</div>
+              </div>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">{project.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">{project.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full border border-slate-300 px-2.5 py-1 text-[11px] font-medium text-slate-700 dark:border-slate-600 dark:text-slate-200">{tag}</span>)}</div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl bg-slate-100 p-3 dark:bg-slate-800"><div className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 dark:text-slate-300">My contribution</div><p className="mt-2 text-xs leading-5 text-slate-700 dark:text-slate-200">{project.contribution}</p></div>
+                <div className="rounded-2xl bg-slate-100 p-3 dark:bg-slate-800"><div className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 dark:text-slate-300">What I learned</div><p className="mt-2 text-xs leading-5 text-slate-700 dark:text-slate-200">{project.learned}</p></div>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full bg-orange-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Live demo <ArrowSquareOut size={15} /></a>}
+                {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-orange-500 dark:border-slate-600 dark:text-slate-100">GitHub <GithubLogo size={15} /></a>}
+              </div>
+            </div>
+          </div>
+        </motion.article>)}
+      </div>
+
+      <aside className="rounded-[22px] border border-orange-300 bg-orange-50 p-5 dark:border-orange-700/60 dark:bg-orange-950/30">
+        <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-orange-800 dark:text-orange-300">Automation practice</div>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-800 dark:text-slate-200">
+          I’ve practiced Make.com flows using triggers, filters, routers, webhooks, scheduling, and integrations with tools such as Google Sheets, Gmail, and Airtable. This reflects hands-on learning, not a claim of extensive client work.
+        </p>
+      </aside>
+    </section>
+  );
+}
