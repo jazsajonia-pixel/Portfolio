@@ -1,12 +1,12 @@
 export const defaultSEO = {
   titleTemplate: '%s | Jazz Sajonia Portfolio',
   description:
-    'Portfolio of Jazz Sajonia: personal, academic, and practical web development projects, with developing experience in AI-assisted coding and workflow automation.',
-  canonical: 'https://portfolio-chrono8.vercel.app',
+    'Portfolio of Jazzther Bert Shanne Sajonia, featuring personal software projects, university work, and clear notes on his contributions.',
+  canonical: 'https://jazz-portfolio1.vercel.app',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://portfolio-chrono8.vercel.app',
+    url: 'https://jazz-portfolio1.vercel.app',
     siteName: 'Jazz Sajonia Portfolio',
     images: [],
   },
@@ -19,27 +19,27 @@ export const pageSEO = {
   home: {
     title: 'Home',
     description:
-      'Web development projects by Jazz Sajonia, including personal builds, university work, and practical exploration of AI-assisted development.',
+      'Personal web development projects and university work by Jazzther Bert Shanne Sajonia, with live demos where available.',
   },
   projects: {
     title: 'Projects',
     description:
-      'Selected personal and academic builds, with each project’s context, technologies, and Jazz Sajonia’s contribution clearly described.',
+      'Personal and academic software projects with technologies, live demos where available, and a clear account of each contribution.',
   },
   services: {
-    title: 'Capability Areas',
+    title: 'Areas of Practice',
     description:
-      'Web development, API, AI, and workflow areas that Jazz Sajonia is building through projects and focused independent practice.',
+      'Web development, API, AI, and workflow automation areas developed through practical projects and focused learning.',
   },
   about: {
     title: 'About',
     description:
-      'Learn about Jazz Sajonia’s background, current skill levels, and approach to building and reviewing AI-assisted software.',
+      'Jazzther Bert Shanne Sajonia’s background, project experience, current tools, and approach to AI-assisted software development.',
   },
   contact: {
     title: 'Contact',
     description:
-      'Contact Jazz Sajonia directly by email to discuss a project or collaboration.',
+      'Contact Jazzther Bert Shanne Sajonia by email about a project or collaboration.',
   },
 };
 
