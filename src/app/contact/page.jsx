@@ -11,17 +11,40 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '', website: '' });
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((previous) => ({ ...previous, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const body = [`Name: ${formData.name}`, `Email: ${formData.email}`, '', formData.message].join('\n');
-    window.location.href = `mailto:jaz.sajonia@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(body)}`;
+    if (isSending) return;
+    setIsSending(true);
+    setStatus({ type: '', message: '' });
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(result.error || 'I couldn’t send your message. Please try again or email me directly.');
+      }
+      setFormData({ name: '', email: '', subject: '', message: '', website: '' });
+      setStatus({ type: 'success', message: 'Thanks — your message has been sent.' });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error.message || 'I couldn’t send your message. Please email me directly instead.',
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -49,21 +72,26 @@ export default function ContactPage() {
 
         <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} className="rounded-[22px] border border-portfolio-border bg-portfolio-card p-5 sm:p-6 xl:col-span-2">
           <div className="space-y-5">
-            <div><label htmlFor="name" className="mb-2 block text-sm font-semibold text-portfolio-text">Your name</label><input type="text" id="name" name="name" value={formData.name} onChange={handleChange} autoComplete="name" required className="w-full rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="Your name" /></div>
-            <div><label htmlFor="email" className="mb-2 block text-sm font-semibold text-portfolio-text">Email address</label><input type="email" id="email" name="email" value={formData.email} onChange={handleChange} autoComplete="email" required className="w-full rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="you@example.com" /></div>
-            <div><label htmlFor="subject" className="mb-2 block text-sm font-semibold text-portfolio-text">Subject</label><input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="w-full rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="What would you like to discuss?" /></div>
-            <div><label htmlFor="message" className="mb-2 block text-sm font-semibold text-portfolio-text">Message</label><textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="w-full resize-y rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="Write a short message" /></div>
-            <button type="submit" className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">
-              <EnvelopeSimple size={20} weight="fill" /> Create email draft
+            <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+              <label htmlFor="website">Leave this field empty</label>
+              <input type="text" id="website" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+            </div>
+            <div><label htmlFor="name" className="mb-2 block text-sm font-semibold text-portfolio-text">Your name</label><input type="text" id="name" name="name" value={formData.name} onChange={handleChange} autoComplete="name" maxLength={120} required className="w-full rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="Your name" /></div>
+            <div><label htmlFor="email" className="mb-2 block text-sm font-semibold text-portfolio-text">Email address</label><input type="email" id="email" name="email" value={formData.email} onChange={handleChange} autoComplete="email" maxLength={254} required className="w-full rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="you@example.com" /></div>
+            <div><label htmlFor="subject" className="mb-2 block text-sm font-semibold text-portfolio-text">Subject</label><input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} maxLength={160} required className="w-full rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="What would you like to discuss?" /></div>
+            <div><label htmlFor="message" className="mb-2 block text-sm font-semibold text-portfolio-text">Message</label><textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} maxLength={5000} className="w-full resize-y rounded-xl border border-portfolio-border bg-portfolio-chip px-4 py-3 text-portfolio-text placeholder:text-portfolio-muted focus:border-primary-500 focus:outline-none" placeholder="Write a short message" /></div>
+            <button type="submit" disabled={isSending} className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 disabled:cursor-not-allowed disabled:opacity-60">
+              <EnvelopeSimple size={20} weight="fill" /> {isSending ? 'Sending…' : 'Send message'}
             </button>
-            <p className="text-center text-xs leading-5 text-portfolio-muted">This opens a draft in your email app. The site doesn’t send or store the message; you still need to press Send.</p>
+            {status.message && <p role={status.type === 'error' ? 'alert' : 'status'} aria-live="polite" className={`text-center text-sm leading-5 ${status.type === 'error' ? 'text-red-700 dark:text-red-400' : 'text-emerald-700 dark:text-emerald-400'}`}>{status.message}</p>}
+            <p className="text-center text-xs leading-5 text-portfolio-muted">This site doesn’t save submissions. If email delivery is unavailable, use the direct email link below.</p>
           </div>
         </motion.form>
       </div>
 
       <aside className="mt-8 rounded-[22px] border border-portfolio-border bg-portfolio-card p-5 text-center sm:p-6">
         <h2 className="mb-3 text-2xl font-bold text-portfolio-text">A note about the form</h2>
-        <p className="mx-auto max-w-2xl text-portfolio-subtle">If your device doesn’t have a default email app configured, you can email me directly at <a className="font-semibold text-primary-700 underline underline-offset-2 dark:text-primary-400" href="mailto:jaz.sajonia@gmail.com">jaz.sajonia@gmail.com</a>.</p>
+        <p className="mx-auto max-w-2xl text-portfolio-subtle">Prefer email? You can also reach me directly at <a className="font-semibold text-primary-700 underline underline-offset-2 dark:text-primary-400" href="mailto:jaz.sajonia@gmail.com">jaz.sajonia@gmail.com</a>.</p>
       </aside>
     </section>
   );

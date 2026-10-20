@@ -14,14 +14,34 @@ import {
   Star,
 } from 'phosphor-react';
 
-const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Laravel', 'PHP', 'PostgreSQL', 'MySQL', 'Prisma', 'Hono', 'Zod', 'REST APIs', 'Git', 'GitHub', 'Vercel', 'Make.com', 'OpenAI API', 'Gemini API', 'Claude API'];
+const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Laravel', 'PHP', 'PostgreSQL', 'MySQL', 'Prisma', 'Hono', 'Zod', 'Flutter', 'Dart', 'Godot 4', 'GDScript', 'Android', 'REST APIs', 'Git', 'GitHub', 'Vercel', 'Make.com', 'OpenAI API', 'Gemini API', 'Claude API'];
 
 const featuredProjects = [
+  {
+    slug: 'retext',
+    title: 'Retext',
+    eyebrow: 'Local-first Android image editing',
+    description: 'I built a non-destructive Android editor for changing text in images while preserving every untouched pixel.',
+    tags: ['Flutter', 'Dart', 'Android'],
+    animation: '/projects/retext-demo.gif',
+    href: '/projects#retext',
+    accent: 'orange',
+  },
+  {
+    slug: 'petalbound',
+    title: 'Petalbound',
+    eyebrow: 'Offline pixel-art action adventure',
+    description: 'I built a landscape Godot adventure with exploration, quests, guardian fights, crafting, and touch controls.',
+    tags: ['Godot 4', 'GDScript', 'Android'],
+    animation: '/projects/petalbound-demo.gif',
+    href: '/projects#petalbound',
+    accent: 'teal',
+  },
   {
     slug: 'chrono',
     title: 'Chrono',
     eyebrow: 'AI-assisted developer tooling',
-    description: 'A mobile-first workspace for connecting GitHub, reviewing code changes, and previewing an app while working with an AI coding assistant.',
+    description: 'I built a mobile-first workspace for connecting GitHub, reviewing code changes, and previewing an app with an AI coding assistant.',
     tags: ['React', 'TypeScript', 'GitHub'],
     animation: '/projects/mobdevai-demo.gif',
     href: '/projects#chrono',
@@ -32,7 +52,7 @@ const featuredProjects = [
     slug: 'markethub',
     title: 'MarketHub',
     eyebrow: 'Full-stack marketplace prototype',
-    description: 'A marketplace built with seeded data and buyer, seller, and admin flows. Checkout is simulated; it does not process real payments.',
+    description: 'I built a marketplace prototype with seeded data and buyer, seller, and admin flows. Checkout is simulated; it does not process real payments.',
     tags: ['React', 'TypeScript', 'PostgreSQL'],
     animation: '/projects/markethub-demo.gif',
     href: '/projects#markethub',
@@ -43,7 +63,7 @@ const featuredProjects = [
     slug: 'chrauto-ai',
     title: 'Chrauto AI',
     eyebrow: 'Android accessibility assistant',
-    description: 'A native Android assistant prototype for bounded accessibility actions. Consequential actions pause for approval.',
+    description: 'I built a native Android assistant prototype for bounded accessibility actions. Consequential actions pause for approval.',
     tags: ['Kotlin', 'Jetpack Compose', 'Android'],
     animation: '/projects/chrauto-ai-demo.gif',
     href: '/projects#chrauto-ai',
@@ -53,7 +73,7 @@ const featuredProjects = [
     slug: 'speedsight',
     title: 'SpeedSight',
     eyebrow: 'Computer vision / traffic analytics',
-    description: 'A browser-based traffic monitoring dashboard for vehicle detection, tracking, estimated speeds, and session analytics. Speed estimates are not certified for enforcement.',
+    description: 'I built a browser-based traffic monitoring dashboard for vehicle detection, tracking, estimated speeds, and session analytics. Speed estimates are not certified for enforcement.',
     tags: ['React', 'TypeScript', 'TensorFlow.js'],
     animation: '/projects/speedsight-demo.gif',
     href: '/projects#speedsight',
@@ -64,7 +84,7 @@ const featuredProjects = [
     slug: 'igit',
     title: 'igit',
     eyebrow: 'Android Git client',
-    description: 'A local-first Git client for Android, with repository browsing, branch and commit workflows, sync, and conflict handling.',
+    description: 'I built a local-first Git client for Android, with repository browsing, branch and commit workflows, sync, and conflict handling.',
     tags: ['Kotlin', 'Jetpack Compose', 'Git'],
     animation: '/projects/igit-demo.gif',
     href: '/projects#igit',
@@ -74,7 +94,7 @@ const featuredProjects = [
     slug: 'flowpilot',
     title: 'FlowPilot AI',
     eyebrow: 'Visual workflow automation',
-    description: 'A visual workflow builder for connecting triggers, AI steps, conditions, and actions, with run history for reviewing executions.',
+    description: 'I built a visual workflow builder for connecting triggers, AI steps, conditions, and actions, with run history for reviewing executions.',
     tags: ['React', 'TypeScript', 'Workflow automation'],
     animation: '/projects/flowpilot-demo.gif',
     href: '/projects#flowpilot',
@@ -135,7 +155,7 @@ export default function Home() {
             </p>
             <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">2024</div><div className="mt-1 text-slate-300">Started coding seriously</div></div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">6</div><div className="mt-1 text-slate-300">Featured project demos</div></div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">{featuredProjects.length}</div><div className="mt-1 text-slate-300">Featured project demos</div></div>
             </div>
           </div>
         </div>
