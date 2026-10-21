@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import AnimatedProjectPreview from '@/components/AnimatedProjectPreview';
 import { usePortfolioTheme } from '@/components/PortfolioShell';
@@ -13,6 +14,8 @@ import {
   Lightning,
   Star,
 } from 'phosphor-react';
+
+const InteractivePortfolioScene = dynamic(() => import('@/components/InteractivePortfolioScene'), { ssr: false });
 
 const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Laravel', 'PHP', 'PostgreSQL', 'MySQL', 'Prisma', 'Hono', 'Zod', 'Flutter', 'Dart', 'Godot 4', 'GDScript', 'Android', 'REST APIs', 'Git', 'GitHub', 'Vercel', 'Make.com', 'OpenAI API', 'Gemini API', 'Claude API'];
 
@@ -160,6 +163,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <InteractivePortfolioScene />
 
       <section className="overflow-hidden rounded-[22px] border p-4" style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}>
         <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.text }}><Star size={13} weight="fill" className="text-orange-500" /> Tools I use and explore</div>

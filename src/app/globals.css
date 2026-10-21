@@ -46,3 +46,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .toolkit-marquee__item { display: inline-flex; flex: none; align-items: center; border: 1px solid; border-radius: 9999px; padding: .5rem .85rem; font-size: .875rem; font-weight: 500; white-space: nowrap; }
 @keyframes toolkit-scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .toolkit-marquee { overflow-x: auto; scrollbar-width: thin; -webkit-mask-image: none; mask-image: none; } .toolkit-marquee__track { animation: none; } }
+.portfolio-3d-shell { position: relative; overflow: hidden; min-height: 620px; border: 1px solid #273657; border-radius: 28px; background: radial-gradient(circle at 68% 28%, rgba(68, 87, 165, .45), transparent 30%), radial-gradient(circle at 18% 85%, rgba(11, 163, 192, .18), transparent 26%), #080f21; }
+.portfolio-3d-copy { position: relative; z-index: 2; max-width: 560px; padding: 28px 24px 0; pointer-events: none; }
+.portfolio-3d-copy p, .portfolio-3d-copy h2, .portfolio-3d-copy div { pointer-events: auto; }
+.portfolio-3d-canvas { position: absolute; inset: 0; min-height: 620px; cursor: grab; }
+.portfolio-3d-canvas:active { cursor: grabbing; }
+.portfolio-3d-counter { position: absolute; right: 22px; top: 22px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; background: rgba(7, 12, 27, .62); padding: 8px 12px; color: #94a3b8; font: 600 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; backdrop-filter: blur(12px); }
+.portfolio-3d-counter span { color: #fb923c; }
+.portfolio-3d-detail { position: absolute; z-index: 2; right: 24px; bottom: 24px; left: 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: rgba(7, 12, 27, .72); padding: 16px 18px; backdrop-filter: blur(18px); }
+@media (max-width: 700px) { .portfolio-3d-shell, .portfolio-3d-canvas { min-height: 700px; } .portfolio-3d-copy { padding: 24px 18px 0; } .portfolio-3d-detail { right: 14px; bottom: 14px; left: 14px; flex-direction: column; align-items: stretch; } .portfolio-3d-counter { right: 14px; top: 18px; } }
+@media (prefers-reduced-motion: reduce) { .portfolio-3d-canvas { cursor: default; } }

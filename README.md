@@ -8,7 +8,7 @@ A responsive portfolio site for presenting my software projects, the problems th
 - **Project archive:** interactive project cards with context, technologies, contribution notes, quick views, and selected screenshots or short demos.
 - **About and capability areas:** background and practical areas I am continuing to develop through project work.
 - **Contact:** a small contact form that opens a pre-filled email in the visitor’s mail app; it does not submit to a server.
-- **Presentation:** responsive layouts, light/dark themes, subtle motion, and page metadata for sharing and search previews.
+- **Presentation:** responsive layouts, light/dark themes, subtle motion, page metadata for sharing and search previews, plus a touch-friendly React Three Fiber constellation on the home page.
 
 The archive currently highlights Chrono and MarketHub, alongside academic projects with their team context made explicit.
 
@@ -18,6 +18,7 @@ The archive currently highlights Chrono and MarketHub, alongside academic projec
 - JavaScript (JSX)
 - Tailwind CSS 3
 - Framer Motion
+- Three.js, React Three Fiber, and Drei for the interactive project constellation
 - Phosphor React icons
 - Next.js metadata and static export
 
@@ -51,7 +52,7 @@ The site is configured for static export through `next.config.js`. Deploy the ge
 
 ```text
 src/app/          Home, About, Projects, Services, Contact, and global styles
-src/components/   Shared shell, navigation, theme, and project preview components
+src/components/   Shared shell, navigation, theme, project previews, and 3D constellation
 src/lib/          SEO metadata and database helper
 public/projects/  Portfolio project screenshots and demo media
 assets/           Local profile and supporting images
