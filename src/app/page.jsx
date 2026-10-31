@@ -14,34 +14,37 @@ import {
   Star,
 } from 'phosphor-react';
 
-const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Laravel', 'PHP', 'PostgreSQL', 'MySQL', 'Prisma', 'Hono', 'Zod', 'Flutter', 'Dart', 'Godot 4', 'GDScript', 'Android', 'REST APIs', 'Git', 'GitHub', 'Vercel', 'Make.com', 'OpenAI API', 'Gemini API', 'Claude API'];
+const tools = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'PHP', 'PostgreSQL', 'MySQL', 'Neon', 'Prisma', 'Drizzle', 'Hono', 'Zod', 'Kotlin', 'Jetpack Compose', 'React Native (Expo)', 'Flutter', 'Dart', 'Godot 4', 'GDScript', 'Android', 'REST APIs', 'Git', 'GitHub', 'GitHub Actions', 'Vercel', 'Make.com', 'Webhooks', 'Airtable', 'Google Sheets', 'Gmail', 'OpenAI API', 'Gemini API', 'Claude API'];
+
+const automationFlow = ['Web form / email', 'Custom webhook', 'OpenAI → JSON', 'Router + filters', 'Airtable CRM', 'Gmail alert', 'Human approval', 'Sheets run log'];
 
 const featuredProjects = [
   {
-    slug: 'retext',
-    title: 'Retext',
-    eyebrow: 'Local-first Android image editing',
-    description: 'I built a non-destructive Android editor for changing text in images while preserving every untouched pixel.',
-    tags: ['Flutter', 'Dart', 'Android'],
-    animation: '/projects/retext-demo.gif',
-    href: '/projects#retext',
-    accent: 'orange',
+    slug: 'flowpilot',
+    title: 'FlowPilot AI',
+    eyebrow: 'Workflow automation platform',
+    description: 'I built an n8n/Zapier-style workflow builder with webhook and scheduled triggers, AI steps, conditions, and a server-side execution engine with retries and run history.',
+    tags: ['React', 'TypeScript', 'Workflow automation'],
+    animation: '/projects/flowpilot-demo.gif',
+    href: '/projects#flowpilot',
+    liveDemo: 'https://flowpilot-sage-delta.vercel.app/',
+    accent: 'indigo',
   },
   {
-    slug: 'petalbound',
-    title: 'Petalbound',
-    eyebrow: 'Offline pixel-art action adventure',
-    description: 'I built a landscape Godot adventure with exploration, quests, guardian fights, crafting, and touch controls.',
-    tags: ['Godot 4', 'GDScript', 'Android'],
-    animation: '/projects/petalbound-demo.gif',
-    href: '/projects#petalbound',
-    accent: 'teal',
+    slug: 'chrauto-ai',
+    title: 'Chrauto AI',
+    eyebrow: 'Android AI automation agent',
+    description: 'I built a native Android AI agent that reads the screen, gets structured next actions from AI, validates them locally, and pauses for approval. It also has a hands-free voice mode.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Android'],
+    animation: '/projects/chrauto-ai-demo.gif',
+    href: '/projects#chrauto-ai',
+    accent: 'violet',
   },
   {
     slug: 'chrono',
     title: 'Chrono',
     eyebrow: 'AI-assisted developer tooling',
-    description: 'I built a mobile-first workspace for connecting GitHub, reviewing code changes, and previewing an app with an AI coding assistant.',
+    description: 'I built a mobile-first AI coding workspace that pulls GitHub repositories, edits code with AI, previews the app, and pushes and merges changes.',
     tags: ['React', 'TypeScript', 'GitHub'],
     animation: '/projects/mobdevai-demo.gif',
     href: '/projects#chrono',
@@ -52,22 +55,12 @@ const featuredProjects = [
     slug: 'markethub',
     title: 'MarketHub',
     eyebrow: 'Full-stack marketplace prototype',
-    description: 'I built a marketplace prototype with seeded data and buyer, seller, and admin flows. Checkout is simulated; it does not process real payments.',
+    description: 'I built a full-stack marketplace with buyer, seller, and admin flows: listings, orders, messaging, moderation, and analytics. Checkout is simulated.',
     tags: ['React', 'TypeScript', 'PostgreSQL'],
     animation: '/projects/markethub-demo.gif',
     href: '/projects#markethub',
     liveDemo: 'https://markethub-pi.vercel.app/',
     accent: 'teal',
-  },
-  {
-    slug: 'chrauto-ai',
-    title: 'Chrauto AI',
-    eyebrow: 'Android accessibility assistant',
-    description: 'I built a native Android assistant prototype for bounded accessibility actions. Consequential actions pause for approval.',
-    tags: ['Kotlin', 'Jetpack Compose', 'Android'],
-    animation: '/projects/chrauto-ai-demo.gif',
-    href: '/projects#chrauto-ai',
-    accent: 'violet',
   },
   {
     slug: 'speedsight',
@@ -81,6 +74,16 @@ const featuredProjects = [
     accent: 'blue',
   },
   {
+    slug: 'retext',
+    title: 'Retext',
+    eyebrow: 'Local-first Android image editing',
+    description: 'I built a non-destructive Android editor for changing text in images while preserving every untouched pixel.',
+    tags: ['Flutter', 'Dart', 'Android'],
+    animation: '/projects/retext-demo.gif',
+    href: '/projects#retext',
+    accent: 'orange',
+  },
+  {
     slug: 'igit',
     title: 'igit',
     eyebrow: 'Android Git client',
@@ -91,15 +94,14 @@ const featuredProjects = [
     accent: 'sky',
   },
   {
-    slug: 'flowpilot',
-    title: 'FlowPilot AI',
-    eyebrow: 'Visual workflow automation',
-    description: 'I built a visual workflow builder for connecting triggers, AI steps, conditions, and actions, with run history for reviewing executions.',
-    tags: ['React', 'TypeScript', 'Workflow automation'],
-    animation: '/projects/flowpilot-demo.gif',
-    href: '/projects#flowpilot',
-    liveDemo: 'https://flowpilot-sage-delta.vercel.app/',
-    accent: 'indigo',
+    slug: 'petalbound',
+    title: 'Petalbound',
+    eyebrow: 'Offline pixel-art action adventure',
+    description: 'I built a landscape Godot adventure with exploration, quests, guardian fights, crafting, and touch controls.',
+    tags: ['Godot 4', 'GDScript', 'Android'],
+    animation: '/projects/petalbound-demo.gif',
+    href: '/projects#petalbound',
+    accent: 'teal',
   },
 ];
 
@@ -125,20 +127,20 @@ export default function Home() {
           <div>
             <div className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-300">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Personal builds · university projects
+              Full-stack developer · AI automation specialist
             </div>
             <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-white sm:text-6xl">
-              Full-stack web developer <span className="text-orange-400">learning by building.</span>
+              Full-stack developer &amp; <span className="text-orange-400">AI automation specialist.</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-              I build web apps through personal projects and university work. My current focus is React and TypeScript, APIs, and database-backed features; I also experiment with AI-assisted tools and workflow automation.
+              I’m an IT graduate who builds web apps, Android apps, and AI-powered automations. I connect webhooks, AI models (OpenAI, Gemini, Claude), Airtable, and Google Workspace with structured AI outputs, conditional routing, error handling, and human review.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/projects" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-orange-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300">
                 Browse projects <ArrowRight size={16} />
               </Link>
               <Link href="/about" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70">
-                About my approach
+                About me
               </Link>
             </div>
           </div>
@@ -147,14 +149,14 @@ export default function Home() {
               <img src={profileImage.src} alt="Jazzther Bert Shanne Sajonia" className="h-12 w-12 rounded-2xl object-cover" />
               <div>
                 <div className="font-semibold text-white">Jazzther Bert Shanne Sajonia</div>
-                <div className="text-sm text-slate-300">Web developer · project-based learning</div>
+                <div className="text-sm text-slate-300">Full-stack developer · AI automation specialist</div>
               </div>
             </div>
             <p className="text-sm leading-6 text-slate-300">
-              I started programming seriously in 2024. Most of my experience comes from coursework and projects I build myself. I use AI tools to help explore and implement ideas, then review and test the result.
+              BS Information Technology graduate (SEAIT, 2022–2026) based in General Santos City. I build with TypeScript, React, Next.js, Node.js, PostgreSQL, Flutter, and Kotlin, and ship with Git, GitHub Actions CI/CD, and Vercel.
             </p>
             <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">2024</div><div className="mt-1 text-slate-300">Started coding seriously</div></div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">BS IT</div><div className="mt-1 text-slate-300">Graduate, 2022–2026</div></div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-3"><div className="text-lg font-bold text-white">{featuredProjects.length}</div><div className="mt-1 text-slate-300">Featured project demos</div></div>
             </div>
           </div>
@@ -162,8 +164,8 @@ export default function Home() {
       </section>
 
       <section className="overflow-hidden rounded-[22px] border p-4" style={{ backgroundColor: theme.bluePanel, borderColor: theme.border }}>
-        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.text }}><Star size={13} weight="fill" className="text-orange-500" /> Tools I use and explore</div>
-        <div className="toolkit-marquee" aria-label="Technologies and tools used or explored in projects" role="group">
+        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.text }}><Star size={13} weight="fill" className="text-orange-500" /> Tools I use</div>
+        <div className="toolkit-marquee" aria-label="Technologies and tools used in projects" role="group">
           <div className="toolkit-marquee__track">
             {[0, 1].map((copy) => (
               <div className="toolkit-marquee__group" key={copy} aria-hidden={copy === 1}>
@@ -174,11 +176,23 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="overflow-hidden rounded-[24px] border p-5 sm:p-6" style={{ backgroundColor: theme.white, borderColor: theme.border }}>
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-orange-700"><Lightning size={14} weight="fill" /> Automation spotlight</div>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl" style={{ color: theme.text }}>AI Lead Intake &amp; Support Triage</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6" style={{ color: theme.subtle }}>A multi-scenario Make.com automation: web-form and email inquiries arrive through custom webhooks, the OpenAI API classifies intent, urgency, and sentiment into structured JSON, and routers send each record to an Airtable CRM with duplicate checks, Gmail alerts for urgent cases, AI-drafted replies held for approval, and a Google Sheets run log.</p>
+          </div>
+          <Link href="/projects#ai-lead-intake" className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800">Project details <ArrowRight size={15} /></Link>
+        </div>
+        <ol className="mt-5 flex flex-wrap items-center gap-2" aria-label="Automation steps">{automationFlow.map((step, index) => <li key={step} className="flex items-center gap-2"><span className="rounded-xl border px-3 py-2 text-xs font-semibold" style={{ borderColor: theme.border, backgroundColor: theme.chip, color: theme.text }}>{step}</span>{index < automationFlow.length - 1 && <ArrowRight size={14} aria-hidden="true" className="text-orange-600" />}</li>)}</ol>
+      </section>
+
       <section>
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
             <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-orange-700">Selected work</div>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: theme.text }}>Personal builds and university projects</h2>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: theme.text }}>Featured projects</h2>
           </div>
           <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800">Browse the project archive <ArrowRight size={15} /></Link>
         </div>
@@ -208,10 +222,10 @@ export default function Home() {
 
       <section className="grid gap-4 lg:grid-cols-[.9fr_1.1fr]">
         <div className="rounded-[22px] border p-5" style={{ backgroundColor: theme.white, borderColor: theme.border }}>
-          <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-orange-600"><Lightning size={14} weight="fill" /> Areas I’m practicing</div>
-          <h2 className="mt-3 text-2xl font-bold" style={{ color: theme.text }}>Web apps, APIs, and useful integrations.</h2>
-          <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>My projects focus on responsive interfaces, database-backed features, and API integrations. I’m also exploring AI APIs and workflow automation.</p>
-          <Link href="/services" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800">See areas of practice <ArrowRight size={15} /></Link>
+          <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-orange-600"><Lightning size={14} weight="fill" /> What I do</div>
+          <h2 className="mt-3 text-2xl font-bold" style={{ color: theme.text }}>Automations, AI agents, and full-stack apps.</h2>
+          <p className="mt-3 text-sm leading-6" style={{ color: theme.subtle }}>I build Make.com automations that route leads and support requests with AI, AI agents that pause for approval, and full-stack web and Android apps with tests and CI.</p>
+          <Link href="/services" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-orange-700 hover:text-orange-800">See services <ArrowRight size={15} /></Link>
         </div>
         <div className="rounded-[22px] border p-5" style={{ backgroundColor: theme.panelSoft, borderColor: theme.border }}>
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: theme.subtle }}><CheckCircle size={14} className="text-emerald-600" /> How I use AI while building</div>
