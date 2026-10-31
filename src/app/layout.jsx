@@ -3,7 +3,7 @@ import PortfolioShell from '@/components/PortfolioShell';
 import { defaultSEO } from '@/lib/seo';
 
 export const metadata = {
-  title: 'Jazz Sajonia | Web Developer & AI-Assisted Projects',
+  title: 'Jazz Sajonia | Full-Stack Developer & AI Automation Specialist',
   description: defaultSEO.description,
   keywords: [
     'Web Developer',
@@ -20,12 +20,12 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://jazz-portfolio1.vercel.app',
     siteName: 'Jazz Sajonia Portfolio',
-    title: 'Jazz Sajonia | Web Developer & AI-Assisted Projects',
+    title: 'Jazz Sajonia | Full-Stack Developer & AI Automation Specialist',
     description: defaultSEO.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jazz Sajonia | Web Developer & AI-Assisted Projects',
+    title: 'Jazz Sajonia | Full-Stack Developer & AI Automation Specialist',
     description: defaultSEO.description,
   },
   robots: {
