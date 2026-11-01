@@ -10,7 +10,7 @@ A responsive portfolio site for presenting my software projects, the problems th
 - **Contact:** a small contact form that opens a pre-filled email in the visitor’s mail app; it does not submit to a server.
 - **Presentation:** responsive layouts, light/dark themes, subtle motion, and page metadata for sharing and search previews.
 
-The archive currently highlights Chrono and MarketHub, alongside academic projects with their team context made explicit.
+The archive groups AI automations, AI agents, web apps, Android apps, and university projects, with each project's team context and my contribution made explicit. Featured work includes FlowPilot AI and Chrauto AI; the archive also includes an AI lead-intake automation and an AI job-hunting agent.
 
 ## Technology
 
