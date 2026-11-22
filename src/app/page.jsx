@@ -20,6 +20,18 @@ const automationFlow = ['Web form / email', 'Custom webhook', 'OpenAI → JSON',
 
 const featuredProjects = [
   {
+    slug: 'qline',
+    title: 'Qline',
+    eyebrow: 'Personal AI operating system',
+    description: 'I am building a personal AI operating system: one assistant that remembers your context, reads the apps you connect, and turns anything consequential into an approval card with a hash-chained audit log.',
+    tags: ['Flutter', 'Hono', 'Neon Postgres'],
+    animation: '/projects/qline-site.jpg',
+    href: '/projects#qline',
+    liveDemo: 'https://jazsajonia-pixel.github.io/qline/',
+    liveLabel: 'Project site',
+    accent: 'teal',
+  },
+  {
     slug: 'flowpilot',
     title: 'FlowPilot AI',
     eyebrow: 'Workflow automation platform',
@@ -142,6 +154,9 @@ export default function Home() {
               <Link href="/about" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70">
                 About me
               </Link>
+              <a href="https://jaz-space.vercel.app" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70">
+                3D room tour <ArrowSquareOut size={15} />
+              </a>
             </div>
           </div>
           <div className="rounded-[22px] border border-white/10 bg-black/20 p-4 backdrop-blur-sm sm:p-5">
@@ -212,7 +227,7 @@ export default function Home() {
                   Project details <ArrowRight size={15} />
                 </Link>
                 {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full bg-orange-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">
-                  Live demo <ArrowSquareOut size={15} />
+                  {project.liveLabel ?? 'Live demo'} <ArrowSquareOut size={15} />
                 </a>}
               </div>
             </div>
