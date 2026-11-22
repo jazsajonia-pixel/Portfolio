@@ -6,6 +6,89 @@ import { ArrowRight, ArrowSquareOut, GithubLogo, GraduationCap, LockSimple } fro
 
 const projects = [
   {
+    slug: 'qline',
+    group: 'ai',
+    title: 'Qline',
+    category: 'AI operating system / Flutter + Hono',
+    type: 'Personal build · public repository · APK releases',
+    description: 'I am building Qline, a personal AI operating system: one assistant that remembers your context across chats, reads the files and apps you connect, and acts only within the permissions you set. Agents propose consequential actions and a person approves them.',
+    tags: ['Flutter', 'Dart', 'Hono', 'TypeScript', 'PostgreSQL (Neon)', 'Better Auth', 'SSE', 'Riverpod'],
+    contribution: 'I built the Flutter Android app, the Hono API on Neon with org-scoped Postgres transactions, the L0–L4 risk policy engine that turns risky tool calls into approval cards, a hash-chained audit log, streamed AI runs, Gmail/Calendar/Sheets/Slack integrations, and GitHub tools that only commit after you approve a diff.',
+    learned: 'I learned to design an AI product around trust: classify every action by risk, make approvals the default for anything that matters, and keep an audit trail a person can read. The newest live voice mode (v1.12) is covered by automated tests but not yet tried on a real phone.',
+    liveDemo: 'https://jazsajonia-pixel.github.io/qline/',
+    liveLabel: 'Project site',
+    github: 'https://github.com/jazsajonia-pixel/qline',
+    image: '/projects/qline-site.jpg',
+    accent: 'mint',
+  },
+  {
+    slug: 'unified-connector',
+    group: 'ai',
+    title: 'Unified Connector',
+    category: 'MCP server / OAuth 2.1',
+    type: 'Personal web service · private repository · live site',
+    description: 'I built a multi-user MCP service: people create an account, connect their own Google Drive or Gmail, then add one personal MCP address to an AI app. Each AI app signs in with OAuth and sees only the tools that user allows.',
+    tags: ['TypeScript', 'Next.js', 'MCP', 'OAuth 2.1 + PKCE', 'PostgreSQL', 'AES-256-GCM'],
+    contribution: 'I built the accounts, the OAuth 2.1 authorization server for AI clients (PKCE, dynamic client registration, audience-bound tokens), the Streamable HTTP MCP endpoint, read-only Drive and Gmail tools, envelope encryption for provider tokens, per-tool switches, per-client revocation, and an audit log.',
+    learned: 'I learned how AI clients authenticate against remote tools and how to scope every credential to one user. It is tested locally and in CI with MCP SDK clients; real Claude or ChatGPT connections are not tested yet.',
+    liveDemo: 'https://unified-connector.vercel.app/',
+    image: '/projects/unified-connector.jpg',
+    accent: 'stone',
+  },
+  {
+    slug: 'taskflow',
+    group: 'web',
+    title: 'TaskFlow',
+    category: 'Full-stack team workspace',
+    type: 'Personal web app · public repository',
+    description: 'I built a full-stack team workspace for projects and tasks: multiple workspaces with owner, admin, member, and viewer roles, a drag-and-drop kanban, task conversations with mentions, private attachments, notifications, and live updates.',
+    tags: ['React 19', 'TypeScript', 'Express 5', 'Socket.IO', 'Prisma', 'PostgreSQL (Neon)', 'Vitest'],
+    contribution: 'I built the React interface, the Express API with opaque revocable sessions, role checks and expiring invitations, versioned task edits that detect concurrent changes, authorized Socket.IO rooms, analytics dashboards, and integration tests against real PostgreSQL and Socket.IO.',
+    learned: 'I learned to handle real collaboration problems: two people editing the same task, live updates that respect permissions, and tests that run against a real database.',
+    github: 'https://github.com/jazsajonia-pixel/Project-1-TaskFlow',
+    flow: ['Workspace', 'Roles + invites', 'Kanban board', 'Live updates', 'Analytics'],
+    accent: 'indigo',
+  },
+  {
+    slug: 'edgeflow',
+    group: 'mobile',
+    title: 'EdgeFlow',
+    category: 'Android / multitasking',
+    type: 'Personal Android app · private repository',
+    description: 'I built an Android edge sidebar: a slim handle on the edge of the screen opens your apps from anywhere, then launches one full screen, beside the current app in split screen, or in a floating window where the phone supports it.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Android overlays', 'Freeform windows', 'Screenshot tests'],
+    contribution: 'I built the overlay handle and sidebar, pinned apps and app sets (two apps split or up to four floating), appearance settings, onboarding and permissions, and emulator tests in CI that open apps full screen and in freeform windows.',
+    learned: 'I learned where Android draws the line on window management and how to document limits honestly. Split screen and some gestures still need checking on the target phone.',
+    image: '/projects/edgeflow-screens.jpg',
+    accent: 'teal',
+  },
+  {
+    slug: 'vyntra',
+    group: 'mobile',
+    title: 'Vyntra',
+    category: 'Android / AI video editing',
+    type: 'Personal Android app · private repository · not yet verified on a phone',
+    description: 'I built an Android-first video editor on the MLT framework and FFmpeg, with a multi-track timeline, text, transitions, looks, background export, and an AI assistant whose every change is an undoable tool call.',
+    tags: ['Kotlin', 'Jetpack Compose', 'MLT', 'FFmpeg', 'JNI', 'MCP'],
+    contribution: 'I cross-compiled MLT and FFmpeg for arm64, wrote the engine service and export pipeline, the timeline editor, 26 editing tools with undo and redo, a provider-neutral assistant, and an on-device MCP server so other AI apps can edit too.',
+    learned: 'I learned to bring a desktop-class media engine to Android. The engine is tested on host and under arm64 emulation; the first real-phone run failed, the cause is fixed, and it still needs a re-test.',
+    flow: ['Import media', 'Timeline edit', 'AI tool call', 'Undo / redo', 'Export'],
+    accent: 'rose',
+  },
+  {
+    slug: 'spatial-workspace',
+    group: 'mobile',
+    title: 'Spatial Workspace',
+    category: 'Android / augmented reality',
+    type: 'Personal Android app · private repository · not yet device-tested',
+    description: 'I built an Android AR app that pins virtual screens (notes, checklists, clocks, images, web pages) to real surfaces. Phones without ARCore get a Lite mode with floating screens or a printed marker.',
+    tags: ['Kotlin', 'Jetpack Compose', 'ARCore', 'CameraX', 'OpenCV ArUco'],
+    contribution: 'I built plane detection and placement rules, up to eight screens per workspace with move, resize, pin and undo, saved workspaces, Lite mode with sensor and ArUco tracking, and a CI pipeline that ships signed APKs.',
+    learned: 'I learned the maths of anchoring content in a room and how to give phones without AR support a useful fallback. Logic is unit-tested; nothing is device-verified yet.',
+    flow: ['Scan room', 'Place screen', 'Pin + resize', 'Save workspace'],
+    accent: 'sky',
+  },
+  {
     slug: 'ai-lead-intake',
     group: 'automation',
     title: 'AI Lead Intake & Support Triage Automation',
@@ -255,6 +338,8 @@ const accentStyles = {
   slate: 'from-slate-700 via-slate-800 to-slate-950',
   amber: 'from-amber-400 via-orange-600 to-slate-950',
   rose: 'from-rose-400 via-pink-700 to-slate-950',
+  mint: 'from-emerald-300 via-teal-700 to-slate-950',
+  stone: 'from-stone-400 via-stone-700 to-slate-950',
 };
 
 export default function ProjectsPage() {
@@ -297,7 +382,7 @@ export default function ProjectsPage() {
                 <div className="rounded-2xl bg-slate-100 p-3 dark:bg-slate-800"><div className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 dark:text-slate-300">What I learned</div><p className="mt-2 text-xs leading-5 text-slate-700 dark:text-slate-200">{project.learned}</p></div>
               </div>
               <div className="mt-5 flex flex-wrap gap-3">
-                {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full bg-orange-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Live demo <ArrowSquareOut size={15} /></a>}
+                {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full bg-orange-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">{project.liveLabel ?? 'Live demo'} <ArrowSquareOut size={15} /></a>}
                 {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-orange-500 dark:border-slate-600 dark:text-slate-100">GitHub <GithubLogo size={15} /></a>}
                 {!project.github && !project.liveDemo && project.type.includes('private repository') && <span className="inline-flex min-h-10 items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 dark:border-slate-600 dark:text-slate-300"><LockSimple size={16} weight="fill" /> Private repository · demo on request</span>}
               </div>
