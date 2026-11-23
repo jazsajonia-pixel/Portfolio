@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import profileImage from '../../assets/profile.jpeg';
-import { Briefcase, CheckCircle, EnvelopeSimple, GithubLogo, LinkedinLogo, Globe, Lightning, Moon, Sparkle, Sun } from 'phosphor-react';
+import { ArrowUpRight, Briefcase, CheckCircle, Cube, EnvelopeSimple, GithubLogo, LinkedinLogo, Globe, Lightning, Moon, Sparkle, Sun } from 'phosphor-react';
+
+// The interactive 3D version of this portfolio (a walk-through of my room).
+export const ROOM_PORTFOLIO = 'https://jaz-space.vercel.app';
 
 const PortfolioThemeContext = createContext(null);
 
@@ -217,11 +220,22 @@ function TopBar({ theme, isDark, children }) {
       </div>
       <div className="flex items-center gap-3">
         <span
-          className="rounded-full border px-3 py-1 text-[11px] transition-colors duration-700"
+          className="hidden rounded-full border px-3 py-1 text-[11px] transition-colors duration-700 min-[400px]:block"
           style={{ borderColor: theme.border, backgroundColor: theme.white, color: theme.muted }}
         >
           Jazz Sajonia Portfolio
         </span>
+        <a
+          href={ROOM_PORTFOLIO}
+          title="Open the interactive 3D version of this portfolio"
+          aria-label="Open the 3D room portfolio"
+          className="inline-flex min-h-9 items-center gap-1.5 rounded-full border px-3 text-[12px] font-semibold transition-colors duration-700 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          style={{ borderColor: theme.border, backgroundColor: theme.button, color: theme.buttonText }}
+        >
+          <Cube size={14} weight="bold" />
+          <span>3D room</span>
+          <ArrowUpRight size={12} weight="bold" className="hidden sm:block" />
+        </a>
         {children}
       </div>
     </div>
@@ -305,6 +319,20 @@ function Sidebar({ theme }) {
             </motion.div>
           </Link>
         ))}
+        <a href={ROOM_PORTFOLIO} className="block shrink-0 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: items.length * 0.07 }}
+            whileHover={{ x: 5 }}
+            className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] font-medium transition-colors duration-500 hover:bg-black/5"
+            style={{ color: theme.subtle }}
+          >
+            <Cube size={18} />
+            <span>3D room</span>
+            <ArrowUpRight size={13} className="ml-auto hidden md:block" />
+          </motion.div>
+        </a>
       </nav>
 
       <div className="mt-4 hidden pt-4 md:mt-auto md:block" style={{ borderTop: `1px solid ${theme.border}` }}>
